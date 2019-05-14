@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\GoogleDrive\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
+            "outputFile": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\a94dfd58b348e119cdecf35e588bbb3d\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\64385b31d748af082f4716d4cfe3f5c5\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,19,32,33,34,35,36",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
@@ -15,7 +15,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-28.0.0.aar\\eb229651e05f8fdb89c6ed45be546cd6\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-28.0.0.aar\\c053cac7341d450fa0f2aa764769249a\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

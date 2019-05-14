@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\GoogleDrive\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
+            "outputFile": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\332666edca88bf4c05115df3aa94eb39\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\d4bf2ff6504bc1ee94532a44e0043b60\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\a94dfd58b348e119cdecf35e588bbb3d\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\64385b31d748af082f4716d4cfe3f5c5\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

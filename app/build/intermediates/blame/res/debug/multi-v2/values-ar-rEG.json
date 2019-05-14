@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\GoogleDrive\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ar-rEG\\values-ar-rEG.xml",
+            "outputFile": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ar-rEG\\values-ar-rEG.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-1\\files-1.1\\android.joda-2.10.1.1.aar\\9fa9d5a75ccfffe44eb0a679434bd1fd\\res\\values-ar-rEG\\values-ar-rEG.xml",
+                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-1\\files-1.1\\android.joda-2.10.1.1.aar\\fd84f028709b7e8a1d94d0c529817e03\\res\\values-ar-rEG\\values-ar-rEG.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

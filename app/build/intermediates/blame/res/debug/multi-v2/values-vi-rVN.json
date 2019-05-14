@@ -1,31 +1,16 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\GoogleDrive\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-vi-rVN\\values-vi-rVN.xml",
+            "outputFile": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-vi-rVN\\values-vi-rVN.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-1\\files-1.1\\android.joda-2.10.1.1.aar\\9fa9d5a75ccfffe44eb0a679434bd1fd\\res\\values-vi-rVN\\values-vi-rVN.xml",
+                    "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\values-vi-rVN\\strings.xml",
                     "from": {
-                        "startLines": "-1",
-                        "startColumns": "-1",
-                        "startOffsets": "-1"
-                    },
-                    "to": {
-                        "startLines": "17",
-                        "startColumns": "4",
-                        "startOffsets": "948",
-                        "endColumns": "65",
-                        "endOffsets": "1009"
-                    }
-                },
-                {
-                    "source": "C:\\GoogleDrive\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\values-vi-rVN\\strings.xml",
-                    "from": {
-                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,4,5,-1,21,-1,-1,-1,-1,-1,-1",
-                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,4,4,-1,4,-1,-1,-1,-1,-1,-1",
-                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,181,258,-1,1294,-1,-1,-1,-1,-1,-1",
-                        "endColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,75,73,-1,55,-1,-1,-1,-1,-1,-1",
-                        "endOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,252,327,-1,1345,-1,-1,-1,-1,-1,-1"
+                        "startLines": "14,16,2,15,17,20,13,8,12,22,19,4,5,3,21,9,11,7,18,10,6",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "918,1007,57,964,1049,1233,878,442,816,1351,1158,181,258,109,1294,532,774,378,1111,664,333",
+                        "endColumns": "44,40,50,41,60,59,38,88,60,52,73,75,73,70,55,130,40,62,45,108,43",
+                        "endOffsets": "958,1043,103,1001,1105,1288,912,526,872,1399,1227,252,327,175,1345,658,810,436,1152,768,372"
                     },
                     "to": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,18,19,20,21,22,23",
@@ -33,6 +18,23 @@
                         "startOffsets": "55,100,141,192,234,295,355,394,483,544,597,671,747,821,892,1014,1145,1186,1249,1295,1404",
                         "endColumns": "44,40,50,41,60,59,38,88,60,52,73,75,73,70,55,130,40,62,45,108,43",
                         "endOffsets": "95,136,187,229,290,350,389,478,539,592,666,742,816,887,943,1140,1181,1244,1290,1399,1443"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-1\\files-1.1\\android.joda-2.10.1.1.aar\\fd84f028709b7e8a1d94d0c529817e03\\res\\values-vi-rVN\\values-vi-rVN.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    },
+                    "to": {
+                        "startLines": "17",
+                        "startColumns": "4",
+                        "startOffsets": "948",
+                        "endColumns": "65",
+                        "endOffsets": "1009"
                     }
                 }
             ]

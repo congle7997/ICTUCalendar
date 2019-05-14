@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:2:1-51:12
-INJECTED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:2:1-51:12
-INJECTED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:2:1-51:12
-INJECTED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:2:1-51:12
+ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:2:1-51:12
+INJECTED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:2:1-51:12
+INJECTED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:2:1-51:12
+INJECTED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:2:1-51:12
 MERGED from [com.android.support:multidex:1.0.2] C:\Users\congl\.gradle\caches\transforms-1\files-1.1\multidex-1.0.2.aar\1b3878e68a5c95e450dd44eb679e6efd\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:design:28.0.0] C:\Users\congl\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\438b5553b4d3225f13c553e50874047e\AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\congl\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\64385b31d748af082f4716d4cfe3f5c5\AndroidManifest.xml:17:1-22:12
@@ -41,31 +41,31 @@ MERGED from [com.android.support:interpolator:28.0.0] C:\Users\congl\.gradle\cac
 MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\congl\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\186d65d38af977cba1cc8a4564b33df4\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\congl\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\26ae33ecd0cc96a49cef28ee6abe8fa8\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\congl\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\722c72e6bd84b54a288df50a4e73dd0a\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:2:1-51:12
-INJECTED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:2:1-51:12
-INJECTED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:2:1-51:12
+INJECTED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:2:1-51:12
+INJECTED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:2:1-51:12
+INJECTED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:2:1-51:12
 	package
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:4:5-39
-		INJECTED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:4:5-39
+		INJECTED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml
+		INJECTED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:2:1-51:12
-		INJECTED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml
+		INJECTED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:2:1-51:12
+		INJECTED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml
 	xmlns:tools
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:3:5-51
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
-		INJECTED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:2:1-51:12
-		INJECTED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml
+		INJECTED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:2:1-51:12
+		INJECTED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:6:5-80
+ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:6:5-80
 	android:name
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:6:22-77
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:6:22-77
 application
-ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:8:5-49:19
+ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:8:5-49:19
 MERGED from [com.android.support:design:28.0.0] C:\Users\congl\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\438b5553b4d3225f13c553e50874047e\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:28.0.0] C:\Users\congl\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\438b5553b4d3225f13c553e50874047e\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\congl\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\814591338b808f1baab793693780c4dc\AndroidManifest.xml:9:5-20
@@ -79,93 +79,93 @@ MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\congl\.gra
 	android:appComponentFactory
 		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\congl\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\d4bf2ff6504bc1ee94532a44e0043b60\AndroidManifest.xml:22:18-91
 	android:supportsRtl
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:14:9-35
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:14:9-35
 	android:label
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:12:9-41
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:12:9-41
 	tools:ignore
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:16:9-48
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:16:9-48
 	android:roundIcon
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:13:9-54
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:13:9-54
 	android:icon
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:11:9-43
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:11:9-43
 	android:allowBackup
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:10:9-35
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:10:9-35
 	android:theme
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:15:9-40
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:15:9-40
 	android:name
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:9:9-57
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:9:9-57
 activity#com.example.ictucalendar.Activity.QRCodeActivity
-ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:17:9-70
+ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:17:9-70
 	android:name
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:17:19-58
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:17:19-58
 activity#com.example.ictucalendar.Activity.InformationActivity
-ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:18:9-66
+ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:18:9-66
 	android:name
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:18:19-63
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:18:19-63
 activity#com.example.ictucalendar.Activity.SettingActivity
-ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:19:9-62
+ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:19:9-62
 	android:name
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:19:19-59
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:19:19-59
 meta-data#AA_DB_NAME
-ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:20:9-22:43
+ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:20:9-22:43
 	android:value
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:22:13-40
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:22:13-40
 	android:name
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:21:13-38
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:21:13-38
 meta-data#AA_DB_VERSION
-ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:23:9-25:33
+ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:23:9-25:33
 	android:value
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:25:13-30
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:25:13-30
 	android:name
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:24:13-41
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:24:13-41
 meta-data#AA_MODELS
-ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:26:9-28:69
+ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:26:9-28:69
 	android:value
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:28:13-66
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:28:13-66
 	android:name
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:27:13-37
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:27:13-37
 provider#com.activeandroid.content.ContentProvider
-ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:29:9-33:40
+ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:29:9-33:40
 	android:enabled
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:32:13-35
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:32:13-35
 	android:authorities
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:31:13-59
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:31:13-59
 	android:exported
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:33:13-37
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:33:13-37
 	android:name
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:30:13-69
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:30:13-69
 activity#com.example.ictucalendar.Activity.MainActivity
-ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:35:9-38:59
+ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:35:9-38:59
 	android:label
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:37:13-45
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:37:13-45
 	android:theme
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:38:13-56
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:38:13-56
 	android:name
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:36:13-50
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:36:13-50
 activity#com.example.ictucalendar.Activity.SelectFileActivity
-ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:39:9-65
+ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:39:9-65
 	android:name
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:39:19-62
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:39:19-62
 activity#com.example.ictucalendar.Activity.SplashScreenActivity
-ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:40:9-48:20
+ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:40:9-48:20
 	android:theme
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:42:13-53
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:42:13-53
 	android:name
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:41:13-58
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:41:13-58
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:43:13-47:29
+ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:43:13-47:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:44:17-69
+ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:44:17-69
 	android:name
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:44:25-66
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:44:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:46:17-77
+ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:46:17-77
 	android:name
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml:46:27-74
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:46:27-74
 uses-sdk
-INJECTED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml
+INJECTED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml
+INJECTED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml
 MERGED from [com.android.support:multidex:1.0.2] C:\Users\congl\.gradle\caches\transforms-1\files-1.1\multidex-1.0.2.aar\1b3878e68a5c95e450dd44eb679e6efd\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:multidex:1.0.2] C:\Users\congl\.gradle\caches\transforms-1\files-1.1\multidex-1.0.2.aar\1b3878e68a5c95e450dd44eb679e6efd\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:design:28.0.0] C:\Users\congl\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\438b5553b4d3225f13c553e50874047e\AndroidManifest.xml:20:5-44
@@ -240,13 +240,13 @@ MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\congl\.gradle\
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\congl\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\26ae33ecd0cc96a49cef28ee6abe8fa8\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\congl\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\722c72e6bd84b54a288df50a4e73dd0a\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\congl\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\722c72e6bd84b54a288df50a4e73dd0a\AndroidManifest.xml:20:5-44
-INJECTED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml
+INJECTED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml
+INJECTED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml
+		INJECTED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml
+		INJECTED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\congl\Downloads\ICTUCalendar\app\src\main\AndroidManifest.xml
+		INJECTED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml
+		ADDED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml
+		INJECTED from D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml

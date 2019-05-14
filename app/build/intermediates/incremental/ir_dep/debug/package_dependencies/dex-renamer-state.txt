@@ -1,10 +1,10 @@
-#Thu Mar 14 22:29:21 ICT 2019
+#Wed May 15 01:43:54 ICT 2019
 path.2=classes3.dex
 path.1=classes2.dex
 path.0=classes.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
-base.2=C\:\\GoogleDrive\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\10
-base.1=C\:\\GoogleDrive\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\10
-base.0=C\:\\GoogleDrive\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\10
+base.2=D\:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\10
+base.1=D\:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\10
+base.0=D\:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\10

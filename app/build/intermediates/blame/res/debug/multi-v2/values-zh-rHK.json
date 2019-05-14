@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\GoogleDrive\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh-rHK\\values-zh-rHK.xml",
+            "outputFile": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh-rHK\\values-zh-rHK.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\a94dfd58b348e119cdecf35e588bbb3d\\res\\values-zh-rHK\\values-zh-rHK.xml",
+                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\64385b31d748af082f4716d4cfe3f5c5\\res\\values-zh-rHK\\values-zh-rHK.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,7 +21,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-1\\files-1.1\\android.joda-2.10.1.1.aar\\9fa9d5a75ccfffe44eb0a679434bd1fd\\res\\values-zh-rHK\\values-zh-rHK.xml",
+                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\d4bf2ff6504bc1ee94532a44e0043b60\\res\\values-zh-rHK\\values-zh-rHK.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "109",
+                        "startColumns": "4",
+                        "startOffsets": "7761",
+                        "endColumns": "100",
+                        "endOffsets": "7857"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-1\\files-1.1\\android.joda-2.10.1.1.aar\\fd84f028709b7e8a1d94d0c529817e03\\res\\values-zh-rHK\\values-zh-rHK.xml",
                     "from": {
                         "startLines": "2,6,10,14,18,22,26,30,34,38,42,46,50,54,58,62,66,70,74,78,79,80",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -37,23 +54,6 @@
                         "endLines": "5,9,13,17,21,25,29,33,37,41,45,49,53,57,61,65,69,73,77,105,106,107",
                         "endColumns": "14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,126,126,150",
                         "endOffsets": "342,589,837,1084,1327,1575,1824,2072,2312,2554,2794,3029,3268,3510,3750,3985,4226,4469,4710,7400,7527,7678"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\332666edca88bf4c05115df3aa94eb39\\res\\values-zh-rHK\\values-zh-rHK.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "109",
-                        "startColumns": "4",
-                        "startOffsets": "7761",
-                        "endColumns": "100",
-                        "endOffsets": "7857"
                     }
                 }
             ]
