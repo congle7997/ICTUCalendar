@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_import_excel_lecturers"
+            android:icon="@drawable/ic_import_excel_lecturers"
+            android:title="@string/import_excel_lecturer" />
+        <item
+            android:id="@+id/nav_import_excel_student"
+            android:icon="@drawable/ic_import_excel_student"
+            android:title="@string/import_excel_student" />
+        <item
+            android:id="@+id/nav_qr_code"
+            android:icon="@drawable/ic_qr_code"
+            android:title="@string/qr_code" />
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/ic_setting"
+            android:title="@string/setting" />
+        <item
+            android:id="@+id/nav_opinion_feedback"
+            android:icon="@drawable/ic_opinion_feedback"
+            android:title="@string/opinion_feedback" />
+        <item
+            android:id="@+id/nav_information"
+            android:icon="@drawable/ic_information"
+            android:title="@string/information" />
+    </group>
+
+    <!--<item android:title="Communicate">-->
+        <!--<menu>-->
+            <!--<item-->
+                <!--android:id="@+id/nav_share"-->
+                <!--android:icon="@drawable/ic_menu_share"-->
+                <!--android:title="Share" />-->
+            <!--<item-->
+                <!--android:id="@+id/nav_send"-->
+                <!--android:icon="@drawable/ic_menu_send"-->
+                <!--android:title="Send" />-->
+        <!--</menu>-->
+    <!--</item>-->
+
+</menu>
