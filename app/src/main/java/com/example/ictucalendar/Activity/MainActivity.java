@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
         materialCalendarView.setOnDateChangedListener(this);
 
-        Toast.makeText(this, "test 123", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "test 123 456", Toast.LENGTH_LONG).show();
     }
 
     @Override
