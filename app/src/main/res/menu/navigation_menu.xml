@@ -5,13 +5,9 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_import_excel_lecturers"
-            android:icon="@drawable/ic_import_excel_lecturers"
-            android:title="@string/import_excel_lecturer" />
-        <item
-            android:id="@+id/nav_import_excel_student"
-            android:icon="@drawable/ic_import_excel_student"
-            android:title="@string/import_excel_student" />
+            android:id="@+id/nav_import_excel"
+            android:icon="@drawable/ic_excel"
+            android:title="@string/import_excel" />
         <item
             android:id="@+id/nav_qr_code"
             android:icon="@drawable/ic_qr_code"

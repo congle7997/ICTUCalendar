@@ -2,11 +2,10 @@
 <resources>
     <string name="app_name">ICTU Calendar</string>
     <string name="information" translatable="false">Thông tin</string>
-    <string name="import_excel_lecturer">Nhập Excel cho giảng viên</string>
-    <string name="import_excel_student">Nhập Excel cho sinh viên</string>
-    <string name="setting">Cài đặt</string>
-    <string name="opinion_feedback">Ý kiến / phản hồi</string>
-    <string name="comming_soon">Tính năng sẽ sớm có mặt ở bản cập nhật sắp tới!</string>
+    <string name="import_excel">Nhập Exce</string>
+    <string name="setting">Cài Đặt</string>
+    <string name="opinion_feedback">Ý Kiến / Phản Hồi</string>
+    <string name="coming_soon">Tính năng sẽ sớm có mặt ở bản cập nhật sắp tới!</string>
     <string name="not_installed_gmail">Thiết bị của bạn chưa được cài ứng dụng Gmail nên không thể sử dụng tính năng này!</string>
     <string name="sent_developer">Phản hồi của bạn đã được gửi tới nhà phát triển của ứng dụng này!</string>
     <string name="note">Ghi chú</string>

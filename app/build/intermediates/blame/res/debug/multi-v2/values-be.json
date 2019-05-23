@@ -4,7 +4,7 @@
             "outputFile": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-be\\values-be.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\64385b31d748af082f4716d4cfe3f5c5\\res\\values-be\\values-be.xml",
+                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-2\\files-2.1\\13c538b5c1d2e1e2797f66dad08d6a5d\\res\\values-be\\values-be.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,7 +21,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-1\\files-1.1\\android.joda-2.10.1.1.aar\\fd84f028709b7e8a1d94d0c529817e03\\res\\values-be\\values-be.xml",
+                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-2\\files-2.1\\6fd10b9075ae3d702201c6819a03a584\\res\\values-be\\values-be.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "110",
+                        "startColumns": "4",
+                        "startOffsets": "8231",
+                        "endColumns": "100",
+                        "endOffsets": "8327"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-2\\files-2.1\\6dafb9fe4be91cfead2df2e8d909069c\\res\\values-be\\values-be.xml",
                     "from": {
                         "startLines": "2,6,10,14,18,22,26,30,34,38,42,46,50,54,58,62,66,70,74,78,79,80,81",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -37,23 +54,6 @@
                         "endLines": "5,9,13,17,21,25,29,33,37,41,45,49,53,57,61,65,69,73,77,105,106,107,108",
                         "endColumns": "14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,65,130,126,150",
                         "endOffsets": "351,614,872,1134,1385,1649,1913,2176,2424,2672,2918,3162,3417,3673,3928,4171,4428,4685,4941,7736,7867,7994,8145"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\d4bf2ff6504bc1ee94532a44e0043b60\\res\\values-be\\values-be.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "110",
-                        "startColumns": "4",
-                        "startOffsets": "8231",
-                        "endColumns": "100",
-                        "endOffsets": "8327"
                     }
                 }
             ]

@@ -9,13 +9,12 @@
     <string name="title_activity_splash_screen" translatable="false">SplashScreenActivity</string>
 
 
-    <string name="import_excel_lecturer">Import excel for lecturer</string>
-    <string name="import_excel_student">Import excel for student</string>
-    <string name="qr_code">Create QR code</string>
+    <string name="import_excel">Import Excel</string>
+    <string name="qr_code">QR Code</string>
     <string name="setting">Setting</string>
-    <string name="opinion_feedback" translatable="false">Opinion / feedback</string>
+    <string name="opinion_feedback" translatable="false">Opinion / Feedback</string>
     <string name="information">Information</string>
-    <string name="comming_soon">Comming soon!</string>
+    <string name="coming_soon">Coming soon!</string>
 
     <string name="note">Note</string>
     <string name="enter_your_note">Enter your note ...</string>
