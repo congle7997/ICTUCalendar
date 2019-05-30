@@ -64,12 +64,18 @@ public class CustomAdapterShowEvents extends RecyclerView.Adapter<CustomAdapterS
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder recyclerViewHolder, int i) {
-        if (listEventSelected.get(i).getType().equals("Subject")) {
+        if (listEventSelected.get(i).getType().equals("Lecturer")) {
+            recyclerViewHolder.txtSubjectName.setText(listEventSelected.get(i).getSubjectName());
+            recyclerViewHolder.txtTime.setText(listEventSelected.get(i).getTime());
+            recyclerViewHolder.txtPlace.setText(listEventSelected.get(i).getPlace());
+            recyclerViewHolder.lnLecturer.setVisibility(View.GONE);
+            recyclerViewHolder.lnSubject.setBackgroundColor(Color.rgb(153, 187, 255));
+        } else if (listEventSelected.get(i).getType().equals("Student")) {
             //Log.d(TAG, "onBindViewHolder: " + "Event");
             recyclerViewHolder.txtSubjectName.setText(listEventSelected.get(i).getSubjectName());
             recyclerViewHolder.txtTime.setText(listEventSelected.get(i).getTime());
             recyclerViewHolder.txtPlace.setText(listEventSelected.get(i).getPlace());
-            recyclerViewHolder.txtLecturer.setText("GV: " + listEventSelected.get(i).getLecturer());
+            recyclerViewHolder.txtLecturer.setText(listEventSelected.get(i).getLecturer());
             recyclerViewHolder.lnSubject.setBackgroundColor(Color.rgb(153, 187, 255));
         } else {
             recyclerViewHolder.imgSubjectName.setImageResource(R.drawable.ic_note);

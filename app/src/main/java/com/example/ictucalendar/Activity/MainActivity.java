@@ -36,7 +36,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.activeandroid.ActiveAndroid;
 import com.activeandroid.query.Delete;
 import com.activeandroid.query.Select;
 import com.example.ictucalendar.Adapter.CustomAdapterShowEvents;
@@ -75,11 +74,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, OnDateSelectedListener {
 
-    static final String TAG = MainActivity.class.getSimpleName();
-    static final int REQUEST_CODE_STUDENT = 1;
-    static final int REQUEST_CODE_LECTURER = 2;
-    final String arrStringDay[] = {"T2", "T3", "T4", "T5", "T6", "T7", "CN"};
-    final int arrIntDay[] = {DateTimeConstants.MONDAY, DateTimeConstants.TUESDAY, DateTimeConstants.WEDNESDAY, DateTimeConstants.THURSDAY, DateTimeConstants.FRIDAY, DateTimeConstants.SATURDAY, DateTimeConstants.SUNDAY};
+
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
@@ -88,33 +83,37 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     RecyclerView rcShowEvents;
     CustomAdapterShowEvents customAdapterShowEvents;
     TextView txtStudentName, txtStudentCode, txtClass;
-    String strDateSelected;
-    List<Event> listEventSelected;
-    CalendarDay calDateSelected;
-    String SHARED_PREFES_STUDENT = "shared_prefes_student";
-    String LECTURER = "Lecturer";
-    String STUDENT = "Student";
-    List<String> listString = new ArrayList<>();
-    List<Integer> listInt = new ArrayList<>();
 
+    static final String TAG = MainActivity.class.getSimpleName();
+    static final int REQUEST_CODE_STUDENT = 1;
+    static final int REQUEST_CODE_LECTURER = 2;
+    final String arrStringDay[] = {"T2", "T3", "T4", "T5", "T6", "T7", "CN"};
+    final int arrIntDay[] = {DateTimeConstants.MONDAY, DateTimeConstants.TUESDAY, DateTimeConstants.WEDNESDAY,
+            DateTimeConstants.THURSDAY, DateTimeConstants.FRIDAY, DateTimeConstants.SATURDAY, DateTimeConstants.SUNDAY};
     String arrStartTimeSummer[] = {"06:30", "07:25", "08:25", "09:25", "10:20", "13:00", "13:55", "14:55", "15:55", "16:50", "18:15", "19:10"};
     String arrEndTimeSummer[] = {"07:20", "08:15", "09:15", "10:15", "11:10", "13:50", "14:45", "15:45", "16:45", "17:40", "19:05", "20:00"};
     String arrStartTimeWinter[] = {"06:45", "07:40", "08:40", "09:40", "10:35", "13:00", "13:55", "14:55", "15:55", "16:50", "18:15", "19:10"};
     String arrEndTimeWinter[] = {"07:35", "08:30", "09:30", "10:30", "11:25", "13:50", "14:45", "15:45", "16:45", "17:40", "19:05", "20:00"};
+    String strDateSelected;
+    List<Event> listEventSelected;
+    CalendarDay calDateSelected;
+    String SHARED_PREFERENCE = "shared_preference";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        readExcel("/storage/emulated/0/Download/Lecturer.xls", 1);
+        //readExcel("/storage/emulated/0/Download/Lecturer.xls", 1);
+        /*new Delete().from(Event.class).where("type = ?", "Lecturer").execute();
+        new Delete().from(Event.class).where("type = ?", "Student").execute();*/
 
-        Log.d(TAG, "result: " + new Select()
+        /*Log.d(TAG, "result: " + new Select()
                 .from(Event.class)
-                .where("date = ?", "27/12/2018")
+                .where("date = ?", "22/01/2019")
                 .orderBy("type DESC")
                 .orderBy("time ASC")
-                .execute());
+                .execute());*/
 
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
 
@@ -151,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         materialCalendarView.setSelectionColor(Color.rgb(0, 115, 186));
-//        showEventDot();
+        showEventDot();
         showEventDetail(convertCalendarDayToString(CalendarDay.today()));
         addDecoratorToDay();
         showInfoProfile();
@@ -167,7 +166,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.nav_import_excel) {
             final Intent intent = new Intent(MainActivity.this, SelectFileActivity.class);
 
-            final String arrPerson[] = {LECTURER, STUDENT};
+            final String arrPerson[] = {"Lecturer", "Student"};
             AlertDialog.Builder builderSingle = new AlertDialog.Builder(this);
             builderSingle.setIcon(R.drawable.ic_what_people);
             builderSingle.setTitle("You are: ");
@@ -176,9 +175,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 public void onClick(DialogInterface dialog, int i) {
                     String strPerson = arrPerson[i];
 
-                    if (strPerson.equals(LECTURER)) {
+                    if (strPerson.equals("Lecturer")) {
                         startActivityForResult(intent, REQUEST_CODE_LECTURER);
-                    } else if (strPerson.equals(STUDENT)) {
+                    } else if (strPerson.equals("Student")) {
                         startActivityForResult(intent, REQUEST_CODE_STUDENT);
                     }
                 }
@@ -220,11 +219,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == REQUEST_CODE_STUDENT) {
-            new Delete().from(Event.class).where("type =?", "Subject").execute();
-
             String pathExcelFile = data.getStringExtra(SelectFileActivity.PATH);
             readExcelStudent(pathExcelFile);
-            //readExcelStudent("/storage/emulated/0/Download/Student.xls");
 
             materialCalendarView.removeDecorators();
             showEventDot();
@@ -234,14 +230,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     materialCalendarView.getSelectedDate().getDay());
             showEventDetail(convertCalendarDayToString(calDateSelected));
 
+            Log.d(TAG, "onActivityResult: " + convertCalendarDayToString(calDateSelected));
+
             addDecoratorToDay();
         } else if (requestCode == REQUEST_CODE_LECTURER) {
             String pathExcelFile = data.getStringExtra(SelectFileActivity.PATH);
+            readExcelLecturer(pathExcelFile);
 
-            //readExcelLecturer(pathExcelFile);
+            materialCalendarView.removeDecorators();
+            showEventDot();
 
-            readExcel("/storage/emulated/0/Download/Lecturer.xls", 1);
+            calDateSelected = new CalendarDay(materialCalendarView.getSelectedDate().getYear(),
+                    materialCalendarView.getSelectedDate().getMonth(),
+                    materialCalendarView.getSelectedDate().getDay());
+            showEventDetail(convertCalendarDayToString(calDateSelected));
 
+            Log.d(TAG, "onActivityResult: " + convertCalendarDayToString(calDateSelected));
+
+            addDecoratorToDay();
         } else if (requestCode == 7997) {
             //Toast.makeText(this, R.string.sent_developer, Toast.LENGTH_LONG).show();
         }
@@ -274,7 +280,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //txtStudentCode = view.findViewById(R.id.txt_student_code);
         txtClass = view.findViewById(R.id.txt_class);
 
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFES_STUDENT, Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCE, Context.MODE_PRIVATE);
         txtStudentName.setText(sharedPreferences.getString("student_name", "?"));
         //txtStudentCode.setText(sharedPreferences.getString("student_code", "?"));
         txtClass.setText(sharedPreferences.getString("class", "?"));
@@ -327,8 +333,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             builderSingle.setItems(arrString, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int i) {
-                    //readExcel(pathExcelFile, i);
-
+                    readExcel(pathExcelFile, i);
                 }
             });
             builderSingle.show();
@@ -339,99 +344,58 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    public int getTotalWeek(Iterator<Row> rowIterator) {
-        int count = 0;
-
+    public String getFirstWeek(Iterator<Row> rowIterator) {
+        int rowWeek = 0;
         while (rowIterator.hasNext()) {
             Row row = rowIterator.next();
 
             if (row.getCell(1).getStringCellValue().contains("TUẦN")) {
-                count++;
+                rowWeek++;
+            }
+
+            if (rowWeek == 3) {
+                return row.getCell(1).getStringCellValue().substring(0, 8);
             }
         }
 
-        return count;
+        return "str";
     }
 
     public void readExcel(String pathExcelFile, int i) {
         new Delete().from(Event.class).where("type = ?", "Lecturer").execute();
-        int count = 0;
-        int r = 0;
-        int t = 0;
-        String currentWeek = "TUẦN: 21";
-        List<String> listData = null;
+        new Delete().from(Event.class).where("type = ?", "Student").execute();
 
-        Log.d(TAG, "readExcel: RUN");
+        int rowIndex = 0;
+        int rowWeek = 0;
+        List<String> listData = null;
 
         try {
             FileInputStream excelFile = new FileInputStream(new File(pathExcelFile));
             HSSFWorkbook workbook = new HSSFWorkbook(excelFile);
             HSSFSheet sheet = workbook.getSheetAt(i);
             Iterator<Row> rowIterator = sheet.iterator();
-            int totalWeek = getTotalWeek(sheet.iterator());
+            String currentWeek = getFirstWeek(sheet.iterator());
+
             while (rowIterator.hasNext()) {
                 Row row = rowIterator.next();
+                rowIndex++;
 
-                r++;
-                if (r < 11) {
+                if (rowIndex < 11) {
                     continue;
                 }
-
                 if (row.getCell(1).getStringCellValue().contains("TUẦN")) {
-                    t++;
+                    rowWeek++;
                 }
 
-                /*if (t <= 2) {
+                if (rowWeek <= 2) {
                     if (row.getCell(1).getStringCellValue().contains("TUẦN")) {
                         listData = new ArrayList<>();
                     }
                     if (row.getCell(1).getCellTypeEnum() == CellType.BLANK) {
-
-                        int posStart = listData.get(0).indexOf("(") + 1;
-                        int posEnd = listData.get(0).indexOf("đến") - 1;
-                        //Log.d(TAG, "readExcel2: " + listData.get(0).substring(posStart, posEnd));
-                        String strStartDate = listData.get(0).substring(posStart, posEnd);
-                        DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern("dd/MM/yyyy");
-                        DateTime startDate = dateTimeFormatter.parseDateTime(strStartDate);
-                        for (String rowData : listData) {
-                            // không lấy dữ liệu dòng đầu tiên mỗi listData
-                            if (rowData.contains(")")) {
-                                String rowDataSplit[] = rowData.split("---");
-                                Event event = new Event();
-                                SimpleDateFormat formatInput = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
-                                SimpleDateFormat formatOutput = new SimpleDateFormat("dd/MM/yyyy");
-                                String day = rowDataSplit[3];
-                                Date date = formatInput.parse(String.valueOf(startDate.plusDays(Integer.parseInt(day) - 2)));
-                                String dateFormatted = formatOutput.format(date);
-                                event.setDate(dateFormatted);
-
-                                String subjectName = rowDataSplit[1].substring(0, rowDataSplit[1].indexOf("-"));
-                                event.setSubjectName(subjectName);
-
-                                String time = rowDataSplit[4].replace(",", ", ");
-                                int startTime = Integer.parseInt(rowDataSplit[4].substring(0, 1));
-                                int endTime = Integer.parseInt(rowDataSplit[4].substring(rowDataSplit[4].length() - 1, rowDataSplit[4].length()));
-                                *//*if (isSummer(dateFormatted)) {
-                                    event.setTime(time + " (" + arrStartTimeSummer[startTime - 1] + " - " + arrEndTimeSummer[endTime - 1] + ")");
-
-                                } else {
-                                    event.setTime(time + " (" + arrStartTimeWinter[startTime - 1] + " - " + arrEndTimeWinter[endTime - 1] + ")");
-                                }*//*
-
-                                event.setPlace(rowDataSplit[5]);
-
-                                event.setType("Lecturer");
-
-                                event.save();
-
-                                Log.d(TAG, "readExcel: " + event.getDate());
-                            }
-                        }
-
+                        saveData(listData);
                     }
 
                     Iterator<Cell> cellIterator = row.iterator();
-
                     String rowData = "";
 
                     while (cellIterator.hasNext()) {
@@ -447,68 +411,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     }
 
                     listData.add(rowData);
-                }*/
+                }
 
-                /*if (t >= 3 && t <= totalWeek) {
+                if (rowWeek >= 3) {
                     if (!row.getCell(1).getStringCellValue().substring(0, 8).equals(currentWeek)
                             && row.getCell(1).getStringCellValue().contains("TUẦN")) {
-
-                        currentWeek = row.getCell(1).getStringCellValue().substring(0, 8);
-
-                        int posStart = listData.get(0).indexOf("(") + 1;
-                        int posEnd = listData.get(0).indexOf("đến") - 1;
-                        //Log.d(TAG, "readExcel2: " + listData.get(0).substring(posStart, posEnd));
-                        String strStartDate = listData.get(0).substring(posStart, posEnd);
-                        DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern("dd/MM/yyyy");
-                        DateTime startDate = dateTimeFormatter.parseDateTime(strStartDate);
-                        for (String rowData : listData) {
-                            // không lấy dữ liệu dòng đầu tiên mỗi listData
-                            if (rowData.contains(")")) {
-                                String rowDataSplit[] = rowData.split("---");
-                                Event event = new Event();
-                                SimpleDateFormat formatInput = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
-                                SimpleDateFormat formatOutput = new SimpleDateFormat("dd/MM/yyyy");
-                                String day = rowDataSplit[3];
-                                Date date = formatInput.parse(String.valueOf(startDate.plusDays(Integer.parseInt(day) - 2)));
-                                String dateFormatted = formatOutput.format(date);
-                                event.setDate(dateFormatted);
-
-                                String subjectName = rowDataSplit[1].substring(0, rowDataSplit[1].indexOf("-"));
-                                event.setSubjectName(subjectName);
-
-                                String time = rowDataSplit[4].replace(",", ", ");
-                                int startTime = Integer.parseInt(rowDataSplit[4].substring(0, 1));
-                                int endTime = Integer.parseInt(rowDataSplit[4].substring(rowDataSplit[4].length()-1, rowDataSplit[4].length()));
-                                *//*if (isSummer(dateFormatted)) {
-                                    event.setTime(time + " (" + arrStartTimeSummer[startTime - 1] + " - " + arrEndTimeSummer[endTime - 1] + ")");
-
-                                } else {
-                                    event.setTime(time + " (" + arrStartTimeWinter[startTime - 1] + " - " + arrEndTimeWinter[endTime - 1] + ")");
-                                }*//*
-
-                                event.setPlace(rowDataSplit[5]);
-
-                                event.setType("Lecturer");
-
-                                event.save();
-
-                                Log.d(TAG, "readExcel: " + event.getDate() + " - " + event.getSubjectName());
-                            }
-                        }
-
-
+                        saveData(listData);
                     }
-
                     if (row.getCell(1).getStringCellValue().contains("TUẦN")) {
                         listData = new ArrayList<>();
                     }
 
                     Iterator<Cell> cellIterator = row.iterator();
-
                     String rowData = "";
 
-                    int l = 0;
-                    int c = 0;
                     while (cellIterator.hasNext()) {
                         Cell cell = cellIterator.next();
 
@@ -522,16 +438,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     }
 
                     listData.add(rowData);
-                }*/
+                }
 
-                if (t == totalWeek) {
-                    Log.d(TAG, "readExcel3: " + row.getCell(1).getStringCellValue());
-                    if (!rowIterator.hasNext()) {
-                        Log.d(TAG, "readExcel3: tit");
-                    }
+                /* dữ liệu của tuần cuối đã được đưa vào listData
+                nên chỉ cần gọi hàm saveData() khi nó là dòng cuối cùng */
+                if (!rowIterator.hasNext()) {
+                    saveData(listData);
                 }
             }
-
+            //showEventDetail("11/04/2019");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -540,9 +455,59 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
+    public void saveData(List<String> listData) {
+        try {
+            int posStart = listData.get(0).indexOf("(") + 1;
+            int posEnd = listData.get(0).indexOf("đến") - 1;
+            String strStartDate = listData.get(0).substring(posStart, posEnd);
+            DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern("dd/MM/yyyy");
+            DateTime startDate = dateTimeFormatter.parseDateTime(strStartDate);
+            for (String rowData1 : listData) {
+                // không lấy dữ liệu dòng đầu tiên mỗi listData
+                if (rowData1.contains(")")) {
+                    String rowDataSplit[] = rowData1.split("---");
+                    Event event = new Event();
+                    SimpleDateFormat formatInput = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
+                    SimpleDateFormat formatOutput = new SimpleDateFormat("dd/MM/yyyy");
+                    String day = rowDataSplit[3];
+                    Date date = formatInput.parse(String.valueOf(startDate.plusDays(Integer.parseInt(day) - 2)));
+                    String dateFormatted = formatOutput.format(date);
+                    event.setDate(dateFormatted);
+
+                    String subjectName = rowDataSplit[1].substring(0, rowDataSplit[1].indexOf("-"));
+                    event.setSubjectName(subjectName);
+
+                    String time = rowDataSplit[4].replace(",", ", ");
+                    String arrTime[] = rowDataSplit[4].split(",");
+                    int startTime = Integer.parseInt(arrTime[0]);
+                    int endTime = Integer.parseInt(arrTime[arrTime.length - 1]);
+                    if (isSummer(dateFormatted)) {
+                        event.setTime(time + " (" + arrStartTimeSummer[startTime - 1] + " - " + arrEndTimeSummer[endTime - 1] + ")");
+
+                    } else {
+                        event.setTime(time + " (" + arrStartTimeWinter[startTime - 1] + " - " + arrEndTimeWinter[endTime - 1] + ")");
+                    }
+
+                    event.setPlace(rowDataSplit[5]);
+
+                    event.setType("Lecturer");
+
+                    event.save();
+
+                    //Log.d(TAG, "saveData: " + event.getDate() + " - " + event.getSubjectName());
+                }
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public void readExcelStudent(String pathExcelFile) {
+        new Delete().from(Event.class).where("type = ?", "Lecturer").execute();
+        new Delete().from(Event.class).where("type = ?", "Student").execute();
+
         Student student = new Student();
-        int count = 0;
 
         int rowExcelFile = 0;
         int indexArrDay = 0;
@@ -577,7 +542,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     student.setStudenCode(rowStudentInfoSplit[3]);
                     student.setStudentClass(rowStudentInfoSplit[5]);
 
-                    SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFES_STUDENT, MODE_PRIVATE);
+                    SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCE, MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("student_name", rowStudentInfoSplit[1]);
                     editor.putString("student_code", rowStudentInfoSplit[3]);
@@ -692,12 +657,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     event.setPlace(rowDataSplit[4]);
                     event.setLecturer(rowDataSplit[5]);
                     // để sau này khi custom Adapter biết đâu là lịch học và đâu là ghi chú để hiển thị
-                    event.setType("Subject");
+                    event.setType("Student");
 
                     event.save();
-
-                    count++;
-                    Log.d(TAG, "readExcelStudent: " + count + ": " + event.getDate() + " - " + event.getSubjectName());
                 }
             }
         } catch (FileNotFoundException e) {
@@ -738,6 +700,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay calendarDay, boolean selected) {
         strDateSelected = convertCalendarDayToString(calendarDay);
         showEventDetail(strDateSelected);
+        Log.d(TAG, "onDateSelected: " + strDateSelected);
     }
 
     public static List<Event> getListEventSelected(String formattedDate) {
@@ -901,6 +864,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         List<Event> listEvent = new Select().from(Event.class).execute();
         List<CalendarDay> listCalendarDay = new ArrayList<>();
 
+        String type = "";
+        for (Event event : listEvent) {
+            if (event.getType().equals("Lecturer")) {
+                type = "Lecturer";
+                break;
+            } else if (event.getType().equals("Student")) {
+                type = "Student";
+                break;
+            }
+        }
 
         for (Event event : listEvent) {
             String eventSplit[] = event.getDate().split("/");
@@ -915,7 +888,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int start;
         int arrColor[];
         for (CalendarDay calendarDay : listCalendarDay) {
-            countSubject = countDate(calendarDay);
+            countSubject = countDate(calendarDay, type);
             start = 0;
 
             if (countSubject > 4) {
@@ -928,6 +901,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
 
             arrColor = new int[countSubject];
+
             if (countNote(calendarDay)) {
                 arrColor[0] = colorNote;
             }
@@ -940,7 +914,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    public int countDate(CalendarDay calendarDay) {
+    public int countDate(CalendarDay calendarDay, String type) {
         String day = String.valueOf(calendarDay.getDay());
         if (calendarDay.getDay() < 10) {
             day = "0" + calendarDay.getDay();
@@ -954,12 +928,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         String strDate = day + "/" + month + "/" + year;
 
         List<Event> listEvent = new Select().from(Event.class)
-                .where("type = ?", "Subject")
+                .where("type = ?", type)
                 .where("date = ?", strDate)
                 .execute();
-        int count = listEvent.size();
 
-        return count;
+        return listEvent.size();
     }
 
     public boolean countNote(CalendarDay calendarDay) {
@@ -979,8 +952,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 .where("type = ?", "Note")
                 .where("date = ?", strDate)
                 .execute();
-        int count = listEvent.size();
 
-        return count > 0;
+        return listEvent.size() > 0;
     }
 }
