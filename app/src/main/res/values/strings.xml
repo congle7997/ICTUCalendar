@@ -9,8 +9,8 @@
     <string name="title_activity_splash_screen" translatable="false">SplashScreenActivity</string>
 
 
-    <string name="import_excel">Import Excel</string>
-    <string name="qr_code">QR Code</string>
+    <string name="import_excel">Import Excel File</string>
+    <string name="create_qr_code">Create QR Code</string>
     <string name="setting">Setting</string>
     <string name="opinion_feedback" translatable="false">Opinion / Feedback</string>
     <string name="information">Information</string>
@@ -30,4 +30,9 @@
     <string name="format_not_correct">File is not formatted correctly!</string>
     <string name="internal_storage">Internal Storage</string>
     <string name="external_storage">External Storage</string>
+
+    <string name="you_are">You are:</string>
+    <string name="lecturer">Lecturer</string>
+    <string name="student">Student</string>
+    <string name="choose_your_name">Choose your name:</string>
 </resources>

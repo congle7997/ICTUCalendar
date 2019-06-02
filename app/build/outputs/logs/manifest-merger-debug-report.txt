@@ -11,6 +11,7 @@ MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\co
 MERGED from [net.danlew:android.joda:2.10.1.1] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\6dafb9fe4be91cfead2df2e8d909069c\AndroidManifest.xml:2:1-7:12
 MERGED from [com.github.prolificinteractive:material-calendarview:1.5.0] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\873bd510163e262b8650794ac15d08b4\AndroidManifest.xml:2:1-13:12
 MERGED from [com.intuit.sdp:sdp-android:1.0.6] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\829a36aee3979748e01612aaf5250a5e\AndroidManifest.xml:2:1-11:12
+MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\8d5eb21d4f5984efb8f676fe9d688a13\AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:support-v4:27.0.2] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\3cf990b171b8a8c5080dceb2e6a52df4\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\f4600129f8d5c8648cec953587b71b85\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\0d4f06249e61e1261d2a727973ffe300\AndroidManifest.xml:17:1-22:12
@@ -72,6 +73,8 @@ MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\co
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\a064118038911a071d3d97f984b5b3bd\AndroidManifest.xml:9:5-20
 MERGED from [com.github.prolificinteractive:material-calendarview:1.5.0] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\873bd510163e262b8650794ac15d08b4\AndroidManifest.xml:11:5-20
 MERGED from [com.github.prolificinteractive:material-calendarview:1.5.0] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\873bd510163e262b8650794ac15d08b4\AndroidManifest.xml:11:5-20
+MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\8d5eb21d4f5984efb8f676fe9d688a13\AndroidManifest.xml:9:5-20
+MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\8d5eb21d4f5984efb8f676fe9d688a13\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support:support-compat:28.0.0] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\6fd10b9075ae3d702201c6819a03a584\AndroidManifest.xml:22:5-94
 MERGED from [com.android.support:support-compat:28.0.0] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\6fd10b9075ae3d702201c6819a03a584\AndroidManifest.xml:22:5-94
 MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\fd3a85d29135ff36336c7bc29853af8d\AndroidManifest.xml:22:5-23:19
@@ -180,6 +183,8 @@ MERGED from [com.github.prolificinteractive:material-calendarview:1.5.0] C:\User
 MERGED from [com.github.prolificinteractive:material-calendarview:1.5.0] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\873bd510163e262b8650794ac15d08b4\AndroidManifest.xml:7:5-9:41
 MERGED from [com.intuit.sdp:sdp-android:1.0.6] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\829a36aee3979748e01612aaf5250a5e\AndroidManifest.xml:7:5-9:41
 MERGED from [com.intuit.sdp:sdp-android:1.0.6] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\829a36aee3979748e01612aaf5250a5e\AndroidManifest.xml:7:5-9:41
+MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\8d5eb21d4f5984efb8f676fe9d688a13\AndroidManifest.xml:5:5-7:41
+MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\8d5eb21d4f5984efb8f676fe9d688a13\AndroidManifest.xml:5:5-7:41
 MERGED from [com.android.support:support-v4:27.0.2] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\3cf990b171b8a8c5080dceb2e6a52df4\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:27.0.2] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\3cf990b171b8a8c5080dceb2e6a52df4\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\f4600129f8d5c8648cec953587b71b85\AndroidManifest.xml:20:5-44

@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accept">Chấp nhận</string>
+    <string name="action_settings" translatable="false">Cài đặt</string>
     <string name="agree">Đồng ý</string>
     <string name="app_name">ICTU Calendar</string>
     <string name="back">Quay lại</string>
     <string name="back_folder">Trở về thư mục trước</string>
     <string name="back_main">Trở về màn hình chính</string>
     <string name="cancel">Hủy</string>
+    <string name="choose_your_name">Chọn tên của bạn:</string>
     <string name="coming_soon">Tính năng sẽ sớm có mặt ở bản cập nhật sắp tới!</string>
+    <string name="create_qr_code">Tạo Mã QR</string>
     <string name="enter_your_note">Nhập ghi chú ...</string>
     <string name="external_storage">Thẻ nhớ</string>
     <string name="format_not_correct">Định dạng file không đúng!</string>
-    <string name="import_excel">Nhập Exce</string>
+    <string name="import_excel">Nhập File Excel</string>
     <string name="information" translatable="false">Thông tin</string>
     <string name="internal_storage">Bộ nhớ máy</string>
     <string name="joda_time_android_date_time">%1$s %2$s</string>
+    <string name="lecturer">Giảng viên</string>
     <string name="not_installed_gmail">Thiết bị của bạn chưa được cài ứng dụng Gmail nên không thể sử dụng tính năng này!</string>
     <string name="note">Ghi chú</string>
     <string name="opinion_feedback">Ý Kiến / Phản Hồi</string>
-    <string name="qr_code">Tạo mã QR</string>
+    <string name="reading_excel_file">Đang đọc file excel ...</string>
     <string name="sent_developer">Phản hồi của bạn đã được gửi tới nhà phát triển của ứng dụng này!</string>
     <string name="setting">Cài Đặt</string>
+    <string name="student">Sinh viên</string>
+    <string name="you_are">Bạn là:</string>
 </resources>

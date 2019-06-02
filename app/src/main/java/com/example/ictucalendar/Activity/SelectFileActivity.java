@@ -1,8 +1,10 @@
 package com.example.ictucalendar.Activity;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -20,6 +22,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 public class SelectFileActivity extends AppCompatActivity implements OnClickedListener {
     RecyclerView rcSelectFile;
@@ -163,6 +166,14 @@ public class SelectFileActivity extends AppCompatActivity implements OnClickedLi
 
     @Override
     public void onExcelFileClicked(String pathExcelFile) {
+        ProgressDialog progressDialog = new ProgressDialog(SelectFileActivity.this);
+        String message = "Reading excel file ...";
+        if (Locale.getDefault().getDisplayLanguage().equals("Tiếng Việt")) {
+            message = "Đang đọc file excel ...";
+        }
+        progressDialog.setMessage(message);
+        progressDialog.show();
+
         Intent intent = new Intent();
         intent.putExtra(PATH, pathExcelFile);
         setResult(Activity.RESULT_OK, intent);

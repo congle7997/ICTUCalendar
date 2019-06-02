@@ -1,7 +1,9 @@
 package com.example.ictucalendar.Activity;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -71,6 +73,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, OnDateSelectedListener {
 
@@ -82,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     MaterialCalendarView materialCalendarView;
     RecyclerView rcShowEvents;
     CustomAdapterShowEvents customAdapterShowEvents;
-    TextView txtStudentName, txtStudentCode, txtClass;
+    TextView txtStudentName, txtClass;
 
     static final String TAG = MainActivity.class.getSimpleName();
     static final int REQUEST_CODE_STUDENT = 1;
@@ -103,17 +106,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //readExcel("/storage/emulated/0/Download/Lecturer.xls", 1);
-        /*new Delete().from(Event.class).where("type = ?", "Lecturer").execute();
-        new Delete().from(Event.class).where("type = ?", "Student").execute();*/
-
-        /*Log.d(TAG, "result: " + new Select()
-                .from(Event.class)
-                .where("date = ?", "22/01/2019")
-                .orderBy("type DESC")
-                .orderBy("time ASC")
-                .execute());*/
 
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
 
@@ -155,6 +147,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         addDecoratorToDay();
         showInfoProfile();
 
+        calDateSelected = new CalendarDay(materialCalendarView.getSelectedDate().getYear(),
+                materialCalendarView.getSelectedDate().getMonth(),
+                materialCalendarView.getSelectedDate().getDay());
+        strDateSelected = convertCalendarDayToString(calDateSelected);
+
         navigationView.setNavigationItemSelectedListener(this);
         materialCalendarView.setOnDateChangedListener(this);
     }
@@ -166,25 +163,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.nav_import_excel) {
             final Intent intent = new Intent(MainActivity.this, SelectFileActivity.class);
 
-            final String arrPerson[] = {"Lecturer", "Student"};
+            String lecturer = "Lecturer";
+            String student = "Student";
+            if (Locale.getDefault().getDisplayLanguage().equals("Tiếng Việt")) {
+                lecturer = "Giảng viên";
+                student = "Sinh viên";
+            }
+            final String arrPerson[] = {lecturer, student};
             AlertDialog.Builder builderSingle = new AlertDialog.Builder(this);
             builderSingle.setIcon(R.drawable.ic_what_people);
-            builderSingle.setTitle("You are: ");
+            builderSingle.setTitle(R.string.you_are);
+            final String finalLecturer = lecturer;
+            final String finalStudent = student;
             builderSingle.setItems(arrPerson, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int i) {
                     String strPerson = arrPerson[i];
-
-                    if (strPerson.equals("Lecturer")) {
+                    if (strPerson.equals(finalLecturer)) {
                         startActivityForResult(intent, REQUEST_CODE_LECTURER);
-                    } else if (strPerson.equals("Student")) {
+                    } else if (strPerson.equals(finalStudent)) {
                         startActivityForResult(intent, REQUEST_CODE_STUDENT);
                     }
                 }
             });
             builderSingle.show();
-
-
         } else if (id == R.id.nav_qr_code) {
             Toast.makeText(this, R.string.coming_soon, Toast.LENGTH_LONG).show();
         } else if (id == R.id.nav_setting) {
@@ -218,36 +220,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == REQUEST_CODE_STUDENT) {
+        if (requestCode == REQUEST_CODE_STUDENT && resultCode == Activity.RESULT_OK) {
             String pathExcelFile = data.getStringExtra(SelectFileActivity.PATH);
+
+
             readExcelStudent(pathExcelFile);
 
             materialCalendarView.removeDecorators();
             showEventDot();
-
-            calDateSelected = new CalendarDay(materialCalendarView.getSelectedDate().getYear(),
-                    materialCalendarView.getSelectedDate().getMonth(),
-                    materialCalendarView.getSelectedDate().getDay());
-            showEventDetail(convertCalendarDayToString(calDateSelected));
-
-            Log.d(TAG, "onActivityResult: " + convertCalendarDayToString(calDateSelected));
-
+            showEventDetail(strDateSelected);
             addDecoratorToDay();
-        } else if (requestCode == REQUEST_CODE_LECTURER) {
+        } else if (requestCode == REQUEST_CODE_LECTURER && resultCode == Activity.RESULT_OK) {
             String pathExcelFile = data.getStringExtra(SelectFileActivity.PATH);
             readExcelLecturer(pathExcelFile);
-
-            materialCalendarView.removeDecorators();
-            showEventDot();
-
-            calDateSelected = new CalendarDay(materialCalendarView.getSelectedDate().getYear(),
-                    materialCalendarView.getSelectedDate().getMonth(),
-                    materialCalendarView.getSelectedDate().getDay());
-            showEventDetail(convertCalendarDayToString(calDateSelected));
-
-            Log.d(TAG, "onActivityResult: " + convertCalendarDayToString(calDateSelected));
-
-            addDecoratorToDay();
         } else if (requestCode == 7997) {
             //Toast.makeText(this, R.string.sent_developer, Toast.LENGTH_LONG).show();
         }
@@ -281,9 +266,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         txtClass = view.findViewById(R.id.txt_class);
 
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCE, Context.MODE_PRIVATE);
-        txtStudentName.setText(sharedPreferences.getString("student_name", "?"));
+        txtStudentName.setText(sharedPreferences.getString("name", "?"));
         //txtStudentCode.setText(sharedPreferences.getString("student_code", "?"));
-        txtClass.setText(sharedPreferences.getString("class", "?"));
+        txtClass.setText(sharedPreferences.getString("unit", "?"));
     }
 
     public void readExcelLecturer(final String pathExcelFile) {
@@ -326,14 +311,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             for (int i = 0; i < listLecturerName.size(); i++) {
                 arrString[i] = listLecturerName.get(i);
             }
-
-            AlertDialog.Builder builderSingle = new AlertDialog.Builder(MainActivity.this);
+            final AlertDialog.Builder builderSingle = new AlertDialog.Builder(MainActivity.this);
             builderSingle.setIcon(R.drawable.ic_lecturer_2);
-            builderSingle.setTitle("Choose Your Name: ");
+            builderSingle.setTitle(R.string.choose_your_name);
             builderSingle.setItems(arrString, new DialogInterface.OnClickListener() {
                 @Override
-                public void onClick(DialogInterface dialog, int i) {
-                    readExcel(pathExcelFile, i);
+                public void onClick(DialogInterface dialog, final int i) {
+                    final ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
+                    String message = "Saving data ...";
+                    if (Locale.getDefault().getDisplayLanguage().equals("Tiếng Việt")) {
+                        message = "Đang lưu dữ liệu ...";
+                    }
+                    progressDialog.setMessage(message);
+                    progressDialog.setCanceledOnTouchOutside(false);
+                    progressDialog.show();
+
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            readExcel(pathExcelFile, i);
+
+                            materialCalendarView.removeDecorators();
+                            showEventDot();
+                            showEventDetail(strDateSelected);
+                            addDecoratorToDay();
+
+                            progressDialog.dismiss();
+                        }
+                    }, 100);
                 }
             });
             builderSingle.show();
@@ -369,6 +374,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int rowWeek = 0;
         List<String> listData = null;
 
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCE, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
         try {
             FileInputStream excelFile = new FileInputStream(new File(pathExcelFile));
             HSSFWorkbook workbook = new HSSFWorkbook(excelFile);
@@ -380,9 +388,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Row row = rowIterator.next();
                 rowIndex++;
 
+                if (rowIndex == 6) {
+                    editor.putString("name", row.getCell(2).getStringCellValue());
+                } else if (rowIndex == 7) {
+                    editor.putString("unit", row.getCell(2).getStringCellValue());
+                    editor.apply();
+
+                    showInfoProfile();
+                }
+
                 if (rowIndex < 11) {
                     continue;
                 }
+
                 if (row.getCell(1).getStringCellValue().contains("TUẦN")) {
                     rowWeek++;
                 }
@@ -446,7 +464,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     saveData(listData);
                 }
             }
-            //showEventDetail("11/04/2019");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -509,7 +526,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         Student student = new Student();
 
-        int rowExcelFile = 0;
+        int rowIndex = 0;
         int indexArrDay = 0;
         String strDay = "";
 
@@ -523,9 +540,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 // Tạo và gán 1 đối tượng Row (1 dòng)
                 Row row = rowIterator.next();
                 // Lấy dữ liệu bắt đầu từ hàng thứ 7
-                rowExcelFile++;
-                //Log.d(TAG, "rowExcelFile: " + rowExcelFile);
-                if (rowExcelFile == 4) {
+                rowIndex++;
+                //Log.d(TAG, "rowIndex: " + rowIndex);
+                if (rowIndex == 4) {
                     Iterator<Cell> cellIterator = row.iterator();
                     Cell cell;
                     String rowStudentInfo = "";
@@ -544,15 +561,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                     SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCE, MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("student_name", rowStudentInfoSplit[1]);
+                    editor.putString("name", rowStudentInfoSplit[1]);
+                    editor.putString("unit", rowStudentInfoSplit[5]);
                     editor.putString("student_code", rowStudentInfoSplit[3]);
-                    editor.putString("class", rowStudentInfoSplit[5]);
                     editor.apply();
 
                     showInfoProfile();
                 }
 
-                if (rowExcelFile < 7) {
+                if (rowIndex < 7) {
                     continue;
                 }
                 // Tạo và gán 1 đối tượng Iterator để lặp các cột từ đầu tới cuối
@@ -700,7 +717,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay calendarDay, boolean selected) {
         strDateSelected = convertCalendarDayToString(calendarDay);
         showEventDetail(strDateSelected);
-        Log.d(TAG, "onDateSelected: " + strDateSelected);
     }
 
     public static List<Event> getListEventSelected(String formattedDate) {
@@ -772,15 +788,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 event.setTime("9999");
                 event.save();
 
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        materialCalendarView.removeDecorators();
-                        showEventDot();
-
-                        addDecoratorToDay();
-                    }
-                }, 1000);
+                materialCalendarView.removeDecorators();
+                showEventDot();
+                addDecoratorToDay();
 
                 calDateSelected = new CalendarDay(materialCalendarView.getSelectedDate().getYear(),
                         materialCalendarView.getSelectedDate().getMonth(),

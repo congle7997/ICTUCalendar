@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ICTU Calendar</string>
-    <string name="information" translatable="false">Thông tin</string>
-    <string name="import_excel">Nhập Exce</string>
+    <string name="information" translatable="false">Thông Tin</string>
+    <string name="import_excel">Nhập File Excel</string>
     <string name="setting">Cài Đặt</string>
     <string name="opinion_feedback">Ý Kiến / Phản Hồi</string>
     <string name="coming_soon">Tính năng sẽ sớm có mặt ở bản cập nhật sắp tới!</string>
@@ -15,9 +15,15 @@
     <string name="back">Quay lại</string>
     <string name="agree">Đồng ý</string>
     <string name="back_folder">Trở về thư mục trước</string>
-    <string name="qr_code">Tạo mã QR</string>
+    <string name="create_qr_code">Tạo Mã QR</string>
     <string name="format_not_correct">Định dạng file không đúng!</string>
     <string name="back_main">Trở về màn hình chính</string>
     <string name="internal_storage">Bộ nhớ máy</string>
     <string name="external_storage">Thẻ nhớ</string>
+    <string name="action_settings" translatable="false">Cài đặt</string>
+    <string name="reading_excel_file">Đang đọc file excel ...</string>
+    <string name="you_are">Bạn là:</string>
+    <string name="choose_your_name">Chọn tên của bạn:</string>
+    <string name="lecturer">Giảng viên</string>
+    <string name="student">Sinh viên</string>
 </resources>

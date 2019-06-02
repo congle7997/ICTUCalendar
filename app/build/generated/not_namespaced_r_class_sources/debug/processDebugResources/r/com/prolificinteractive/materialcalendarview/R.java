@@ -12,32 +12,32 @@ public final class R {
     public static final class attr {
         private attr() {}
 
-        public static final int font = 0x7f0300d7;
-        public static final int fontProviderAuthority = 0x7f0300d9;
-        public static final int fontProviderCerts = 0x7f0300da;
-        public static final int fontProviderFetchStrategy = 0x7f0300db;
-        public static final int fontProviderFetchTimeout = 0x7f0300dc;
-        public static final int fontProviderPackage = 0x7f0300dd;
-        public static final int fontProviderQuery = 0x7f0300de;
-        public static final int fontStyle = 0x7f0300df;
-        public static final int fontWeight = 0x7f0300e1;
-        public static final int mcv_allowClickDaysOutsideCurrentMonth = 0x7f030163;
-        public static final int mcv_arrowColor = 0x7f030164;
-        public static final int mcv_calendarMode = 0x7f030165;
-        public static final int mcv_dateTextAppearance = 0x7f030166;
-        public static final int mcv_firstDayOfWeek = 0x7f030167;
-        public static final int mcv_headerTextAppearance = 0x7f030168;
-        public static final int mcv_leftArrowMask = 0x7f030169;
-        public static final int mcv_monthLabels = 0x7f03016a;
-        public static final int mcv_rightArrowMask = 0x7f03016b;
-        public static final int mcv_selectionColor = 0x7f03016c;
-        public static final int mcv_showOtherDates = 0x7f03016d;
-        public static final int mcv_tileHeight = 0x7f03016e;
-        public static final int mcv_tileSize = 0x7f03016f;
-        public static final int mcv_tileWidth = 0x7f030170;
-        public static final int mcv_titleAnimationOrientation = 0x7f030171;
-        public static final int mcv_weekDayLabels = 0x7f030172;
-        public static final int mcv_weekDayTextAppearance = 0x7f030173;
+        public static final int font = 0x7f0300db;
+        public static final int fontProviderAuthority = 0x7f0300dd;
+        public static final int fontProviderCerts = 0x7f0300de;
+        public static final int fontProviderFetchStrategy = 0x7f0300df;
+        public static final int fontProviderFetchTimeout = 0x7f0300e0;
+        public static final int fontProviderPackage = 0x7f0300e1;
+        public static final int fontProviderQuery = 0x7f0300e2;
+        public static final int fontStyle = 0x7f0300e3;
+        public static final int fontWeight = 0x7f0300e5;
+        public static final int mcv_allowClickDaysOutsideCurrentMonth = 0x7f030167;
+        public static final int mcv_arrowColor = 0x7f030168;
+        public static final int mcv_calendarMode = 0x7f030169;
+        public static final int mcv_dateTextAppearance = 0x7f03016a;
+        public static final int mcv_firstDayOfWeek = 0x7f03016b;
+        public static final int mcv_headerTextAppearance = 0x7f03016c;
+        public static final int mcv_leftArrowMask = 0x7f03016d;
+        public static final int mcv_monthLabels = 0x7f03016e;
+        public static final int mcv_rightArrowMask = 0x7f03016f;
+        public static final int mcv_selectionColor = 0x7f030170;
+        public static final int mcv_showOtherDates = 0x7f030171;
+        public static final int mcv_tileHeight = 0x7f030172;
+        public static final int mcv_tileSize = 0x7f030173;
+        public static final int mcv_tileWidth = 0x7f030174;
+        public static final int mcv_titleAnimationOrientation = 0x7f030175;
+        public static final int mcv_weekDayLabels = 0x7f030176;
+        public static final int mcv_weekDayTextAppearance = 0x7f030177;
     }
     public static final class bool {
         private bool() {}
@@ -118,34 +118,34 @@ public final class R {
         public static final int horizontal = 0x7f08005f;
         public static final int icon = 0x7f080060;
         public static final int icon_group = 0x7f080061;
-        public static final int info = 0x7f080067;
-        public static final int italic = 0x7f080069;
-        public static final int line1 = 0x7f08006e;
-        public static final int line3 = 0x7f08006f;
-        public static final int match_parent = 0x7f080077;
-        public static final int mcv_pager = 0x7f080079;
-        public static final int media_actions = 0x7f08007a;
-        public static final int monday = 0x7f08007f;
-        public static final int month = 0x7f080080;
-        public static final int normal = 0x7f08008d;
-        public static final int notification_background = 0x7f08008e;
-        public static final int notification_main_column = 0x7f08008f;
-        public static final int notification_main_column_container = 0x7f080090;
-        public static final int right_icon = 0x7f0800a1;
-        public static final int right_side = 0x7f0800a2;
-        public static final int saturday = 0x7f0800a5;
-        public static final int status_bar_latest_event_content = 0x7f0800cd;
-        public static final int sunday = 0x7f0800d1;
-        public static final int tag_transition_group = 0x7f0800d3;
-        public static final int text = 0x7f0800d6;
-        public static final int text2 = 0x7f0800d7;
-        public static final int thursday = 0x7f0800df;
-        public static final int time = 0x7f0800e0;
-        public static final int title = 0x7f0800e1;
-        public static final int tuesday = 0x7f0800ed;
-        public static final int vertical = 0x7f0800f9;
-        public static final int wednesday = 0x7f0800fc;
-        public static final int week = 0x7f0800fd;
+        public static final int info = 0x7f080066;
+        public static final int italic = 0x7f080068;
+        public static final int line1 = 0x7f08006d;
+        public static final int line3 = 0x7f08006e;
+        public static final int match_parent = 0x7f080076;
+        public static final int mcv_pager = 0x7f080078;
+        public static final int media_actions = 0x7f080079;
+        public static final int monday = 0x7f08007e;
+        public static final int month = 0x7f08007f;
+        public static final int normal = 0x7f08008c;
+        public static final int notification_background = 0x7f08008d;
+        public static final int notification_main_column = 0x7f08008e;
+        public static final int notification_main_column_container = 0x7f08008f;
+        public static final int right_icon = 0x7f0800a0;
+        public static final int right_side = 0x7f0800a1;
+        public static final int saturday = 0x7f0800a4;
+        public static final int status_bar_latest_event_content = 0x7f0800cc;
+        public static final int sunday = 0x7f0800d0;
+        public static final int tag_transition_group = 0x7f0800d2;
+        public static final int text = 0x7f0800d5;
+        public static final int text2 = 0x7f0800d6;
+        public static final int thursday = 0x7f0800de;
+        public static final int time = 0x7f0800df;
+        public static final int title = 0x7f0800e0;
+        public static final int tuesday = 0x7f0800ec;
+        public static final int vertical = 0x7f0800f8;
+        public static final int wednesday = 0x7f0800fb;
+        public static final int week = 0x7f0800fc;
     }
     public static final class integer {
         private integer() {}
@@ -176,9 +176,9 @@ public final class R {
         private string() {}
 
         public static final int calendar = 0x7f100030;
-        public static final int next = 0x7f100048;
-        public static final int previous = 0x7f100051;
-        public static final int status_bar_notification_info_overflow = 0x7f100056;
+        public static final int next = 0x7f10004b;
+        public static final int previous = 0x7f100054;
+        public static final int status_bar_notification_info_overflow = 0x7f100059;
     }
     public static final class style {
         private style() {}
@@ -202,14 +202,14 @@ public final class R {
     public static final class styleable {
         private styleable() {}
 
-        public static final int[] FontFamily = { 0x7f0300d9, 0x7f0300da, 0x7f0300db, 0x7f0300dc, 0x7f0300dd, 0x7f0300de };
+        public static final int[] FontFamily = { 0x7f0300dd, 0x7f0300de, 0x7f0300df, 0x7f0300e0, 0x7f0300e1, 0x7f0300e2 };
         public static final int FontFamily_fontProviderAuthority = 0;
         public static final int FontFamily_fontProviderCerts = 1;
         public static final int FontFamily_fontProviderFetchStrategy = 2;
         public static final int FontFamily_fontProviderFetchTimeout = 3;
         public static final int FontFamily_fontProviderPackage = 4;
         public static final int FontFamily_fontProviderQuery = 5;
-        public static final int[] FontFamilyFont = { 0x1010532, 0x1010533, 0x101053f, 0x101056f, 0x1010570, 0x7f0300d7, 0x7f0300df, 0x7f0300e0, 0x7f0300e1, 0x7f030219 };
+        public static final int[] FontFamilyFont = { 0x1010532, 0x1010533, 0x101053f, 0x101056f, 0x1010570, 0x7f0300db, 0x7f0300e3, 0x7f0300e4, 0x7f0300e5, 0x7f03021d };
         public static final int FontFamilyFont_android_font = 0;
         public static final int FontFamilyFont_android_fontWeight = 1;
         public static final int FontFamilyFont_android_fontStyle = 2;
@@ -220,7 +220,7 @@ public final class R {
         public static final int FontFamilyFont_fontVariationSettings = 7;
         public static final int FontFamilyFont_fontWeight = 8;
         public static final int FontFamilyFont_ttcIndex = 9;
-        public static final int[] MaterialCalendarView = { 0x7f030163, 0x7f030164, 0x7f030165, 0x7f030166, 0x7f030167, 0x7f030168, 0x7f030169, 0x7f03016a, 0x7f03016b, 0x7f03016c, 0x7f03016d, 0x7f03016e, 0x7f03016f, 0x7f030170, 0x7f030171, 0x7f030172, 0x7f030173 };
+        public static final int[] MaterialCalendarView = { 0x7f030167, 0x7f030168, 0x7f030169, 0x7f03016a, 0x7f03016b, 0x7f03016c, 0x7f03016d, 0x7f03016e, 0x7f03016f, 0x7f030170, 0x7f030171, 0x7f030172, 0x7f030173, 0x7f030174, 0x7f030175, 0x7f030176, 0x7f030177 };
         public static final int MaterialCalendarView_mcv_allowClickDaysOutsideCurrentMonth = 0;
         public static final int MaterialCalendarView_mcv_arrowColor = 1;
         public static final int MaterialCalendarView_mcv_calendarMode = 2;
