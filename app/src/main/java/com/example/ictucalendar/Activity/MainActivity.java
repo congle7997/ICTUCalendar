@@ -171,7 +171,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
             final String arrPerson[] = {lecturer, student};
             AlertDialog.Builder builderSingle = new AlertDialog.Builder(this);
-            builderSingle.setIcon(R.drawable.ic_what_people);
+            //test git
+            builderSingle.setIcon(R.drawable.icon_test);
             builderSingle.setTitle(R.string.you_are);
             final String finalLecturer = lecturer;
             final String finalStudent = student;
@@ -312,7 +313,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 arrString[i] = listLecturerName.get(i);
             }
             final AlertDialog.Builder builderSingle = new AlertDialog.Builder(MainActivity.this);
-            builderSingle.setIcon(R.drawable.ic_lecturer_2);
+            //test git
+            builderSingle.setIcon(R.drawable.icon_test);
             builderSingle.setTitle(R.string.choose_your_name);
             builderSingle.setItems(arrString, new DialogInterface.OnClickListener() {
                 @Override

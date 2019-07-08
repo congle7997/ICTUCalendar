@@ -1708,8 +1708,6 @@ drawable ic_information
 drawable ic_internal_storage
 drawable ic_launcher_background
 drawable ic_launcher_foreground
-drawable ic_lecturer_1
-drawable ic_lecturer_2
 drawable ic_menu_camera
 drawable ic_menu_gallery
 drawable ic_menu_manage
@@ -1726,7 +1724,7 @@ drawable ic_qr_code
 drawable ic_setting
 drawable ic_subject_name
 drawable ic_time
-drawable ic_what_people
+drawable icon_test
 drawable ictu
 drawable layout_splash_screen
 drawable logo_ictu
