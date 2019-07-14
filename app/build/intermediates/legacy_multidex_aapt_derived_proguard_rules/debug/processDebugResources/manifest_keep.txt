@@ -1,4 +1,4 @@
-# Referenced at D:\AndroidStudioProjects\ICTUCalendar\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:13
+# Referenced at D:\AndroidStudioProjects\clone\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:13
 -keep class android.support.v4.app.CoreComponentFactory { <init>(); }
-# Referenced at D:\AndroidStudioProjects\ICTUCalendar\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:13
+# Referenced at D:\AndroidStudioProjects\clone\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:13
 -keep class com.activeandroid.app.Application { <init>(); }
