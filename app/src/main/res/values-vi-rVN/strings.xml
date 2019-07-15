@@ -27,4 +27,5 @@
     <string name="lecturer">Giảng viên</string>
     <string name="student">Sinh viên</string>
     <string name="save_data_successfully">Lưu dữ liệu thành công!</string>
+    <string name="save_note_successfully">Lưu ghi chú thành công!</string>
 </resources>

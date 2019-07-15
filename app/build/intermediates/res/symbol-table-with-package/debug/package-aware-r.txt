@@ -1701,9 +1701,11 @@ drawable ic_add_note
 drawable ic_alarm
 drawable ic_back_directory
 drawable ic_excel
+drawable ic_excel_file
 drawable ic_external_storage
 drawable ic_file
 drawable ic_folder
+drawable ic_ictu
 drawable ic_information
 drawable ic_internal_storage
 drawable ic_launcher_background
@@ -1725,7 +1727,6 @@ drawable ic_qr_code
 drawable ic_setting
 drawable ic_subject_name
 drawable ic_time
-drawable ictu
 drawable img_splash_screen
 drawable layout_splash_screen
 drawable mcv_action_next
@@ -2696,7 +2697,9 @@ string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
 string previous
+string reading_excel_file
 string save_data_successfully
+string save_note_successfully
 string search_menu_title
 string sent_developer
 string setting

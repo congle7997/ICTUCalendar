@@ -18,10 +18,10 @@
 
     <string name="note">Note</string>
     <string name="enter_your_note">Enter your note ...</string>
-    <string name="cancel">Cancel</string>
     <string name="accept">Accept</string>
-    <string name="back">Back</string>
+    <string name="cancel">Cancel</string>
     <string name="agree">Agree</string>
+    <string name="back">Back</string>
 
     <string name="not_installed_gmail">Gmail application is not installed on your device!</string>
     <string name="sent_developer">Feedback has been sent to this app developer!</string>
@@ -35,5 +35,7 @@
     <string name="lecturer">Lecturer</string>
     <string name="student">Student</string>
     <string name="choose_your_name">Choose your name:</string>
+    <string name="reading_excel_file">Reading excel file ...</string>
     <string name="save_data_successfully">Save data successfully!</string>
+    <string name="save_note_successfully">Save note successfully!</string>
 </resources>

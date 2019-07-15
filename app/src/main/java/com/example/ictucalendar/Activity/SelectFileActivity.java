@@ -147,7 +147,7 @@ public class SelectFileActivity extends AppCompatActivity implements OnClickedLi
     }
 
     @Override
-    public void onFolderClicked(String folderName) {
+    public void setOnFolderClicked(String folderName) {
         // Kiểm tra nếu cuối đường không có dấu '/' thì thêm
         if (path.charAt(path.length() - 1) != '/') {
             path += '/';
@@ -158,12 +158,12 @@ public class SelectFileActivity extends AppCompatActivity implements OnClickedLi
         rlBackMain.setVisibility(View.GONE);
         rlBackFolder.setVisibility(View.VISIBLE);
 
-        Log.d(TAG, "onFolderClicked: ");
+        Log.d(TAG, "setOnFolderClicked: ");
         customAdapterSelectFiles.notifyDataSetChanged();
     }
 
     @Override
-    public void onExcelFileClicked(String pathExcelFile) {
+    public void setOnExcelFileClicked(String pathExcelFile) {
         ProgressDialog progressDialog = new ProgressDialog(SelectFileActivity.this);
         String message = "Reading excel file ...";
         if (Locale.getDefault().getDisplayLanguage().equals("Tiếng Việt")) {

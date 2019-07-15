@@ -508,7 +508,7 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    /*--------------------------------------------------------------------------------------------*/
+    /**/
 
     public void readExcelStudent(String pathExcelFile) {
         new Delete().from(Event.class).where("type = ?", "Lecturer").execute();
@@ -751,7 +751,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v) {
                 pickDate(new OnDatePickerListener() {
                     @Override
-                    public void onDatePickerListener(String strDatePicked) {
+                    public void setOnDatePickerListener(String strDatePicked) {
                         btnDatePicked.setText(strDatePicked);
                     }
                 });
@@ -759,14 +759,14 @@ public class MainActivity extends AppCompatActivity
         });
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Ghi chú");
+        builder.setTitle(R.string.note);
         builder.setView(view);
-        builder.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
             }
         });
-        builder.setPositiveButton("Chấp nhận", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.accept, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String strNote = edtInputNote.getText().toString();
@@ -781,11 +781,15 @@ public class MainActivity extends AppCompatActivity
                 materialCalendarView.removeDecorators();
                 showEventDot();
                 addDecoratorToDay();
+                Toast.makeText(MainActivity.this, R.string.save_note_successfully, Toast.LENGTH_SHORT).show();
 
-                calDateSelected = new CalendarDay(materialCalendarView.getSelectedDate().getYear(),
-                        materialCalendarView.getSelectedDate().getMonth(),
-                        materialCalendarView.getSelectedDate().getDay());
-                showEventDetail(convertCalendarDayToString(calDateSelected));
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                    }
+                },100);
             }
         });
         AlertDialog alertDialog = builder.create();
@@ -805,12 +809,12 @@ public class MainActivity extends AppCompatActivity
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setView(view);
-        builder.setNegativeButton("Quay lại", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.back, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
             }
         });
-        builder.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.agree, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 int day = datePicker.getDayOfMonth();
@@ -826,7 +830,7 @@ public class MainActivity extends AppCompatActivity
                 int year = datePicker.getYear();
                 String strDatePicked = strDay + "/" + strMonth + "/" + year;
                 // gọi callback trả dữ liệu ngày về displayDialogNote()
-                onDatePickerListener.onDatePickerListener(strDatePicked);
+                onDatePickerListener.setOnDatePickerListener(strDatePicked);
             }
         });
         AlertDialog alertDialog = builder.create();

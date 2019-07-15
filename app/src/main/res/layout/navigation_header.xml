@@ -13,7 +13,7 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:src="@drawable/ictu"
+        android:src="@drawable/ic_ictu"
         android:layout_width="@dimen/_50sdp"
         android:layout_height="@dimen/_50sdp" />
 

@@ -52,7 +52,11 @@ public class AdapterSelectFiles extends RecyclerView.Adapter<AdapterSelectFiles.
             if (listFile.get(i).isDirectory()) {
                 recycleViewHolder.imgFileType.setImageDrawable(context.getDrawable(R.drawable.ic_folder));
             } else {
-                recycleViewHolder.imgFileType.setImageDrawable(context.getDrawable(R.drawable.ic_file));
+                if (listFile.get(i).getName().endsWith("xls")) {
+                    recycleViewHolder.imgFileType.setImageDrawable(context.getDrawable(R.drawable.ic_excel_file));
+                } else {
+                    recycleViewHolder.imgFileType.setImageDrawable(context.getDrawable(R.drawable.ic_file));
+                }
             }
             //Set tên cho nó
             recycleViewHolder.txtFileName.setText(listFile.get(i).getName());
@@ -96,10 +100,10 @@ public class AdapterSelectFiles extends RecyclerView.Adapter<AdapterSelectFiles.
                                 nameFolder = "emulated/0";
                             }
                             // Gọi callback về Activity chủ quản (SelectFileActivity) và trả về kết quả
-                            onClickedListener.onFolderClicked(nameFolder);
+                            onClickedListener.setOnFolderClicked(nameFolder);
                         } else {
                             if (file.getPath().endsWith("xls")) {
-                                onClickedListener.onExcelFileClicked(file.getPath());
+                                onClickedListener.setOnExcelFileClicked(file.getPath());
                             } else {
                                 Toast.makeText(context, R.string.format_not_correct, Toast.LENGTH_LONG).show();
                             }

@@ -1,6 +1,6 @@
 package com.example.ictucalendar.Interface;
 
 public interface OnClickedListener {
-    void onFolderClicked(String folderName);
-    void onExcelFileClicked(String pathExcelFile);
+    void setOnFolderClicked(String folderName);
+    void setOnExcelFileClicked(String pathExcelFile);
 }
