@@ -26,4 +26,5 @@
     <string name="choose_your_name">Chọn tên của bạn:</string>
     <string name="lecturer">Giảng viên</string>
     <string name="student">Sinh viên</string>
+    <string name="save_data_successfully">Lưu dữ liệu thành công!</string>
 </resources>

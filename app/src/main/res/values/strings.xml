@@ -35,4 +35,5 @@
     <string name="lecturer">Lecturer</string>
     <string name="student">Student</string>
     <string name="choose_your_name">Choose your name:</string>
+    <string name="save_data_successfully">Save data successfully!</string>
 </resources>

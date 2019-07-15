@@ -1719,12 +1719,12 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_note
 drawable ic_opinion_feedback
+drawable ic_people_info
 drawable ic_place
 drawable ic_qr_code
 drawable ic_setting
 drawable ic_subject_name
 drawable ic_time
-drawable icon_test
 drawable ictu
 drawable img_splash_screen
 drawable layout_splash_screen
@@ -2696,6 +2696,7 @@ string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
 string previous
+string save_data_successfully
 string search_menu_title
 string sent_developer
 string setting

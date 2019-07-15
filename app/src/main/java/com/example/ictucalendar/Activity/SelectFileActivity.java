@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,9 +11,8 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
-import com.example.ictucalendar.Adapter.CustomAdapterSelectFiles;
+import com.example.ictucalendar.Adapter.AdapterSelectFiles;
 import com.example.ictucalendar.Interface.OnClickedListener;
 import com.example.ictucalendar.R;
 
@@ -33,7 +31,7 @@ public class SelectFileActivity extends AppCompatActivity implements OnClickedLi
     private final String root = "/storage/";
     private String path = root;
     private List<File> listFile = new ArrayList<>();
-    private CustomAdapterSelectFiles customAdapterSelectFiles;
+    private AdapterSelectFiles customAdapterSelectFiles;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,7 +58,7 @@ public class SelectFileActivity extends AppCompatActivity implements OnClickedLi
 
         loadRootFolder();
 
-        customAdapterSelectFiles = new CustomAdapterSelectFiles(this, this, listFile);
+        customAdapterSelectFiles = new AdapterSelectFiles(this, this, listFile);
         rcSelectFile.setAdapter(customAdapterSelectFiles);
 
         rlBackFolder.setOnClickListener(new View.OnClickListener() {
