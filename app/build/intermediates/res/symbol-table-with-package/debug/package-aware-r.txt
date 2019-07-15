@@ -1726,8 +1726,8 @@ drawable ic_subject_name
 drawable ic_time
 drawable icon_test
 drawable ictu
+drawable img_splash_screen
 drawable layout_splash_screen
-drawable logo_ictu
 drawable mcv_action_next
 drawable mcv_action_previous
 drawable mtrl_snackbar_background

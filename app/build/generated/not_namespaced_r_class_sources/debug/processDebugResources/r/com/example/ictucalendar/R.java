@@ -5987,8 +5987,8 @@ public final class R {
     public static final int ic_time=0x7f07007f;
     public static final int icon_test=0x7f070080;
     public static final int ictu=0x7f070081;
-    public static final int layout_splash_screen=0x7f070082;
-    public static final int logo_ictu=0x7f070083;
+    public static final int img_splash_screen=0x7f070082;
+    public static final int layout_splash_screen=0x7f070083;
     public static final int mcv_action_next=0x7f070084;
     public static final int mcv_action_previous=0x7f070085;
     public static final int mtrl_snackbar_background=0x7f070086;

@@ -1,4 +1,4 @@
-#Fri Jul 12 17:25:52 ICT 2019
+#Mon Jul 15 15:24:40 ICT 2019
 path.3=classes3.dex
 path.2=classes2.dex
 path.1=classes.dex
@@ -7,7 +7,7 @@ renamed.3=classes4.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
-base.3=D\:\\AndroidStudioProjects\\clone\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out
-base.2=D\:\\AndroidStudioProjects\\clone\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out
-base.1=D\:\\AndroidStudioProjects\\clone\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out
-base.0=D\:\\AndroidStudioProjects\\clone\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out
+base.3=D\:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out
+base.2=D\:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out
+base.1=D\:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out
+base.0=D\:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out

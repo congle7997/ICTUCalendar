@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="armeabi-v7a,armeabi"
+    api-level="28"
+    build-mode="FULL"
+    density="280dpi"
+    format="10"
+    plugin-version="3.4.1"
+    timestamp="1563178778739"
+    token="1491003853786722737"
+    verifier="FULL_BUILD_REQUESTED" >
+
+    <task
+        name="javac"
+        duration="3725" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="854" />
+    <task
+        name="verifier"
+        duration="1343" />
+
+    <artifact
+        location="D:\AndroidStudioProjects\ICTUCalendar\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\AndroidStudioProjects\ICTUCalendar\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
+        type="SPLIT" />
+
+</instant-run>
