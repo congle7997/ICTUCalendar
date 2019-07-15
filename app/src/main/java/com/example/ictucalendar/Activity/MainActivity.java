@@ -27,7 +27,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -292,10 +291,10 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void setReturnListLecturerName(List<String> listLecturerName) {
-        readExcelLecturer(pathExcelLecturer, listLecturerName);
+        selectLecturer(pathExcelLecturer, listLecturerName);
     }
 
-    public void readExcelLecturer(final String pathExcelFile, final List<String> listLecturerName) {
+    public void selectLecturer(final String pathExcelFile, final List<String> listLecturerName) {
         final String arrString[] = new String[listLecturerName.size()];
         for (int i = 0; i < listLecturerName.size(); i++) {
             arrString[i] = listLecturerName.get(i);
@@ -508,6 +507,8 @@ public class MainActivity extends AppCompatActivity
         }
 
     }
+
+    /*--------------------------------------------------------------------------------------------*/
 
     public void readExcelStudent(String pathExcelFile) {
         new Delete().from(Event.class).where("type = ?", "Lecturer").execute();
