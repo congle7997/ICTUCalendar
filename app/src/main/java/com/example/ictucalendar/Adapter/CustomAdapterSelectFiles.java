@@ -51,35 +51,19 @@ public class CustomAdapterSelectFiles extends RecyclerView.Adapter<CustomAdapter
         // Đang không ở thư mục root
         if (!isRoot()) {
             if (listFile.get(i).isDirectory()) {
-                if(android.os.Build.VERSION.SDK_INT >= 21){
-                    recycleViewHolder.imgFileType.setImageDrawable(context.getDrawable(R.drawable.ic_folder));
-                } else {
-              //      recycleViewHolder.imgFileType.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_folder));
-                }
+                recycleViewHolder.imgFileType.setImageDrawable(context.getDrawable(R.drawable.ic_folder));
             } else {
-                if(android.os.Build.VERSION.SDK_INT >= 21){
-                    recycleViewHolder.imgFileType.setImageDrawable(context.getDrawable(R.drawable.ic_file));
-                } else {
-               //     recycleViewHolder.imgFileType.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_file));
-                }
+                recycleViewHolder.imgFileType.setImageDrawable(context.getDrawable(R.drawable.ic_file));
             }
             //Set tên cho nó
             recycleViewHolder.txtFileName.setText(listFile.get(i).getName());
         } else {
             // Nếu thư mục có tên là "0" thì là bộ nhớ máy
             if (listFile.get(i).getName().equalsIgnoreCase("0")) {
-                if(android.os.Build.VERSION.SDK_INT >= 21){
-                    recycleViewHolder.imgFileType.setImageDrawable(context.getDrawable(R.drawable.ic_internal_storage));
-                } else {
-                   // recycleViewHolder.imgFileType.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_internal_storage));
-                }
+                recycleViewHolder.imgFileType.setImageDrawable(context.getDrawable(R.drawable.ic_internal_storage));
                 recycleViewHolder.txtFileName.setText(R.string.internal_storage);
             } else {
-                if(android.os.Build.VERSION.SDK_INT >= 21){
-                    recycleViewHolder.imgFileType.setImageDrawable(context.getDrawable(R.drawable.ic_external_storage));
-                } else {
-                   // recycleViewHolder.imgFileType.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_external_storage));
-                }
+                recycleViewHolder.imgFileType.setImageDrawable(context.getDrawable(R.drawable.ic_external_storage));
                 recycleViewHolder.txtFileName.setText(R.string.external_storage);
             }
 
@@ -110,7 +94,7 @@ public class CustomAdapterSelectFiles extends RecyclerView.Adapter<CustomAdapter
                             /* Nếu không có lệnh này thì đường dẫn bộ nhớ chính sẽ là /storage/0
                             mà đường dẫn bộ nhớ chính luôn là /storage/emulated/0 */
                             if (nameFolder.equalsIgnoreCase("0")) {
-                                nameFolder ="emulated/0";
+                                nameFolder = "emulated/0";
                             }
                             // Gọi callback về Activity chủ quản (SelectFileActivity) và trả về kết quả
                             onClickedListener.onFolderClicked(nameFolder);
@@ -130,7 +114,7 @@ public class CustomAdapterSelectFiles extends RecyclerView.Adapter<CustomAdapter
     private boolean isRoot() {
         //Nếu nó chỉ có 2 file và có thư mục tên "0" thì nó là thư mục root
         if (listFile.size() <= 2) {
-            for (File file: listFile) {
+            for (File file : listFile) {
                 if (file.getName().equalsIgnoreCase("0")) {
                     return true;
                 }
