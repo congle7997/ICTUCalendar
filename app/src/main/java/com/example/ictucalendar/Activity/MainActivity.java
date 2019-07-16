@@ -42,8 +42,10 @@ import com.activeandroid.query.Select;
 import com.example.ictucalendar.Adapter.AdapterShowEvents;
 import com.example.ictucalendar.Decorator.SubjectDecorator;
 import com.example.ictucalendar.Interface.OnDatePickerListener;
+import com.example.ictucalendar.Interface.OnListennerReadExcelStudent;
 import com.example.ictucalendar.Interface.ReturnListLecturerName;
 import com.example.ictucalendar.MultiThread.AsyncTaskGetListLecturer;
+import com.example.ictucalendar.MultiThread.AsyncTaskReadExcelStudent;
 import com.example.ictucalendar.Object.Event;
 import com.example.ictucalendar.Object.Student;
 import com.example.ictucalendar.R;
@@ -77,7 +79,8 @@ import java.util.List;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, OnDateSelectedListener, ReturnListLecturerName {
+        implements NavigationView.OnNavigationItemSelectedListener,
+        OnDateSelectedListener, ReturnListLecturerName, OnListennerReadExcelStudent {
 
 
     DrawerLayout drawerLayout;
@@ -87,9 +90,10 @@ public class MainActivity extends AppCompatActivity
     MaterialCalendarView materialCalendarView;
     RecyclerView rcShowEvents;
     AdapterShowEvents customAdapterShowEvents;
-    TextView txtStudentName, txtClass;
+    TextView txtName, txtUnit;
     ProgressDialog pdGetListLecturerName;
-    ProgressDialog pdReadingData;
+    ProgressDialog pdReadingDataLecturer;
+    ProgressDialog pgReadingDataStudent;
 
     static final String TAG = MainActivity.class.getSimpleName();
     static final int REQUEST_CODE_STUDENT = 1;
@@ -229,14 +233,21 @@ public class MainActivity extends AppCompatActivity
         if (requestCode == REQUEST_CODE_STUDENT && resultCode == Activity.RESULT_OK) {
             String pathExcelFile = data.getStringExtra(SelectFileActivity.PATH);
 
-            readExcelStudent(pathExcelFile);
 
-            materialCalendarView.removeDecorators();
-            showEventDot();
-            showEventDetail(strDateSelected);
-            addDecoratorToDay();
+            SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCE, MODE_PRIVATE);
 
-            Toast.makeText(this, R.string.save_data_successfully, Toast.LENGTH_SHORT).show();
+            AsyncTaskReadExcelStudent asyncTaskReadExcelStudent = new AsyncTaskReadExcelStudent(this, sharedPreferences);
+            asyncTaskReadExcelStudent.execute(pathExcelFile);
+
+            pgReadingDataStudent = new ProgressDialog(MainActivity.this);
+            String message = "Saving data ...";
+            if (Locale.getDefault().getDisplayLanguage().equals("Tiếng Việt")) {
+                message = "Đang lưu dữ liệu ...";
+            }
+            pgReadingDataStudent.setMessage(message);
+            pgReadingDataStudent.setCanceledOnTouchOutside(false);
+            pgReadingDataStudent.show();
+
         } else if (requestCode == REQUEST_CODE_LECTURER && resultCode == Activity.RESULT_OK) {
             pathExcelLecturer = data.getStringExtra(SelectFileActivity.PATH);
 
@@ -256,38 +267,20 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    public void addDecoratorToDay() {
-        // vòng tròn của ngày hiện tại chỉ xuất hiện khi ngày hiện tại được chọn
-        materialCalendarView.setDateSelected(CalendarDay.today(), true);
+    @Override
+    public void setOnListennerReadExcelStudent() {
+        materialCalendarView.removeDecorators();
+        showEventDot();
+        showEventDetail(strDateSelected);
+        addDecoratorToDay();
+        showInfoProfile();
 
-        materialCalendarView.addDecorator(new DayViewDecorator() {
-            @Override
-            public boolean shouldDecorate(CalendarDay day) {
-                if (CalendarDay.today().equals(day)) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
+        pgReadingDataStudent.dismiss();
 
-            @Override
-            public void decorate(DayViewFacade view) {
-                view.setBackgroundDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.selector_current_date));
-            }
-        });
+        Toast.makeText(this, R.string.save_data_successfully, Toast.LENGTH_SHORT).show();
     }
 
-    public void showInfoProfile() {
-        View view = navigationView.getHeaderView(0);
-        txtStudentName = view.findViewById(R.id.txt_student_name);
-        //txtStudentCode = view.findViewById(R.id.txt_student_code);
-        txtClass = view.findViewById(R.id.txt_class);
 
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCE, Context.MODE_PRIVATE);
-        txtStudentName.setText(sharedPreferences.getString("name", "?"));
-        //txtStudentCode.setText(sharedPreferences.getString("student_code", "?"));
-        txtClass.setText(sharedPreferences.getString("unit", "?"));
-    }
 
     @Override
     public void setReturnListLecturerName(List<String> listLecturerName) {
@@ -307,26 +300,26 @@ public class MainActivity extends AppCompatActivity
             public void onClick(DialogInterface dialog, final int i) {
                 pdGetListLecturerName.dismiss();
 
-                pdReadingData = new ProgressDialog(MainActivity.this);
-                String message = "Reading data for " + listLecturerName.get(i);
+                pdReadingDataLecturer = new ProgressDialog(MainActivity.this);
+                String message = "Saving data for " + listLecturerName.get(i);
                 if (Locale.getDefault().getDisplayLanguage().equals("Tiếng Việt")) {
-                    message = "Đang đọc dữ liệu của " + listLecturerName.get(i);
+                    message = "Đang lưu dữ liệu của " + listLecturerName.get(i);
                 }
-                pdReadingData.setMessage(message);
-                pdReadingData.setCanceledOnTouchOutside(false);
-                pdReadingData.show();
+                pdReadingDataLecturer.setMessage(message);
+                pdReadingDataLecturer.setCanceledOnTouchOutside(false);
+                pdReadingDataLecturer.show();
 
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        readExcel(pathExcelFile, i);
+                        readExcelLecturer(pathExcelFile, i);
 
                         materialCalendarView.removeDecorators();
                         showEventDot();
                         showEventDetail(strDateSelected);
                         addDecoratorToDay();
 
-                        pdReadingData.dismiss();
+                        pdReadingDataLecturer.dismiss();
 
                         Toast.makeText(MainActivity.this, R.string.save_data_successfully, Toast.LENGTH_SHORT).show();
                     }
@@ -354,7 +347,7 @@ public class MainActivity extends AppCompatActivity
         return "str";
     }
 
-    public void readExcel(String pathExcelFile, int i) {
+    public void readExcelLecturer(String pathExcelFile, int i) {
         new Delete().from(Event.class).where("type = ?", "Lecturer").execute();
         new Delete().from(Event.class).where("type = ?", "Student").execute();
 
@@ -508,7 +501,6 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    /**/
 
     public void readExcelStudent(String pathExcelFile) {
         new Delete().from(Event.class).where("type = ?", "Lecturer").execute();
@@ -778,18 +770,11 @@ public class MainActivity extends AppCompatActivity
                 event.setTime("9999");
                 event.save();
 
+
                 materialCalendarView.removeDecorators();
                 showEventDot();
                 addDecoratorToDay();
                 Toast.makeText(MainActivity.this, R.string.save_note_successfully, Toast.LENGTH_SHORT).show();
-
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-
-                    }
-                },100);
             }
         });
         AlertDialog alertDialog = builder.create();
@@ -855,6 +840,39 @@ public class MainActivity extends AppCompatActivity
         String strDate = strDay + "/" + strMonth + "/" + year;
 
         return strDate;
+    }
+
+    public void addDecoratorToDay() {
+        // vòng tròn của ngày hiện tại chỉ xuất hiện khi ngày hiện tại được chọn
+        materialCalendarView.setDateSelected(CalendarDay.today(), true);
+
+        materialCalendarView.addDecorator(new DayViewDecorator() {
+            @Override
+            public boolean shouldDecorate(CalendarDay day) {
+                if (CalendarDay.today().equals(day)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            @Override
+            public void decorate(DayViewFacade view) {
+                view.setBackgroundDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.selector_current_date));
+            }
+        });
+    }
+
+    public void showInfoProfile() {
+        View view = navigationView.getHeaderView(0);
+        txtName = view.findViewById(R.id.txt_name);
+        //txtStudentCode = view.findViewById(R.id.txt_student_code);
+        txtUnit = view.findViewById(R.id.txt_unit);
+
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCE, Context.MODE_PRIVATE);
+        txtName.setText(sharedPreferences.getString("name", "?"));
+        //txtStudentCode.setText(sharedPreferences.getString("student_code", "?"));
+        txtUnit.setText(sharedPreferences.getString("unit", "?"));
     }
 
     public void showEventDetail(String strDate) {

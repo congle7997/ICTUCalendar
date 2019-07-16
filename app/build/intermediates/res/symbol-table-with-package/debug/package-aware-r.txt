@@ -1987,13 +1987,13 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id tuesday
-id txt_class
 id txt_file_name
 id txt_lecturer
+id txt_name
 id txt_place
-id txt_student_name
 id txt_subject_name
 id txt_time
+id txt_unit
 id uniform
 id unlabeled
 id up
