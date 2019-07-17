@@ -13,6 +13,10 @@
             android:icon="@drawable/ic_qr_code"
             android:title="@string/create_qr_code" />
         <item
+            android:id="@+id/nav_extracurricular_point"
+            android:icon="@drawable/ic_extracurricular_point"
+            android:title="@string/extracurricular_point" />
+        <item
             android:id="@+id/nav_setting"
             android:icon="@drawable/ic_setting"
             android:title="@string/setting" />

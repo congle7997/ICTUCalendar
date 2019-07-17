@@ -35,7 +35,4 @@ public class SubjectDecorator implements DayViewDecorator {
     public void decorate(DayViewFacade view) {
         view.addSpan(new CustomDecorator(color, context));
     }
-
-
-
 }

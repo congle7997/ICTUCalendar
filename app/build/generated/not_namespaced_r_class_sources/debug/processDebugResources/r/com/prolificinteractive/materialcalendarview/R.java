@@ -84,20 +84,20 @@ public final class R {
     public static final class drawable {
         private drawable() {}
 
-        public static final int mcv_action_next = 0x7f070085;
-        public static final int mcv_action_previous = 0x7f070086;
-        public static final int notification_action_background = 0x7f07008a;
-        public static final int notification_bg = 0x7f07008b;
-        public static final int notification_bg_low = 0x7f07008c;
-        public static final int notification_bg_low_normal = 0x7f07008d;
-        public static final int notification_bg_low_pressed = 0x7f07008e;
-        public static final int notification_bg_normal = 0x7f07008f;
-        public static final int notification_bg_normal_pressed = 0x7f070090;
-        public static final int notification_icon_background = 0x7f070091;
-        public static final int notification_template_icon_bg = 0x7f070092;
-        public static final int notification_template_icon_low_bg = 0x7f070093;
-        public static final int notification_tile_bg = 0x7f070094;
-        public static final int notify_panel_notification_icon_bg = 0x7f070095;
+        public static final int mcv_action_next = 0x7f070087;
+        public static final int mcv_action_previous = 0x7f070088;
+        public static final int notification_action_background = 0x7f07008c;
+        public static final int notification_bg = 0x7f07008d;
+        public static final int notification_bg_low = 0x7f07008e;
+        public static final int notification_bg_low_normal = 0x7f07008f;
+        public static final int notification_bg_low_pressed = 0x7f070090;
+        public static final int notification_bg_normal = 0x7f070091;
+        public static final int notification_bg_normal_pressed = 0x7f070092;
+        public static final int notification_icon_background = 0x7f070093;
+        public static final int notification_template_icon_bg = 0x7f070094;
+        public static final int notification_template_icon_low_bg = 0x7f070095;
+        public static final int notification_tile_bg = 0x7f070096;
+        public static final int notify_panel_notification_icon_bg = 0x7f070097;
     }
     public static final class id {
         private id() {}
@@ -127,25 +127,25 @@ public final class R {
         public static final int media_actions = 0x7f080079;
         public static final int monday = 0x7f08007e;
         public static final int month = 0x7f08007f;
-        public static final int normal = 0x7f08008c;
-        public static final int notification_background = 0x7f08008d;
-        public static final int notification_main_column = 0x7f08008e;
-        public static final int notification_main_column_container = 0x7f08008f;
-        public static final int right_icon = 0x7f0800a0;
-        public static final int right_side = 0x7f0800a1;
-        public static final int saturday = 0x7f0800a4;
-        public static final int status_bar_latest_event_content = 0x7f0800cc;
-        public static final int sunday = 0x7f0800d0;
-        public static final int tag_transition_group = 0x7f0800d2;
-        public static final int text = 0x7f0800d5;
-        public static final int text2 = 0x7f0800d6;
-        public static final int thursday = 0x7f0800de;
-        public static final int time = 0x7f0800df;
-        public static final int title = 0x7f0800e0;
-        public static final int tuesday = 0x7f0800ec;
-        public static final int vertical = 0x7f0800f8;
-        public static final int wednesday = 0x7f0800fb;
-        public static final int week = 0x7f0800fc;
+        public static final int normal = 0x7f08008d;
+        public static final int notification_background = 0x7f08008e;
+        public static final int notification_main_column = 0x7f08008f;
+        public static final int notification_main_column_container = 0x7f080090;
+        public static final int right_icon = 0x7f0800a1;
+        public static final int right_side = 0x7f0800a2;
+        public static final int saturday = 0x7f0800a5;
+        public static final int status_bar_latest_event_content = 0x7f0800cd;
+        public static final int sunday = 0x7f0800d1;
+        public static final int tag_transition_group = 0x7f0800d3;
+        public static final int text = 0x7f0800d6;
+        public static final int text2 = 0x7f0800d7;
+        public static final int thursday = 0x7f0800df;
+        public static final int time = 0x7f0800e0;
+        public static final int title = 0x7f0800e1;
+        public static final int tuesday = 0x7f0800ed;
+        public static final int vertical = 0x7f0800f9;
+        public static final int wednesday = 0x7f0800fc;
+        public static final int week = 0x7f0800fd;
     }
     public static final class integer {
         private integer() {}
@@ -176,9 +176,9 @@ public final class R {
         private string() {}
 
         public static final int calendar = 0x7f100030;
-        public static final int next = 0x7f10004b;
-        public static final int previous = 0x7f100054;
-        public static final int status_bar_notification_info_overflow = 0x7f10005b;
+        public static final int next = 0x7f100052;
+        public static final int previous = 0x7f10005c;
+        public static final int status_bar_notification_info_overflow = 0x7f100063;
     }
     public static final class style {
         private style() {}

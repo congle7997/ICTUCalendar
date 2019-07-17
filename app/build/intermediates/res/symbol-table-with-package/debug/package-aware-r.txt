@@ -1703,6 +1703,7 @@ drawable ic_back_directory
 drawable ic_excel
 drawable ic_excel_file
 drawable ic_external_storage
+drawable ic_extracurricular_point
 drawable ic_file
 drawable ic_folder
 drawable ic_ictu
@@ -1728,6 +1729,7 @@ drawable ic_setting
 drawable ic_subject_name
 drawable ic_time
 drawable img_splash_screen
+drawable img_student_file
 drawable layout_splash_screen
 drawable mcv_action_next
 drawable mcv_action_previous
@@ -1881,6 +1883,7 @@ id month
 id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
+id nav_extracurricular_point
 id nav_import_excel
 id nav_information
 id nav_opinion_feedback
@@ -2665,15 +2668,22 @@ string cancel
 string character_counter_content_description
 string character_counter_pattern
 string choose_your_name
-string coming_soon
 string create_qr_code
+string day_format
 string enter_your_note
 string external_storage
+string extracurricular_point
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string format_not_correct
 string hide_bottom_view_on_scroll_behavior
 string import_excel
+string info0
+string info1
+string info2
+string info3
+string info4
+string info5
 string information
 string internal_storage
 string joda_time_android_date_time
@@ -2688,6 +2698,7 @@ string nav_header_title
 string navigation_drawer_close
 string navigation_drawer_open
 string next
+string not_available
 string not_installed_gmail
 string note
 string opinion_feedback

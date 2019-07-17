@@ -1332,15 +1332,22 @@
     <string name="character_counter_content_description">Character limit exceeded %1$d of %2$d</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
     <string name="choose_your_name">Choose your name:</string>
-    <string name="coming_soon">Coming soon!</string>
     <string name="create_qr_code">Create QR Code</string>
+    <string name="day_format">Schedule file must be in DAY format!</string>
     <string name="enter_your_note">Enter your note ...</string>
     <string name="external_storage">External Storage</string>
+    <string name="extracurricular_point">Extracurricular Point</string>
     <string name="fab_transformation_scrim_behavior" translatable="false">android.support.design.transformation.FabTransformationScrimBehavior</string>
     <string name="fab_transformation_sheet_behavior" translatable="false">android.support.design.transformation.FabTransformationSheetBehavior</string>
     <string name="format_not_correct">File is not formatted correctly!</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">android.support.design.behavior.HideBottomViewOnScrollBehavior</string>
     <string name="import_excel">Import Excel File</string>
+    <string name="info0">Thank for using!</string>
+    <string name="info1">"   Software for viewing Calendar ICTU Calendar is built by a group of students of Software Engineering industry of ICTUaiming to improve programming skills of group as well as serving the viewing schedule for lecturers and students' schedules the school that the group is attending,the software public source code at: "</string>
+    <string name="info2">https://github.com/congle7997/ICTUCalendar</string>
+    <string name="info3">"   Entering the schedule file for teachers is very simple because the faculty members have only one calendar format,and the students will have a variety of calendar formats and software that only supports DAY format. When you take your calendar, you should pay attention!"</string>
+    <string name="info4">"   A student calendar file in the form of DAY is as follows (other students have a calendar format like this, the software can still read normally):"</string>
+    <string name="info5">"   In addition to displaying lecture schedules, the calendar also supports creating notes.Each blue dot indicates that the date has a schedule, each purple dot indicates that the date has 1 note, up to 1 day on the calendar displays 4 dots of the calendar and 1 note."</string>
     <string name="information">Information</string>
     <string name="internal_storage">Internal Storage</string>
     <string name="joda_time_android_date_time">%1$s, %2$s</string>
@@ -1355,6 +1362,7 @@
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="next">Go to next</string>
+    <string name="not_available">Not Available!</string>
     <string name="not_installed_gmail">Gmail application is not installed on your device!</string>
     <string name="note">Note</string>
     <string name="opinion_feedback" translatable="false">Opinion / Feedback</string>

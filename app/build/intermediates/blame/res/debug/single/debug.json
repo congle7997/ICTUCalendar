@@ -1256,6 +1256,10 @@
         "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-2\\files-2.1\\6ad0bbc8c35b8009642781fe044a93a3\\res\\drawable-xxhdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png"
     },
     {
+        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_extracurricular_point.png.flat",
+        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable\\ic_extracurricular_point.png"
+    },
+    {
         "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\raw_joda_america_juneau.flat",
         "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-2\\files-2.1\\b6ef73ef1822eede923a655acd8d5854\\res\\raw\\joda_america_juneau"
     },
@@ -2118,6 +2122,10 @@
     {
         "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\raw_joda_indian_christmas.flat",
         "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-2\\files-2.1\\b6ef73ef1822eede923a655acd8d5854\\res\\raw\\joda_indian_christmas"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_img_student_file.png.flat",
+        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable\\img_student_file.png"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_mtrl_chip_checked_black.xml.flat",
