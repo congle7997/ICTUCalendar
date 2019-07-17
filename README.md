@@ -1,5 +1,5 @@
 # ICTUCalendar
-Phần mềm xem lịch ICTU Calendar được xây dựng bởi 1 nhóm các bạn sinh viên ngành KTPM của ICTU mục đích trau dồi kỹ năng lập trình cũng như phục vụ việc xem lịch giảng dạy cho các cán bộ giảng viên và lịch học cho sinh viên của ngôi trường mà nhóm đang theo học, phần mềm public source code tại https://github.com/congle7997/ICTUCalendar. <br/>
+Phần mềm xem lịch ICTU Calendar được xây dựng bởi 1 nhóm các bạn sinh viên ngành KTPM của ICTU mục đích trau dồi kỹ năng lập trình của nhóm cũng như phục vụ việc xem lịch giảng dạy cho các cán bộ giảng viên và lịch học cho sinh viên của ngôi trường mà nhóm đang theo học, phần mềm public source code tại https://github.com/congle7997/ICTUCalendar. <br/>
 Việc nhập file lịch học cho giảng viên hết sức đơn giản bởi vì các cán bộ giảng viên chỉ có duy nhất 1 định dạng lịch, còn các bạn sinh viên sẽ có nhiều định dạng lịch và phần mềm chỉ hỗ trợ định dạng lịch theo THỨ HỌC nên khi lấy lịch các bạn hết sức lưu ý! <br/>
 Một file lịch học của sinh viên theo dạng THỨ HỌC có dạng như sau (các bạn sinh viên trường khác có định dạng lịch như thế này phần mềm vẫn đọc được bình thường): <br/>
 ![image](https://user-images.githubusercontent.com/26843392/61395349-711eba00-a8ef-11e9-9f99-0d3e9f41e0a0.png)
