@@ -55,8 +55,8 @@ public class AsyncTaskReadExcelStudent extends AsyncTask<String, Void, Void> {
 
     @Override
     protected Void doInBackground(String... strings) {
-        new Delete().from(Event.class).where("type = ?", "Lecturer").execute();
-        new Delete().from(Event.class).where("type = ?", "Student").execute();
+        new Delete().from(Event.class).where("type = ?", "lecturer").execute();
+        new Delete().from(Event.class).where("type = ?", "student").execute();
 
         Student student = new Student();
 
@@ -210,7 +210,7 @@ public class AsyncTaskReadExcelStudent extends AsyncTask<String, Void, Void> {
                     event.setPlace(rowDataSplit[4]);
                     event.setLecturer(rowDataSplit[5]);
                     // để sau này khi custom Adapter biết đâu là lịch học và đâu là ghi chú để hiển thị
-                    event.setType("Student");
+                    event.setType("student");
 
                     event.save();
                 }

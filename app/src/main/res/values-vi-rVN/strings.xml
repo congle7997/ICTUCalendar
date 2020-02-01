@@ -36,4 +36,5 @@
     <string name="info5">"   Ngoài việc hiển thị lịch giảng dạy, lịch học thì phần mềm cũng hỗ trợ tạo ghi chú. Mỗi một chấm màu xanh dương thể hiện là ngày hôm đó có 1 lịch học, mỗi một chấm màu tím thể hiện ngày hôm đó có 1 ghi chú, tối đa 1 ngày trên lịch thể hiện 4 chấm lịch học và 1 chấm ghi chú. "</string>
     <string name="info0">Cảm ơn vì đã sử dụng!</string>
     <string name="extracurricular_point">Điểm Ngoại Khóa</string>
+    <string name="sync">Đồng Bộ Tới Google Calendar</string>
 </resources>

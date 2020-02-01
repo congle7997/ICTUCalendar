@@ -9,6 +9,10 @@
             android:icon="@drawable/ic_excel"
             android:title="@string/import_excel" />
         <item
+            android:id="@+id/nav_sync"
+            android:icon="@drawable/ic_sync"
+            android:title="@string/sync" />
+        <item
             android:id="@+id/nav_qr_code"
             android:icon="@drawable/ic_qr_code"
             android:title="@string/create_qr_code" />

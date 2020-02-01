@@ -10,6 +10,7 @@
 
 
     <string name="import_excel">Import Excel File</string>
+    <string name="sync">Sync To Google Calendar</string>
     <string name="create_qr_code">Create QR Code</string>
     <string name="extracurricular_point">Extracurricular Point</string>
     <string name="setting">Setting</string>

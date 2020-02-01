@@ -1,6 +1,7 @@
 package com.example.ictucalendar.Activity;
 
 import android.Manifest;
+import android.accounts.AccountManager;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -10,7 +11,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -27,6 +30,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -34,6 +38,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,11 +49,19 @@ import com.example.ictucalendar.Decorator.SubjectDecorator;
 import com.example.ictucalendar.Interface.OnDatePickerListener;
 import com.example.ictucalendar.Interface.OnListennerReadExcelStudent;
 import com.example.ictucalendar.Interface.ReturnListLecturerName;
+import com.example.ictucalendar.MultiThread.AsyncTaskCreateEventAPI;
 import com.example.ictucalendar.MultiThread.AsyncTaskGetListLecturer;
 import com.example.ictucalendar.MultiThread.AsyncTaskReadExcelStudent;
 import com.example.ictucalendar.Object.Event;
-import com.example.ictucalendar.Object.Student;
 import com.example.ictucalendar.R;
+import com.google.api.client.extensions.android.http.AndroidHttp;
+import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
+import com.google.api.client.http.HttpTransport;
+import com.google.api.client.json.JsonFactory;
+import com.google.api.client.json.gson.GsonFactory;
+import com.google.api.services.calendar.CalendarScopes;
+import com.google.api.services.calendar.model.CalendarList;
+import com.google.api.services.calendar.model.CalendarListEntry;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.DayViewDecorator;
 import com.prolificinteractive.materialcalendarview.DayViewFacade;
@@ -72,6 +85,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
@@ -93,7 +107,7 @@ public class MainActivity extends AppCompatActivity
     TextView txtName, txtUnit;
     ProgressDialog pdGetListLecturerName;
     ProgressDialog pdReadingDataLecturer;
-    ProgressDialog pgReadingDataStudent;
+    ProgressDialog progressDialog;
 
     static final String TAG = MainActivity.class.getSimpleName();
     static final int REQUEST_CODE_STUDENT = 1;
@@ -111,13 +125,24 @@ public class MainActivity extends AppCompatActivity
     CalendarDay calDateSelected;
     String SHARED_PREFERENCE = "shared_preference";
 
+    static final int REQUEST_ACCOUNT_PICKER = 1000;
+    static final int REQUEST_AUTHORIZATION = 1001;
+    static final int REQUEST_GOOGLE_PLAY_SERVICES = 1002;
+    GoogleAccountCredential credential;
+    com.google.api.services.calendar.Calendar service;
+    String calendarID;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
+        ActivityCompat.requestPermissions(this, new String[]{
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.GET_ACCOUNTS}, 1);
+        // ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.GET_ACCOUNTS}, 1);
+
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
@@ -164,6 +189,8 @@ public class MainActivity extends AppCompatActivity
 
         navigationView.setNavigationItemSelectedListener(this);
         materialCalendarView.setOnDateChangedListener(this);
+
+
     }
 
     @Override
@@ -208,10 +235,22 @@ public class MainActivity extends AppCompatActivity
                 }
             });
             builderSingle.show();
+        } else if (id == R.id.nav_sync) {
+            HttpTransport transport = AndroidHttp.newCompatibleTransport();
+            JsonFactory jsonFactory = GsonFactory.getDefaultInstance();
+            String[] SCOPES = {CalendarScopes.CALENDAR};
+            credential = GoogleAccountCredential.usingOAuth2(
+                    getApplicationContext(), Arrays.asList(SCOPES));
+            service = new com.google.api.services.calendar.Calendar.Builder(
+                    transport, jsonFactory, credential).build();
+
+            startActivityForResult(credential.newChooseAccountIntent(), REQUEST_ACCOUNT_PICKER);
+
+
         } else if (id == R.id.nav_qr_code) {
-            Toast.makeText(this, R.string.not_available, Toast.LENGTH_LONG).show();
+
         } else if (id == R.id.nav_extracurricular_point) {
-            Toast.makeText(this, R.string.not_available, Toast.LENGTH_LONG).show();
+
         } else if (id == R.id.nav_setting) {
             Toast.makeText(this, R.string.not_available, Toast.LENGTH_LONG).show();
         } else if (id == R.id.nav_opinion_feedback) {
@@ -241,26 +280,24 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         if (requestCode == REQUEST_CODE_STUDENT && resultCode == Activity.RESULT_OK) {
             String pathExcelFile = data.getStringExtra(SelectFileActivity.PATH);
-
 
             SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCE, MODE_PRIVATE);
 
             AsyncTaskReadExcelStudent asyncTaskReadExcelStudent = new AsyncTaskReadExcelStudent(this, sharedPreferences);
             asyncTaskReadExcelStudent.execute(pathExcelFile);
 
-            pgReadingDataStudent = new ProgressDialog(MainActivity.this);
+            progressDialog = new ProgressDialog(MainActivity.this);
             String message = "Saving data ...";
             if (Locale.getDefault().getDisplayLanguage().equals("Tiếng Việt")) {
                 message = "Đang lưu dữ liệu ...";
             }
-            pgReadingDataStudent.setMessage(message);
-            pgReadingDataStudent.setCanceledOnTouchOutside(false);
-            pgReadingDataStudent.show();
+            progressDialog.setMessage(message);
+            progressDialog.setCanceledOnTouchOutside(false);
+            progressDialog.show();
 
         } else if (requestCode == REQUEST_CODE_LECTURER && resultCode == Activity.RESULT_OK) {
             pathExcelLecturer = data.getStringExtra(SelectFileActivity.PATH);
@@ -276,8 +313,48 @@ public class MainActivity extends AppCompatActivity
             pdGetListLecturerName.setMessage(message);
             pdGetListLecturerName.setCanceledOnTouchOutside(false);
             pdGetListLecturerName.show();
-        } else if (requestCode == 7997) {
-            //Toast.makeText(this, R.string.sent_developer, Toast.LENGTH_LONG).show();
+        } else if (requestCode == REQUEST_ACCOUNT_PICKER) {
+            if (resultCode != RESULT_CANCELED) {
+                String accountName = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
+                credential.setSelectedAccountName(accountName);
+
+                final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Thông báo");
+                builder.setMessage("Tất cả sự kiện trên lịch có tên \"ICTU Calendar\" trên tài khoản \"" + accountName + "\" sẽ bị xoá!");
+                //builder.setCancelable(true);
+
+                builder.setPositiveButton("Đồng Ý", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        AlertDialog.Builder builder2 = new AlertDialog.Builder(MainActivity.this);
+                        builder2.setTitle("Thông báo");
+                        builder2.setMessage("Bạn có đồng bộ ghi chú không?");
+                        //builder.setCancelable(true);
+                        builder2.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                showAlert(true);
+                            }
+                        });
+                        builder2.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                showAlert(false);
+                            }
+                        });
+                        AlertDialog alertDialog2 = builder2.create();
+                        alertDialog2.show();
+                    }
+                });
+                builder.setNegativeButton("Trở Lại", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                });
+
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            }
         }
     }
 
@@ -289,7 +366,7 @@ public class MainActivity extends AppCompatActivity
         addDecoratorToDay();
         showInfoProfile();
 
-        pgReadingDataStudent.dismiss();
+        progressDialog.dismiss();
 
         Toast.makeText(this, R.string.save_data_successfully, Toast.LENGTH_SHORT).show();
     }
@@ -361,8 +438,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void readExcelLecturer(String pathExcelFile, int i) {
-        new Delete().from(Event.class).where("type = ?", "Lecturer").execute();
-        new Delete().from(Event.class).where("type = ?", "Student").execute();
+        new Delete().from(Event.class).where("type = ?", "lecturer").execute();
+        new Delete().from(Event.class).where("type = ?", "student").execute();
 
         int rowIndex = 0;
         int rowWeek = 0;
@@ -501,7 +578,7 @@ public class MainActivity extends AppCompatActivity
 
                     event.setPlace(rowDataSplit[5]);
 
-                    event.setType("Lecturer");
+                    event.setType("lecturer");
 
                     event.save();
 
@@ -572,7 +649,7 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    private void displayDialogNote() {
+    public void displayDialogNote() {
         LayoutInflater layoutInflater = getLayoutInflater();
         final View view = layoutInflater.inflate(R.layout.layout_dialog_note, null);
 
@@ -609,17 +686,18 @@ public class MainActivity extends AppCompatActivity
             public void onClick(DialogInterface dialog, int which) {
                 String strNote = edtInputNote.getText().toString();
                 Event event = new Event();
-                event.setType("Note");
+                event.setType("note");
                 event.setContentNote(strNote);
                 event.setDate(btnDatePicked.getText().toString());
                 // khi load dữ liệu ta lấy dữ liệu đã được sắp xếp theo time
-                event.setTime("9999");
+                event.setTime("(23:00 - 00:00)");
                 event.save();
 
 
                 materialCalendarView.removeDecorators();
                 showEventDot();
                 addDecoratorToDay();
+                showEventDetail(convertCalendarDayToString(CalendarDay.today()));
                 Toast.makeText(MainActivity.this, R.string.save_note_successfully, Toast.LENGTH_SHORT).show();
             }
         });
@@ -734,11 +812,11 @@ public class MainActivity extends AppCompatActivity
 
         String type = "";
         for (Event event : listEvent) {
-            if (event.getType().equals("Lecturer")) {
-                type = "Lecturer";
+            if (event.getType().equals("lecturer")) {
+                type = "lecturer";
                 break;
-            } else if (event.getType().equals("Student")) {
-                type = "Student";
+            } else if (event.getType().equals("student")) {
+                type = "student";
                 break;
             }
         }
@@ -817,10 +895,175 @@ public class MainActivity extends AppCompatActivity
         String strDate = day + "/" + month + "/" + year;
 
         List<Event> listEvent = new Select().from(Event.class)
-                .where("type = ?", "Note")
+                .where("type = ?", "note")
                 .where("date = ?", strDate)
                 .execute();
 
         return listEvent.size() > 0;
     }
+
+    public void sync(final int timeAlarm, boolean syncNote) {
+        final String type;
+        if (isLecturer()) {
+            type = "lecturer";
+        } else {
+            type = "student";
+        }
+        final List<Event> listEvent = new Select()
+                .from(Event.class)
+                .where("type = ?", type)
+                .execute();
+
+        if (syncNote) {
+            List<Event> listNote = new Select()
+                    .from(Event.class)
+                    .where("type = ?", "note")
+                    .execute();
+            for (Event note : listNote) {
+                listEvent.add(note);
+            }
+        }
+
+        if (checkNetwork()) {
+            final ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
+            progressDialog.setMessage("Đang đồng bộ dữ liệu lên Google Calendar ...");
+            progressDialog.setCanceledOnTouchOutside(false);
+            progressDialog.setCancelable(false);
+            progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            progressDialog.show();
+
+            new AsyncTask<Void, Void, Void>() {
+                @Override
+                protected Void doInBackground(Void... voids) {
+                    // Xoá lịch cũ
+                    String pageToken = null;
+                    do {
+                        CalendarList calendarList = null;
+                        try {
+                            calendarList = service.calendarList().list().setPageToken(pageToken).execute();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        List<CalendarListEntry> items = calendarList.getItems();
+
+                        for (CalendarListEntry calendarListEntry : items) {
+                            if (calendarListEntry.getSummary().equals("ICTU Calendar")) {
+                                try {
+                                    service.calendarList().delete(calendarListEntry.getId()).execute();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+                        pageToken = calendarList.getNextPageToken();
+                    } while (pageToken != null);
+
+                    // Tạo lịch mới
+                    com.google.api.services.calendar.model.Calendar calendar = new com.google.api.services.calendar.model.Calendar();
+                    calendar.setSummary("ICTU Calendar");
+                    com.google.api.services.calendar.model.Calendar createdCalendar = null;
+                    try {
+                        createdCalendar = service.calendars().insert(calendar).execute();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    calendarID = createdCalendar.getId();
+
+                    return null;
+                }
+
+                @Override
+                protected void onPostExecute(Void aVoid) {
+                    super.onPostExecute(aVoid);
+                    new AsyncTaskCreateEventAPI(service, calendarID, listEvent, timeAlarm, progressDialog, MainActivity.this).execute();
+                }
+            }.execute();
+        } else {
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            builder.setMessage("Để đồng bộ tới Google Calendar cần có kết nối Internet!");
+            builder.setPositiveButton(R.string.agree, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+
+                }
+            });
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
+        }
+    }
+
+    public boolean isLecturer() {
+        List<Event> listEvent = new Select()
+                .from(Event.class)
+                .orderBy("type ASC")
+                .limit(1)
+                .execute();
+
+        if (listEvent.size() > 0 && listEvent.get(0).getType().equals("lecturer")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void showAlert(final boolean syncNote) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Thời Gian Thông Báo");
+        final View view = getLayoutInflater().inflate(R.layout.layout_dialog_time_alarm, null);
+        builder.setView(view);
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+        RadioGroup rgTimeAlarm = view.findViewById(R.id.rg_time_alarm);
+
+        rgTimeAlarm.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                switch (i) {
+                    case R.id.rb1:
+                        sync(-1, syncNote);
+                        dialog.dismiss();
+                        break;
+                    case R.id.rb2:
+                        sync(0, syncNote);
+                        dialog.dismiss();
+                        break;
+                    case R.id.rb3:
+                        sync(15, syncNote);
+                        dialog.dismiss();
+                        break;
+                    case R.id.rb4:
+                        sync(30, syncNote);
+                        dialog.dismiss();
+                        break;
+                    case R.id.rb5:
+                        sync(45, syncNote);
+                        dialog.dismiss();
+                        break;
+                    case R.id.rb6:
+                        dialog.dismiss();
+                        AlertDialog.Builder builder2 = new AlertDialog.Builder(MainActivity.this);
+                        builder2.setTitle("Nhập thời gian:");
+                        View view = getLayoutInflater().inflate(R.layout.layout_dialog_time_alarm_2, null);
+                        builder2.setView(view);
+
+                        final EditText edtTimeAlarm = view.findViewById(R.id.edt_time_alarm);
+                        builder2.setPositiveButton("Oke", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                sync(Integer.parseInt(edtTimeAlarm.getText().toString()), syncNote);
+                            }
+                        });
+
+                        AlertDialog dialog2 = builder2.create();
+                        dialog2.show();
+                        break;
+                }
+            }
+        });
+    }
+
+    public boolean checkNetwork() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        return cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected();
+    }
+
 }

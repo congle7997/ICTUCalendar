@@ -64,13 +64,13 @@ public class AdapterShowEvents extends RecyclerView.Adapter<AdapterShowEvents.Re
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder recyclerViewHolder, int i) {
-        if (listEventSelected.get(i).getType().equals("Lecturer")) {
+        if (listEventSelected.get(i).getType().equals("lecturer")) {
             recyclerViewHolder.txtSubjectName.setText(listEventSelected.get(i).getSubjectName());
             recyclerViewHolder.txtTime.setText(listEventSelected.get(i).getTime());
             recyclerViewHolder.txtPlace.setText(listEventSelected.get(i).getPlace());
             recyclerViewHolder.lnLecturer.setVisibility(View.GONE);
             recyclerViewHolder.lnSubject.setBackgroundColor(Color.rgb(153, 187, 255));
-        } else if (listEventSelected.get(i).getType().equals("Student")) {
+        } else if (listEventSelected.get(i).getType().equals("student")) {
             //Log.d(TAG, "onBindViewHolder: " + "Event");
             recyclerViewHolder.txtSubjectName.setText(listEventSelected.get(i).getSubjectName());
             recyclerViewHolder.txtTime.setText(listEventSelected.get(i).getTime());

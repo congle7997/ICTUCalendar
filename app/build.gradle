@@ -23,6 +23,10 @@ android {
         // ActiveAndroid
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
     }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+    }
 }
 
 dependencies {
@@ -47,4 +51,9 @@ dependencies {
 
     implementation 'de.hdodenhof:circleimageview:3.0.0'
 
+    // Google Calendar API
+    implementation 'com.google.apis:google-api-services-calendar:v3-rev20191117-1.30.3'
+    implementation 'com.google.api-client:google-api-client-android:1.20.0'
+    implementation 'com.google.api-client:google-api-client-gson:1.20.0'
+    implementation 'com.google.android.gms:play-services:7.3.0'
 }

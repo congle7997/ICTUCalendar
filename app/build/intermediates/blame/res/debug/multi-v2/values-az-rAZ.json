@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-az-rAZ\\values-az-rAZ.xml",
+            "outputFile": "C:\\Users\\congl\\StudioProjects\\ICTUCalendar\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-az-rAZ\\values-az-rAZ.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-2\\files-2.1\\b6ef73ef1822eede923a655acd8d5854\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-2\\files-2.1\\3ef17b9398608dfbccaac33e129ddb3e\\android.joda-2.10.1.1\\res\\values-az-rAZ\\values-az-rAZ.xml",
                     "from": {
                         "startLines": "2,6,10,14,18,22,26,30,34,38,42,46,50,54,58,62,66,70,74,78,79,80",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-lv-rLV\\values-lv-rLV.xml",
+            "outputFile": "C:\\Users\\congl\\StudioProjects\\ICTUCalendar\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-lv-rLV\\values-lv-rLV.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-2\\files-2.1\\b6ef73ef1822eede923a655acd8d5854\\res\\values-lv-rLV\\values-lv-rLV.xml",
+                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-2\\files-2.1\\3ef17b9398608dfbccaac33e129ddb3e\\android.joda-2.10.1.1\\res\\values-lv-rLV\\values-lv-rLV.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
