@@ -54,6 +54,8 @@ import com.example.ictucalendar.MultiThread.AsyncTaskGetListLecturer;
 import com.example.ictucalendar.MultiThread.AsyncTaskReadExcelStudent;
 import com.example.ictucalendar.Object.Event;
 import com.example.ictucalendar.R;
+import com.google.android.gms.auth.GoogleAuthUtil;
+import com.google.android.gms.common.AccountPicker;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
 import com.google.api.client.http.HttpTransport;
@@ -189,8 +191,6 @@ public class MainActivity extends AppCompatActivity
 
         navigationView.setNavigationItemSelectedListener(this);
         materialCalendarView.setOnDateChangedListener(this);
-
-
     }
 
     @Override
@@ -245,8 +245,6 @@ public class MainActivity extends AppCompatActivity
                     transport, jsonFactory, credential).build();
 
             startActivityForResult(credential.newChooseAccountIntent(), REQUEST_ACCOUNT_PICKER);
-
-
         } else if (id == R.id.nav_qr_code) {
 
         } else if (id == R.id.nav_extracurricular_point) {
@@ -317,6 +315,8 @@ public class MainActivity extends AppCompatActivity
             if (resultCode != RESULT_CANCELED) {
                 String accountName = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
                 credential.setSelectedAccountName(accountName);
+
+                Log.d(TAG, "onActivityResult: " + accountName);
 
                 final AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("Thông báo");
@@ -690,21 +690,22 @@ public class MainActivity extends AppCompatActivity
                 event.setContentNote(strNote);
                 event.setDate(btnDatePicked.getText().toString());
                 // khi load dữ liệu ta lấy dữ liệu đã được sắp xếp theo time
-                event.setTime("(23:00 - 00:00)");
+                event.setTime("9999()");
                 event.save();
 
 
                 materialCalendarView.removeDecorators();
                 showEventDot();
                 addDecoratorToDay();
-                showEventDetail(convertCalendarDayToString(CalendarDay.today()));
-                Toast.makeText(MainActivity.this, R.string.save_note_successfully, Toast.LENGTH_SHORT).show();
+                showEventDetail(convertCalendarDayToString(calDateSelected));
+                Toast.makeText(MainActivity.this, getString(R.string.save_note_successfully) +
+                        "\n" + btnDatePicked.getText().toString(), Toast.LENGTH_LONG).show();
             }
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
-        alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(getResources().getColor(R.color.color_decline));
-        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.color_accept));
+        //alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(getResources().getColor(R.color.color_decline));
+        //alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.color_accept));
     }
 
     private void pickDate(final OnDatePickerListener onDatePickerListener) {
