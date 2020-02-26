@@ -34,7 +34,7 @@ public class AsyncTaskCreateEventAPI extends AsyncTask<Void, Void, Void> {
     boolean isCancel = false;
     int i = 0;
     int max;
-    String reason = "Ngừng đồng bộ!";
+    String reason;
 
     public AsyncTaskCreateEventAPI(com.google.api.services.calendar.Calendar service,
                                    String calendarID, List<Event> listEvent, int timeAlarm,
@@ -119,15 +119,15 @@ public class AsyncTaskCreateEventAPI extends AsyncTask<Void, Void, Void> {
                 public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
                     if (i == KeyEvent.KEYCODE_BACK && !keyEvent.isCanceled()) {
                         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                        builder.setTitle("Thông báo");
-                        builder.setMessage("Dừng đồng bộ ngay bây giờ?");
-                        builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+                        builder.setTitle(R.string.notification);
+                        builder.setMessage(R.string.cancel_syn);
+                        builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 isCancel = true;
                             }
                         });
-                        builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                        builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                             }
@@ -143,11 +143,12 @@ public class AsyncTaskCreateEventAPI extends AsyncTask<Void, Void, Void> {
             progressDialog.setProgress(i++);
 
             if (isCancel == true) {
+                reason = context.getResources().getString(R.string.canceled_sync);
                 break;
             }
 
             if (!checkNetwork()) {
-                reason = "Kết nối không ổn định!";
+                reason = context.getResources().getString(R.string.internet_problem);
                 break;
             }
         }
@@ -162,9 +163,10 @@ public class AsyncTaskCreateEventAPI extends AsyncTask<Void, Void, Void> {
         progressDialog.dismiss();
 
         if (i == max) {
-            Toast.makeText(context, "Đồng bộ thành công", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, R.string.sync_successful, Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(context, reason + "\nĐã đồng bộ được: " + i + "/" + max + " sự kiện", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, reason + "\n" + context.getResources().getString(R.string.synced) + ": " + i +
+                    "/" + max + " " + context.getResources().getString(R.string.event), Toast.LENGTH_LONG).show();
         }
     }
 

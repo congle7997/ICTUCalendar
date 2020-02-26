@@ -24,6 +24,29 @@
     <string name="cancel">Cancel</string>
     <string name="agree">Agree</string>
     <string name="back">Back</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <string name="notification">Notification</string>
+    <string name="sync_note">Do you want sync note?</string>
+    <string name="syncing">Syncing to Google Calendar</string>
+    <string name="require_internet">Sync to Google Calendar require Internet!</string>
+    <string name="time_notification">Choose time get notification</string>
+    <string name="input_time">Input time</string>
+    <string name="cancel_syn">Do you want cancel sync now?</string>
+    <string name="canceled_sync">Canceled Sync!</string>
+    <string name="internet_problem">Internet Problem!</string>
+    <string name="sync_successful">Sync Successful</string>
+    <string name="synced">Synced: </string>
+    <string name="event">events</string>
+    <string name="no_notification">No notification</string>
+    <string name="event_start">At time of event</string>
+    <string name="pre_15">15 minutes before</string>
+    <string name="pre_30">30 minutes before</string>
+    <string name="pre_45">45 minutes before</string>
+    <string name="custom">Custom ...</string>
+
+
 
     <string name="not_installed_gmail">Gmail application is not installed on your device!</string>
     <string name="sent_developer">Feedback has been sent to this app developer!</string>
@@ -48,4 +71,7 @@
     <string name="save_data_successfully">Save data successfully!</string>
     <string name="save_note_successfully">Save note successfully!</string>
     <string name="day_format">Schedule file must be in DAY format!</string>
+    <string name="saving_data">Saving ata</string>
+    <string name="getting_lecturers">Getting lecturers list</string>
+
 </resources>

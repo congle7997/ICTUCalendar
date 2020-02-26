@@ -134,18 +134,19 @@ public class AsyncTaskReadExcelStudent extends AsyncTask<String, Void, Void> {
                 }
 
                 // đọc dữ liệu 1 hàng (từng cột 1 từ trái qua phải)
-                String rowData = "";
+                StringBuilder sb = new StringBuilder();
                 while (cellIterator.hasNext()) {
                     cell = cellIterator.next();
 
                     if (cell.getCellTypeEnum() == CellType.STRING) {
-                        rowData += cell.getStringCellValue();
-                        rowData += "---";
+                        sb.append(cell.getStringCellValue());
+                        sb.append("---");
                     }
                 }
 
-                //Log.d(TAG, "rowData: " + rowData);
-                String rowDataSplit[] = rowData.split("---");
+                String data = sb.toString();
+                //Log.d(TAG, "data: " + data);
+                String rowDataSplit[] = data.split("---");
                 //Log.d(TAG, "Range time: " + rowDataSplit[1]);
                 String rangeTime[] = rowDataSplit[1].split("->");
 

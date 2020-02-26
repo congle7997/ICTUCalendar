@@ -526,9 +526,9 @@ public final class R {
     public static final class string {
         private string() {}
 
-        public static final int joda_time_android_date_time = 0x7f100069;
-        public static final int joda_time_android_preposition_for_date = 0x7f10006a;
-        public static final int joda_time_android_preposition_for_time = 0x7f10006b;
-        public static final int joda_time_android_relative_time = 0x7f10006c;
+        public static final int joda_time_android_date_time = 0x7f100071;
+        public static final int joda_time_android_preposition_for_date = 0x7f100072;
+        public static final int joda_time_android_preposition_for_time = 0x7f100073;
+        public static final int joda_time_android_relative_time = 0x7f100074;
     }
 }

@@ -9,36 +9,37 @@
 
     <RadioGroup
         android:id="@+id/rg_time_alarm"
+        android:paddingBottom="@dimen/_10sdp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <RadioButton
             android:id="@+id/rb1"
-            android:text="Không Nhận Thông Báo"
+            android:text="@string/no_notification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <RadioButton
             android:id="@+id/rb2"
-            android:text="Thông Báo Khi Diễn Ra"
+            android:text="@string/event_start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <RadioButton
             android:id="@+id/rb3"
-            android:text="Trước 15 Phút"
+            android:text="@string/pre_15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <RadioButton
             android:id="@+id/rb4"
-            android:text="Trước 30 Phút"
+            android:text="@string/pre_30"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <RadioButton
             android:id="@+id/rb5"
-            android:text="Trước 45 Phút"
+            android:text="@string/pre_45"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <RadioButton
             android:id="@+id/rb6"
-            android:text="Nhập số phút khác"
+            android:text="@string/custom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </RadioGroup>

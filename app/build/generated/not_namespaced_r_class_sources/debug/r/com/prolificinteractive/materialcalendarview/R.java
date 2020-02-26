@@ -176,9 +176,9 @@ public final class R {
         private string() {}
 
         public static final int calendar = 0x7f100030;
-        public static final int next = 0x7f100074;
-        public static final int previous = 0x7f10007e;
-        public static final int status_bar_notification_info_overflow = 0x7f100085;
+        public static final int next = 0x7f10007c;
+        public static final int previous = 0x7f10008c;
+        public static final int status_bar_notification_info_overflow = 0x7f100095;
     }
     public static final class style {
         private style() {}

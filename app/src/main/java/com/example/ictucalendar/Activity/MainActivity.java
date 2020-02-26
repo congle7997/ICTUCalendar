@@ -112,11 +112,7 @@ public class MainActivity extends AppCompatActivity
     ProgressDialog progressDialog;
 
     static final String TAG = MainActivity.class.getSimpleName();
-    static final int REQUEST_CODE_STUDENT = 1;
-    static final int REQUEST_CODE_LECTURER = 2;
-    final String arrStringDay[] = {"T2", "T3", "T4", "T5", "T6", "T7", "CN"};
-    final int arrIntDay[] = {DateTimeConstants.MONDAY, DateTimeConstants.TUESDAY, DateTimeConstants.WEDNESDAY,
-            DateTimeConstants.THURSDAY, DateTimeConstants.FRIDAY, DateTimeConstants.SATURDAY, DateTimeConstants.SUNDAY};
+    static final int REQUEST_CODE_IMPORT = 1;
     String arrStartTimeSummer[] = {"06:30", "07:25", "08:25", "09:25", "10:20", "13:00", "13:55", "14:55", "15:55", "16:50", "18:15", "19:10"};
     String arrEndTimeSummer[] = {"07:20", "08:15", "09:15", "10:15", "11:10", "13:50", "14:45", "15:45", "16:45", "17:40", "19:05", "20:00"};
     String arrStartTimeWinter[] = {"06:45", "07:40", "08:40", "09:40", "10:35", "13:00", "13:55", "14:55", "15:55", "16:50", "18:15", "19:10"};
@@ -128,8 +124,6 @@ public class MainActivity extends AppCompatActivity
     String SHARED_PREFERENCE = "shared_preference";
 
     static final int REQUEST_ACCOUNT_PICKER = 1000;
-    static final int REQUEST_AUTHORIZATION = 1001;
-    static final int REQUEST_GOOGLE_PLAY_SERVICES = 1002;
     GoogleAccountCredential credential;
     com.google.api.services.calendar.Calendar service;
     String calendarID;
@@ -143,8 +137,6 @@ public class MainActivity extends AppCompatActivity
         ActivityCompat.requestPermissions(this, new String[]{
                 Manifest.permission.READ_EXTERNAL_STORAGE,
                 Manifest.permission.GET_ACCOUNTS}, 1);
-        // ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.GET_ACCOUNTS}, 1);
-
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
@@ -199,42 +191,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_import_excel) {
             final Intent intent = new Intent(MainActivity.this, SelectFileActivity.class);
-
-            String lecturer = "Lecturer";
-            String student = "Student";
-            if (Locale.getDefault().getDisplayLanguage().equals("Tiếng Việt")) {
-                lecturer = "Giảng viên";
-                student = "Sinh viên";
-            }
-            final String arrPerson[] = {lecturer, student};
-            AlertDialog.Builder builderSingle = new AlertDialog.Builder(this);
-            builderSingle.setIcon(R.drawable.ic_people_info);
-            builderSingle.setTitle(R.string.you_are);
-            final String finalLecturer = lecturer;
-            final String finalStudent = student;
-            builderSingle.setItems(arrPerson, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int i) {
-                    String strPerson = arrPerson[i];
-                    if (strPerson.equals(finalLecturer)) {
-                        startActivityForResult(intent, REQUEST_CODE_LECTURER);
-                    } else if (strPerson.equals(finalStudent)) {
-                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                        builder.setMessage(R.string.day_format);
-                        builder.setPositiveButton(R.string.agree, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                startActivityForResult(intent, REQUEST_CODE_STUDENT);
-                            }
-                        });
-                        AlertDialog alertDialog = builder.create();
-                        alertDialog.show();
-                        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.color_ictu));
-
-
-                    }
-                }
-            });
-            builderSingle.show();
+            startActivityForResult(intent, REQUEST_CODE_IMPORT);
         } else if (id == R.id.nav_sync) {
             HttpTransport transport = AndroidHttp.newCompatibleTransport();
             JsonFactory jsonFactory = GsonFactory.getDefaultInstance();
@@ -280,80 +237,82 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE_STUDENT && resultCode == Activity.RESULT_OK) {
-            String pathExcelFile = data.getStringExtra(SelectFileActivity.PATH);
-
-            SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCE, MODE_PRIVATE);
-
-            AsyncTaskReadExcelStudent asyncTaskReadExcelStudent = new AsyncTaskReadExcelStudent(this, sharedPreferences);
-            asyncTaskReadExcelStudent.execute(pathExcelFile);
-
-            progressDialog = new ProgressDialog(MainActivity.this);
-            String message = "Saving data ...";
-            if (Locale.getDefault().getDisplayLanguage().equals("Tiếng Việt")) {
-                message = "Đang lưu dữ liệu ...";
-            }
-            progressDialog.setMessage(message);
-            progressDialog.setCanceledOnTouchOutside(false);
-            progressDialog.show();
-
-        } else if (requestCode == REQUEST_CODE_LECTURER && resultCode == Activity.RESULT_OK) {
+        if (requestCode == REQUEST_CODE_IMPORT && resultCode == RESULT_OK) {
             pathExcelLecturer = data.getStringExtra(SelectFileActivity.PATH);
+            int rowIndex = 0;
+            try {
+                String pathExcelFile = pathExcelLecturer;
 
-            AsyncTaskGetListLecturer asyncTaskGetListLecturer = new AsyncTaskGetListLecturer(this);
-            asyncTaskGetListLecturer.execute(pathExcelLecturer);
+                FileInputStream excelFile = new FileInputStream(new File(pathExcelFile));
+                HSSFWorkbook workbook = new HSSFWorkbook(excelFile);
+                HSSFSheet sheet = workbook.getSheetAt(0);
+                Iterator<Row> rowIterator = sheet.iterator();
+                while (rowIterator.hasNext()) {
+                    Row row = rowIterator.next();
+                    rowIndex++;
+                    if (rowIndex == 4) {
+                        Iterator<Cell> cellIterator = row.iterator();
+                        Cell cell = cellIterator.next();
+                        String rowData = cell.getStringCellValue();
 
-            pdGetListLecturerName = new ProgressDialog(MainActivity.this);
-            String message = "Getting list of lecturers ...";
-            if (Locale.getDefault().getDisplayLanguage().equals("Tiếng Việt")) {
-                message = "Đang lấy danh sách giảng viên ...";
+                        if (rowData.equals("Sinh viên:")) {
+                            Row row2 = rowIterator.next();
+                            if (row2.getCell(0).getStringCellValue().equals("")) {
+                                showAlertFormat();
+                            } else {
+                                SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCE, MODE_PRIVATE);
+
+                                AsyncTaskReadExcelStudent asyncTaskReadExcelStudent = new AsyncTaskReadExcelStudent(this, sharedPreferences);
+                                asyncTaskReadExcelStudent.execute(pathExcelFile);
+
+                                progressDialog = new ProgressDialog(MainActivity.this);
+                                progressDialog.setMessage(getResources().getString(R.string.saving_data));
+                                progressDialog.setCanceledOnTouchOutside(false);
+                                progressDialog.show();
+                            }
+                        } else if (rowData.equals("LỊCH GIẢNG DẠY GIẢNG VIÊN")) {
+                            AsyncTaskGetListLecturer asyncTaskGetListLecturer = new AsyncTaskGetListLecturer(this);
+                            asyncTaskGetListLecturer.execute(pathExcelLecturer);
+
+                            pdGetListLecturerName = new ProgressDialog(MainActivity.this);
+                            pdGetListLecturerName.setMessage(getResources().getString(R.string.getting_lecturers));
+                            pdGetListLecturerName.setCanceledOnTouchOutside(false);
+                            pdGetListLecturerName.show();
+                        } else {
+                            showAlertFormat();
+                        }
+
+                        break;
+                    }
+                }
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            pdGetListLecturerName.setMessage(message);
-            pdGetListLecturerName.setCanceledOnTouchOutside(false);
-            pdGetListLecturerName.show();
         } else if (requestCode == REQUEST_ACCOUNT_PICKER) {
             if (resultCode != RESULT_CANCELED) {
                 String accountName = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
                 credential.setSelectedAccountName(accountName);
 
-                Log.d(TAG, "onActivityResult: " + accountName);
-
-                final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("Thông báo");
-                builder.setMessage("Tất cả sự kiện trên lịch có tên \"ICTU Calendar\" trên tài khoản \"" + accountName + "\" sẽ bị xoá!");
+                AlertDialog.Builder builder2 = new AlertDialog.Builder(MainActivity.this);
+                builder2.setTitle(R.string.notification);
+                builder2.setMessage(R.string.sync_note);
                 //builder.setCancelable(true);
-
-                builder.setPositiveButton("Đồng Ý", new DialogInterface.OnClickListener() {
+                builder2.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        AlertDialog.Builder builder2 = new AlertDialog.Builder(MainActivity.this);
-                        builder2.setTitle("Thông báo");
-                        builder2.setMessage("Bạn có đồng bộ ghi chú không?");
-                        //builder.setCancelable(true);
-                        builder2.setPositiveButton("Có", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                showAlert(true);
-                            }
-                        });
-                        builder2.setNegativeButton("Không", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                showAlert(false);
-                            }
-                        });
-                        AlertDialog alertDialog2 = builder2.create();
-                        alertDialog2.show();
+                        showAlert(true);
                     }
                 });
-                builder.setNegativeButton("Trở Lại", new DialogInterface.OnClickListener() {
+                builder2.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        showAlert(false);
                     }
                 });
-
-                AlertDialog alertDialog = builder.create();
-                alertDialog.show();
+                AlertDialog alertDialog2 = builder2.create();
+                alertDialog2.show();
             }
         }
     }
@@ -377,6 +336,19 @@ public class MainActivity extends AppCompatActivity
         selectLecturer(pathExcelLecturer, listLecturerName);
     }
 
+    public void showAlertFormat() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setMessage(R.string.day_format);
+        builder.setPositiveButton(R.string.agree, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.color_ictu));
+    }
+
     public void selectLecturer(final String pathExcelFile, final List<String> listLecturerName) {
         final String arrString[] = new String[listLecturerName.size()];
         for (int i = 0; i < listLecturerName.size(); i++) {
@@ -391,11 +363,7 @@ public class MainActivity extends AppCompatActivity
                 pdGetListLecturerName.dismiss();
 
                 pdReadingDataLecturer = new ProgressDialog(MainActivity.this);
-                String message = "Saving data for " + listLecturerName.get(i);
-                if (Locale.getDefault().getDisplayLanguage().equals("Tiếng Việt")) {
-                    message = "Đang lưu dữ liệu của " + listLecturerName.get(i);
-                }
-                pdReadingDataLecturer.setMessage(message);
+                pdReadingDataLecturer.setMessage(getResources().getString(R.string.saving_data) + ": " + listLecturerName.get(i));
                 pdReadingDataLecturer.setCanceledOnTouchOutside(false);
                 pdReadingDataLecturer.show();
 
@@ -485,21 +453,21 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     Iterator<Cell> cellIterator = row.iterator();
-                    String rowData = "";
 
+                    StringBuilder sb = new StringBuilder();
                     while (cellIterator.hasNext()) {
                         Cell cell = cellIterator.next();
 
                         if (cell.getCellTypeEnum() == CellType.STRING) {
-                            rowData += cell.getStringCellValue();
-                            rowData += "---";
+                            sb.append(cell.getStringCellValue());
+                            sb.append("---");
                         } else if (cell.getCellTypeEnum() == CellType.NUMERIC) {
-                            rowData += String.valueOf((int) cell.getNumericCellValue());
-                            rowData += "---";
+                            sb.append((int) cell.getNumericCellValue());
+                            sb.append("---");
                         }
                     }
-
-                    listData.add(rowData);
+                    String data = sb.toString();
+                    listData.add(data);
                 }
 
                 if (rowWeek >= 3) {
@@ -512,21 +480,21 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     Iterator<Cell> cellIterator = row.iterator();
-                    String rowData = "";
 
+                    StringBuilder sb = new StringBuilder();
                     while (cellIterator.hasNext()) {
                         Cell cell = cellIterator.next();
 
                         if (cell.getCellTypeEnum() == CellType.STRING) {
-                            rowData += cell.getStringCellValue();
-                            rowData += "---";
+                            sb.append(cell.getStringCellValue());
+                            sb.append("---");
                         } else if (cell.getCellTypeEnum() == CellType.NUMERIC) {
-                            rowData += String.valueOf((int) cell.getNumericCellValue());
-                            rowData += "---";
+                            sb.append((int) cell.getNumericCellValue());
+                            sb.append("---");
                         }
                     }
-
-                    listData.add(rowData);
+                    String data = sb.toString();
+                    listData.add(data);
                 }
 
                 /* dữ liệu của tuần cuối đã được đưa vào listData
@@ -548,7 +516,7 @@ public class MainActivity extends AppCompatActivity
             int posStart = listData.get(0).indexOf("(") + 1;
             int posEnd = listData.get(0).indexOf("đến") - 1;
             String strStartDate = listData.get(0).substring(posStart, posEnd);
-            DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern("dd/MM/yyyy");
+            DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern("dd-MM-yyyy");
             DateTime startDate = dateTimeFormatter.parseDateTime(strStartDate);
             for (String rowData1 : listData) {
                 // không lấy dữ liệu dòng đầu tiên mỗi listData
@@ -589,15 +557,6 @@ public class MainActivity extends AppCompatActivity
             e.printStackTrace();
         }
 
-    }
-
-    private boolean isDay(String strCellValue) {
-        for (String day : arrStringDay) {
-            if (strCellValue.equals(day)) {
-                return true;
-            }
-        }
-        return false;
     }
 
     private boolean isSummer(String strDate) {
@@ -927,7 +886,7 @@ public class MainActivity extends AppCompatActivity
 
         if (checkNetwork()) {
             final ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
-            progressDialog.setMessage("Đang đồng bộ dữ liệu lên Google Calendar ...");
+            progressDialog.setMessage(getResources().getString(R.string.syncing));
             progressDialog.setCanceledOnTouchOutside(false);
             progressDialog.setCancelable(false);
             progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
@@ -981,7 +940,7 @@ public class MainActivity extends AppCompatActivity
             }.execute();
         } else {
             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-            builder.setMessage("Để đồng bộ tới Google Calendar cần có kết nối Internet!");
+            builder.setMessage(R.string.require_internet);
             builder.setPositiveButton(R.string.agree, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
 
@@ -1008,7 +967,7 @@ public class MainActivity extends AppCompatActivity
 
     public void showAlert(final boolean syncNote) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Thời Gian Thông Báo");
+        builder.setTitle(R.string.time_notification);
         final View view = getLayoutInflater().inflate(R.layout.layout_dialog_time_alarm, null);
         builder.setView(view);
         final AlertDialog dialog = builder.create();
@@ -1042,12 +1001,12 @@ public class MainActivity extends AppCompatActivity
                     case R.id.rb6:
                         dialog.dismiss();
                         AlertDialog.Builder builder2 = new AlertDialog.Builder(MainActivity.this);
-                        builder2.setTitle("Nhập thời gian:");
+                        builder2.setTitle(R.string.input_time);
                         View view = getLayoutInflater().inflate(R.layout.layout_dialog_time_alarm_2, null);
                         builder2.setView(view);
 
                         final EditText edtTimeAlarm = view.findViewById(R.id.edt_time_alarm);
-                        builder2.setPositiveButton("Oke", new DialogInterface.OnClickListener() {
+                        builder2.setPositiveButton(R.string.agree, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 sync(Integer.parseInt(edtTimeAlarm.getText().toString()), syncNote);
