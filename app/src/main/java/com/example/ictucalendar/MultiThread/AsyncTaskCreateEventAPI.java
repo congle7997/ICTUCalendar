@@ -50,13 +50,12 @@ public class AsyncTaskCreateEventAPI extends AsyncTask<Void, Void, Void> {
     @Override
     protected Void doInBackground(Void... voids) {
         max = listEvent.size();
-        progressDialog.setMax(listEvent.size());
 
         for (final Event myEvent : listEvent) {
             com.google.api.services.calendar.model.Event event = new com.google.api.services.calendar.model.Event();
             String strDate = myEvent.getDate();
             String strTime = myEvent.getTime().substring(myEvent.getTime().indexOf("(") + 1, myEvent.getTime().indexOf(")"));
-
+            Log.d(TAG, "doInBackground: " + strTime);
             if (myEvent.getType().equals("note")) {
                 event.setSummary(myEvent.getContentNote());
 

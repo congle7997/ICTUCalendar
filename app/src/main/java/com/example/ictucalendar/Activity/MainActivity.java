@@ -2,7 +2,6 @@ package com.example.ictucalendar.Activity;
 
 import android.Manifest;
 import android.accounts.AccountManager;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -16,7 +15,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -30,7 +28,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -42,20 +39,19 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.activeandroid.query.Delete;
 import com.activeandroid.query.Select;
 import com.example.ictucalendar.Adapter.AdapterShowEvents;
 import com.example.ictucalendar.Decorator.SubjectDecorator;
 import com.example.ictucalendar.Interface.OnDatePickerListener;
+import com.example.ictucalendar.Interface.OnListennerReadExcelLecturer;
 import com.example.ictucalendar.Interface.OnListennerReadExcelStudent;
-import com.example.ictucalendar.Interface.ReturnListLecturerName;
+import com.example.ictucalendar.Interface.ReturnListLecturer;
 import com.example.ictucalendar.MultiThread.AsyncTaskCreateEventAPI;
 import com.example.ictucalendar.MultiThread.AsyncTaskGetListLecturer;
+import com.example.ictucalendar.MultiThread.AsyncTaskReadExcelLecturer;
 import com.example.ictucalendar.MultiThread.AsyncTaskReadExcelStudent;
 import com.example.ictucalendar.Object.Event;
 import com.example.ictucalendar.R;
-import com.google.android.gms.auth.GoogleAuthUtil;
-import com.google.android.gms.common.AccountPicker;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
 import com.google.api.client.http.HttpTransport;
@@ -73,30 +69,21 @@ import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
-import org.joda.time.DateTime;
-import org.joda.time.DateTimeConstants;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
-        OnDateSelectedListener, ReturnListLecturerName, OnListennerReadExcelStudent {
+        OnDateSelectedListener, ReturnListLecturer, OnListennerReadExcelStudent, OnListennerReadExcelLecturer {
 
 
     DrawerLayout drawerLayout;
@@ -107,21 +94,18 @@ public class MainActivity extends AppCompatActivity
     RecyclerView rcShowEvents;
     AdapterShowEvents customAdapterShowEvents;
     TextView txtName, txtUnit;
-    ProgressDialog pdGetListLecturerName;
+    ProgressDialog pdGetListLecturer;
     ProgressDialog pdReadingDataLecturer;
-    ProgressDialog progressDialog;
+    ProgressDialog pdReadingDataStudent;
 
     static final String TAG = MainActivity.class.getSimpleName();
     static final int REQUEST_CODE_IMPORT = 1;
-    String arrStartTimeSummer[] = {"06:30", "07:25", "08:25", "09:25", "10:20", "13:00", "13:55", "14:55", "15:55", "16:50", "18:15", "19:10"};
-    String arrEndTimeSummer[] = {"07:20", "08:15", "09:15", "10:15", "11:10", "13:50", "14:45", "15:45", "16:45", "17:40", "19:05", "20:00"};
-    String arrStartTimeWinter[] = {"06:45", "07:40", "08:40", "09:40", "10:35", "13:00", "13:55", "14:55", "15:55", "16:50", "18:15", "19:10"};
-    String arrEndTimeWinter[] = {"07:35", "08:30", "09:30", "10:30", "11:25", "13:50", "14:45", "15:45", "16:45", "17:40", "19:05", "20:00"};
     String strDateSelected;
     String pathExcelLecturer;
     List<Event> listEventSelected;
     CalendarDay calDateSelected;
-    String SHARED_PREFERENCE = "shared_preference";
+    //String SHARED_PREFERENCE = "shared_preference";
+    SharedPreferences sharedPreferences;
 
     static final int REQUEST_ACCOUNT_PICKER = 1000;
     GoogleAccountCredential credential;
@@ -133,6 +117,8 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        sharedPreferences = getSharedPreferences("shared_preference", MODE_PRIVATE);
 
         ActivityCompat.requestPermissions(this, new String[]{
                 Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -237,60 +223,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE_IMPORT && resultCode == RESULT_OK) {
-            pathExcelLecturer = data.getStringExtra(SelectFileActivity.PATH);
-            int rowIndex = 0;
-            try {
-                String pathExcelFile = pathExcelLecturer;
-
-                FileInputStream excelFile = new FileInputStream(new File(pathExcelFile));
-                HSSFWorkbook workbook = new HSSFWorkbook(excelFile);
-                HSSFSheet sheet = workbook.getSheetAt(0);
-                Iterator<Row> rowIterator = sheet.iterator();
-                while (rowIterator.hasNext()) {
-                    Row row = rowIterator.next();
-                    rowIndex++;
-                    if (rowIndex == 4) {
-                        Iterator<Cell> cellIterator = row.iterator();
-                        Cell cell = cellIterator.next();
-                        String rowData = cell.getStringCellValue();
-
-                        if (rowData.equals("Sinh viên:")) {
-                            Row row2 = rowIterator.next();
-                            if (row2.getCell(0).getStringCellValue().equals("")) {
-                                showAlertFormat();
-                            } else {
-                                SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCE, MODE_PRIVATE);
-
-                                AsyncTaskReadExcelStudent asyncTaskReadExcelStudent = new AsyncTaskReadExcelStudent(this, sharedPreferences);
-                                asyncTaskReadExcelStudent.execute(pathExcelFile);
-
-                                progressDialog = new ProgressDialog(MainActivity.this);
-                                progressDialog.setMessage(getResources().getString(R.string.saving_data));
-                                progressDialog.setCanceledOnTouchOutside(false);
-                                progressDialog.show();
-                            }
-                        } else if (rowData.equals("LỊCH GIẢNG DẠY GIẢNG VIÊN")) {
-                            AsyncTaskGetListLecturer asyncTaskGetListLecturer = new AsyncTaskGetListLecturer(this);
-                            asyncTaskGetListLecturer.execute(pathExcelLecturer);
-
-                            pdGetListLecturerName = new ProgressDialog(MainActivity.this);
-                            pdGetListLecturerName.setMessage(getResources().getString(R.string.getting_lecturers));
-                            pdGetListLecturerName.setCanceledOnTouchOutside(false);
-                            pdGetListLecturerName.show();
-                        } else {
-                            showAlertFormat();
-                        }
-
-                        break;
-                    }
-                }
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else if (requestCode == REQUEST_ACCOUNT_PICKER) {
+        if (requestCode == REQUEST_ACCOUNT_PICKER) {
             if (resultCode != RESULT_CANCELED) {
                 String accountName = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
                 credential.setSelectedAccountName(accountName);
@@ -314,7 +247,107 @@ public class MainActivity extends AppCompatActivity
                 AlertDialog alertDialog2 = builder2.create();
                 alertDialog2.show();
             }
+        } else if (requestCode == REQUEST_CODE_IMPORT && resultCode == RESULT_OK) {
+            pathExcelLecturer = data.getStringExtra(SelectFileActivity.PATH);
+            int rowIndex = 0;
+            try {
+                String pathExcelFile = pathExcelLecturer;
+
+                FileInputStream excelFile = new FileInputStream(new File(pathExcelFile));
+                HSSFWorkbook workbook = new HSSFWorkbook(excelFile);
+                HSSFSheet sheet = workbook.getSheetAt(0);
+                Iterator<Row> rowIterator = sheet.iterator();
+                while (rowIterator.hasNext()) {
+                    Row row = rowIterator.next();
+                    rowIndex++;
+                    if (rowIndex == 4) {
+                        Iterator<Cell> cellIterator = row.iterator();
+                        Cell cell = cellIterator.next();
+                        String rowData = cell.getStringCellValue();
+
+                        if (rowData.equals("Sinh viên:")) {
+                            Row row2 = rowIterator.next();
+                            if (row2.getCell(0).getStringCellValue().equals("")) {
+                                showAlertFormat();
+                            } else {
+                                pdReadingDataStudent = new ProgressDialog(MainActivity.this);
+                                pdReadingDataStudent.setMessage(getResources().getString(R.string.saving_data));
+                                pdReadingDataStudent.setCanceledOnTouchOutside(false);
+                                pdReadingDataStudent.show();
+
+                                new AsyncTaskReadExcelStudent(pathExcelFile,this, sharedPreferences).execute();
+                            }
+                        } else if (rowData.equals("LỊCH GIẢNG DẠY GIẢNG VIÊN")) {
+                            pdGetListLecturer = new ProgressDialog(MainActivity.this);
+                            pdGetListLecturer.setMessage(getResources().getString(R.string.getting_lecturers));
+                            pdGetListLecturer.setCanceledOnTouchOutside(false);
+                            pdGetListLecturer.show();
+
+                            new AsyncTaskGetListLecturer(pathExcelLecturer,this).execute();
+                        } else {
+                            showAlertFormat();
+                        }
+
+                        break;
+                    }
+                }
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+    }
+
+    public void showAlertFormat() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setMessage(R.string.day_format);
+        builder.setPositiveButton(R.string.agree, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+        //alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.color_ictu));
+    }
+
+
+    @Override
+    public void setReturnListLecturer(final List<String> listLecturer) {
+        final String arrString[] = new String[listLecturer.size()];
+        for (int i = 0; i < listLecturer.size(); i++) {
+            arrString[i] = listLecturer.get(i);
+        }
+        final AlertDialog.Builder builderSingle = new AlertDialog.Builder(MainActivity.this);
+        builderSingle.setIcon(R.drawable.ic_people_info);
+        builderSingle.setTitle(R.string.choose_your_name);
+        builderSingle.setItems(arrString, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, final int i) {
+                pdGetListLecturer.dismiss();
+
+                pdReadingDataLecturer = new ProgressDialog(MainActivity.this);
+                pdReadingDataLecturer.setMessage(getResources().getString(R.string.saving_data) + ": " + listLecturer.get(i));
+                pdReadingDataLecturer.setCanceledOnTouchOutside(false);
+                pdReadingDataLecturer.show();
+
+                new AsyncTaskReadExcelLecturer(pathExcelLecturer, MainActivity.this, sharedPreferences).execute(i);
+            }
+        });
+        builderSingle.show();
+    }
+
+    @Override
+    public void setOnListennerReadExcelLecturer() {
+        materialCalendarView.removeDecorators();
+        showEventDot();
+        showEventDetail(strDateSelected);
+        addDecoratorToDay();
+        showInfoProfile();
+
+        pdReadingDataLecturer.dismiss();
+
+        Toast.makeText(this, R.string.save_data_successfully, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -325,256 +358,9 @@ public class MainActivity extends AppCompatActivity
         addDecoratorToDay();
         showInfoProfile();
 
-        progressDialog.dismiss();
+        pdReadingDataStudent.dismiss();
 
         Toast.makeText(this, R.string.save_data_successfully, Toast.LENGTH_SHORT).show();
-    }
-
-
-    @Override
-    public void setReturnListLecturerName(List<String> listLecturerName) {
-        selectLecturer(pathExcelLecturer, listLecturerName);
-    }
-
-    public void showAlertFormat() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        builder.setMessage(R.string.day_format);
-        builder.setPositiveButton(R.string.agree, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-
-            }
-        });
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
-        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.color_ictu));
-    }
-
-    public void selectLecturer(final String pathExcelFile, final List<String> listLecturerName) {
-        final String arrString[] = new String[listLecturerName.size()];
-        for (int i = 0; i < listLecturerName.size(); i++) {
-            arrString[i] = listLecturerName.get(i);
-        }
-        final AlertDialog.Builder builderSingle = new AlertDialog.Builder(MainActivity.this);
-        builderSingle.setIcon(R.drawable.ic_people_info);
-        builderSingle.setTitle(R.string.choose_your_name);
-        builderSingle.setItems(arrString, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, final int i) {
-                pdGetListLecturerName.dismiss();
-
-                pdReadingDataLecturer = new ProgressDialog(MainActivity.this);
-                pdReadingDataLecturer.setMessage(getResources().getString(R.string.saving_data) + ": " + listLecturerName.get(i));
-                pdReadingDataLecturer.setCanceledOnTouchOutside(false);
-                pdReadingDataLecturer.show();
-
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        readExcelLecturer(pathExcelFile, i);
-
-                        materialCalendarView.removeDecorators();
-                        showEventDot();
-                        showEventDetail(strDateSelected);
-                        addDecoratorToDay();
-
-                        pdReadingDataLecturer.dismiss();
-
-                        Toast.makeText(MainActivity.this, R.string.save_data_successfully, Toast.LENGTH_SHORT).show();
-                    }
-                }, 100);
-            }
-        });
-        builderSingle.show();
-
-    }
-
-    public String getFirstWeek(Iterator<Row> rowIterator) {
-        int rowWeek = 0;
-        while (rowIterator.hasNext()) {
-            Row row = rowIterator.next();
-
-            if (row.getCell(1).getStringCellValue().contains("TUẦN")) {
-                rowWeek++;
-            }
-
-            if (rowWeek == 3) {
-                return row.getCell(1).getStringCellValue().substring(0, 8);
-            }
-        }
-
-        return "str";
-    }
-
-    public void readExcelLecturer(String pathExcelFile, int i) {
-        new Delete().from(Event.class).where("type = ?", "lecturer").execute();
-        new Delete().from(Event.class).where("type = ?", "student").execute();
-
-        int rowIndex = 0;
-        int rowWeek = 0;
-        List<String> listData = null;
-
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCE, MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-
-        try {
-            FileInputStream excelFile = new FileInputStream(new File(pathExcelFile));
-            HSSFWorkbook workbook = new HSSFWorkbook(excelFile);
-            HSSFSheet sheet = workbook.getSheetAt(i);
-            Iterator<Row> rowIterator = sheet.iterator();
-            String currentWeek = getFirstWeek(sheet.iterator());
-
-            while (rowIterator.hasNext()) {
-                Row row = rowIterator.next();
-                rowIndex++;
-
-                if (rowIndex == 6) {
-                    editor.putString("name", row.getCell(2).getStringCellValue());
-                } else if (rowIndex == 7) {
-                    editor.putString("unit", row.getCell(2).getStringCellValue());
-                    editor.apply();
-
-                    showInfoProfile();
-                }
-
-                if (rowIndex < 11) {
-                    continue;
-                }
-
-                if (row.getCell(1).getStringCellValue().contains("TUẦN")) {
-                    rowWeek++;
-                }
-
-                if (rowWeek <= 2) {
-                    if (row.getCell(1).getStringCellValue().contains("TUẦN")) {
-                        listData = new ArrayList<>();
-                    }
-                    if (row.getCell(1).getCellTypeEnum() == CellType.BLANK) {
-                        saveData(listData);
-                    }
-
-                    Iterator<Cell> cellIterator = row.iterator();
-
-                    StringBuilder sb = new StringBuilder();
-                    while (cellIterator.hasNext()) {
-                        Cell cell = cellIterator.next();
-
-                        if (cell.getCellTypeEnum() == CellType.STRING) {
-                            sb.append(cell.getStringCellValue());
-                            sb.append("---");
-                        } else if (cell.getCellTypeEnum() == CellType.NUMERIC) {
-                            sb.append((int) cell.getNumericCellValue());
-                            sb.append("---");
-                        }
-                    }
-                    String data = sb.toString();
-                    listData.add(data);
-                }
-
-                if (rowWeek >= 3) {
-                    if (!row.getCell(1).getStringCellValue().substring(0, 8).equals(currentWeek)
-                            && row.getCell(1).getStringCellValue().contains("TUẦN")) {
-                        saveData(listData);
-                    }
-                    if (row.getCell(1).getStringCellValue().contains("TUẦN")) {
-                        listData = new ArrayList<>();
-                    }
-
-                    Iterator<Cell> cellIterator = row.iterator();
-
-                    StringBuilder sb = new StringBuilder();
-                    while (cellIterator.hasNext()) {
-                        Cell cell = cellIterator.next();
-
-                        if (cell.getCellTypeEnum() == CellType.STRING) {
-                            sb.append(cell.getStringCellValue());
-                            sb.append("---");
-                        } else if (cell.getCellTypeEnum() == CellType.NUMERIC) {
-                            sb.append((int) cell.getNumericCellValue());
-                            sb.append("---");
-                        }
-                    }
-                    String data = sb.toString();
-                    listData.add(data);
-                }
-
-                /* dữ liệu của tuần cuối đã được đưa vào listData
-                nên chỉ cần gọi hàm saveData() khi nó là dòng cuối cùng */
-                if (!rowIterator.hasNext()) {
-                    saveData(listData);
-                }
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    public void saveData(List<String> listData) {
-        try {
-            int posStart = listData.get(0).indexOf("(") + 1;
-            int posEnd = listData.get(0).indexOf("đến") - 1;
-            String strStartDate = listData.get(0).substring(posStart, posEnd);
-            DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern("dd-MM-yyyy");
-            DateTime startDate = dateTimeFormatter.parseDateTime(strStartDate);
-            for (String rowData1 : listData) {
-                // không lấy dữ liệu dòng đầu tiên mỗi listData
-                if (rowData1.contains(")")) {
-                    String rowDataSplit[] = rowData1.split("---");
-                    Event event = new Event();
-                    SimpleDateFormat formatInput = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
-                    SimpleDateFormat formatOutput = new SimpleDateFormat("dd/MM/yyyy");
-                    String day = rowDataSplit[3];
-                    Date date = formatInput.parse(String.valueOf(startDate.plusDays(Integer.parseInt(day) - 2)));
-                    String dateFormatted = formatOutput.format(date);
-                    event.setDate(dateFormatted);
-
-                    String subjectName = rowDataSplit[1].substring(0, rowDataSplit[1].indexOf("-"));
-                    event.setSubjectName(subjectName);
-
-                    String time = rowDataSplit[4].replace(",", ", ");
-                    String arrTime[] = rowDataSplit[4].split(",");
-                    int startTime = Integer.parseInt(arrTime[0]);
-                    int endTime = Integer.parseInt(arrTime[arrTime.length - 1]);
-                    if (isSummer(dateFormatted)) {
-                        event.setTime(time + " (" + arrStartTimeSummer[startTime - 1] + " - " + arrEndTimeSummer[endTime - 1] + ")");
-
-                    } else {
-                        event.setTime(time + " (" + arrStartTimeWinter[startTime - 1] + " - " + arrEndTimeWinter[endTime - 1] + ")");
-                    }
-
-                    event.setPlace(rowDataSplit[5]);
-
-                    event.setType("lecturer");
-
-                    event.save();
-
-                    //Log.d(TAG, "saveData: " + event.getDate() + " - " + event.getSubjectName());
-                }
-            }
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    private boolean isSummer(String strDate) {
-        String strDateSplit[] = strDate.split("/");
-        int day = Integer.parseInt(strDateSplit[0]);
-        int month = Integer.parseInt(strDateSplit[1]);
-
-        if (month >= 4 && month <= 10) {
-            if (month == 4 && day < 15) {
-                return false;
-            } else if (month == 10 && day > 15) {
-                return false;
-            }
-            // Log.d(TAG, "isSummer: " + month + " " + day);
-            return true;
-        }
-
-        return false;
     }
 
     @Override
@@ -663,8 +449,6 @@ public class MainActivity extends AppCompatActivity
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
-        //alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(getResources().getColor(R.color.color_decline));
-        //alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.color_accept));
     }
 
     private void pickDate(final OnDatePickerListener onDatePickerListener) {
@@ -704,8 +488,6 @@ public class MainActivity extends AppCompatActivity
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
-        alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(getResources().getColor(R.color.color_decline));
-        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.color_accept));
     }
 
     public String convertCalendarDayToString(CalendarDay calendarDay) {
@@ -753,7 +535,7 @@ public class MainActivity extends AppCompatActivity
         //txtStudentCode = view.fcindViewById(R.id.txt_student_code);
         txtUnit = view.findViewById(R.id.txt_unit);
 
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCE, Context.MODE_PRIVATE);
+        //SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCE, Context.MODE_PRIVATE);
         txtName.setText(sharedPreferences.getString("name", "?"));
         //txtStudentCode.setText(sharedPreferences.getString("student_code", "?"));
         txtUnit.setText(sharedPreferences.getString("unit", "?"));
@@ -890,6 +672,7 @@ public class MainActivity extends AppCompatActivity
             progressDialog.setCanceledOnTouchOutside(false);
             progressDialog.setCancelable(false);
             progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            progressDialog.setMax(listEvent.size());
             progressDialog.show();
 
             new AsyncTask<Void, Void, Void>() {
@@ -1025,5 +808,4 @@ public class MainActivity extends AppCompatActivity
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         return cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected();
     }
-
 }

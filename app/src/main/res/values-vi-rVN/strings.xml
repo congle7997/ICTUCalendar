@@ -37,4 +37,26 @@
     <string name="info0">Cảm ơn vì đã sử dụng!</string>
     <string name="extracurricular_point">Điểm Ngoại Khóa</string>
     <string name="sync">Đồng Bộ Tới Google Calendar</string>
+    <string name="yes">Có</string>
+    <string name="no">Không</string>
+    <string name="notification">Thông Báo</string>
+    <string name="sync_note">Bạn có muốn đồng bộ ghi chú không?</string>
+    <string name="syncing">Đang đồng bộ tới Google Calendar</string>
+    <string name="require_internet">Đồng bộ tới Google Calendar cần kết nối Internet!</string>
+    <string name="time_notification">Chọn thời gian nhận thông báo</string>
+    <string name="input_time">Nhập thời gian</string>
+    <string name="cancel_syn">Bạn có muốn huỷ đồng bộ ngay bây giờ?</string>
+    <string name="canceled_sync">Đã huỷ đồng bộ!</string>
+    <string name="internet_problem">Kết nối Internet có vấn đề!</string>
+    <string name="sync_successful">Đồng bộ thành công</string>
+    <string name="synced">Đã đồng bộ:</string>
+    <string name="event">sự kiện</string>
+    <string name="no_notification">Không nhận thông báo</string>
+    <string name="event_start">Thông báo khi bắt đầu</string>
+    <string name="pre_15">Trước 15 phút</string>
+    <string name="pre_30">Trước 30 phút</string>
+    <string name="pre_45">Trước 45 phút</string>
+    <string name="custom">Tuỳ chọn ...</string>
+    <string name="saving_data">Đang lưu dữ liệu</string>
+    <string name="getting_lecturers">Đang lấy danh sách giảng viên</string>
 </resources>

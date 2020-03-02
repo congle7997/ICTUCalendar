@@ -4,7 +4,7 @@
             "outputFile": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-is-rIS\\values-is-rIS.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-2\\files-2.1\\00fdad77d44f5f8e54e2674feee1e08a\\play-services-base-7.3.0\\res\\values-is-rIS\\common_strings.xml",
+                    "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-2\\files-2.1\\6f69700a6a8fe6931abb0676185a2a6f\\play-services-base-7.3.0\\res\\values-is-rIS\\common_strings.xml",
                     "from": {
                         "startLines": "6,19,17,15,14,13,8,12,10,11,9,23,22,7,21,20,4,5,3,33,32,24,26,25,27,18,16,30,28,29,31",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

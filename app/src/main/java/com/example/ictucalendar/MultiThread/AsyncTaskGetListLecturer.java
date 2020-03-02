@@ -2,7 +2,7 @@ package com.example.ictucalendar.MultiThread;
 
 import android.os.AsyncTask;
 
-import com.example.ictucalendar.Interface.ReturnListLecturerName;
+import com.example.ictucalendar.Interface.ReturnListLecturer;
 
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -22,9 +22,11 @@ public class AsyncTaskGetListLecturer extends AsyncTask<String, Void, List<Strin
 
     String TAG = "AsyncTaskGetListLecturer";
 
-    ReturnListLecturerName returnListLecturer;
+    String pathExcelLecturer;
+    ReturnListLecturer returnListLecturer;
 
-    public AsyncTaskGetListLecturer(ReturnListLecturerName returnListLecturer) {
+    public AsyncTaskGetListLecturer(String pathExcelLecturer, ReturnListLecturer returnListLecturer) {
+        this.pathExcelLecturer = pathExcelLecturer;
         this.returnListLecturer = returnListLecturer;
     }
 
@@ -38,7 +40,7 @@ public class AsyncTaskGetListLecturer extends AsyncTask<String, Void, List<Strin
         List<String> listLecturerName = new ArrayList<>();
 
         try {
-            String pathExcelLecturer = strings[0];
+           // String pathExcelLecturer = strings[0];
             FileInputStream excelFile = new FileInputStream(new File(pathExcelLecturer));
             HSSFWorkbook workbook = new HSSFWorkbook(excelFile);
 
@@ -87,6 +89,6 @@ public class AsyncTaskGetListLecturer extends AsyncTask<String, Void, List<Strin
     protected void onPostExecute(List<String> list) {
         super.onPostExecute(list);
 
-        returnListLecturer.setReturnListLecturerName(list);
+        returnListLecturer.setReturnListLecturer(list);
     }
 }

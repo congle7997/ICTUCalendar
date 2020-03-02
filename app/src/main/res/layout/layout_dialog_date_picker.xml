@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <DatePicker
+        android:layout_marginTop="@dimen/_10sdp"
         android:id="@+id/date_picker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,4 +16,4 @@
         android:scaleY="1.1"
         android:headerBackground="@color/color_ictu"></DatePicker>
 
-</RelativeLayout>
+</LinearLayout>

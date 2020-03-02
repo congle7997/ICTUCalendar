@@ -4,7 +4,6 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 
 import com.activeandroid.query.Delete;
-import com.example.ictucalendar.Activity.MainActivity;
 import com.example.ictucalendar.Interface.OnListennerReadExcelStudent;
 import com.example.ictucalendar.Object.Event;
 import com.example.ictucalendar.Object.Student;
@@ -30,7 +29,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-public class AsyncTaskReadExcelStudent extends AsyncTask<String, Void, Void> {
+public class AsyncTaskReadExcelStudent extends AsyncTask<Void, Void, Void> {
 
     String arrStringDay[] = {"T2", "T3", "T4", "T5", "T6", "T7", "CN"};
     int arrIntDay[] = {DateTimeConstants.MONDAY, DateTimeConstants.TUESDAY, DateTimeConstants.WEDNESDAY,
@@ -40,10 +39,12 @@ public class AsyncTaskReadExcelStudent extends AsyncTask<String, Void, Void> {
     String arrStartTimeWinter[] = {"06:45", "07:40", "08:40", "09:40", "10:35", "13:00", "13:55", "14:55", "15:55", "16:50", "18:15", "19:10"};
     String arrEndTimeWinter[] = {"07:35", "08:30", "09:30", "10:30", "11:25", "13:50", "14:45", "15:45", "16:45", "17:40", "19:05", "20:00"};
 
+    String pathExcelStudent;
     OnListennerReadExcelStudent onListennerReadExcelStudent;
     SharedPreferences sharedPreferences;
 
-    public AsyncTaskReadExcelStudent(OnListennerReadExcelStudent onListennerReadExcelStudent, SharedPreferences sharedPreferences) {
+    public AsyncTaskReadExcelStudent(String pathExcelFile, OnListennerReadExcelStudent onListennerReadExcelStudent, SharedPreferences sharedPreferences) {
+        this.pathExcelStudent = pathExcelFile;
         this.onListennerReadExcelStudent = onListennerReadExcelStudent;
         this.sharedPreferences = sharedPreferences;
     }
@@ -54,7 +55,7 @@ public class AsyncTaskReadExcelStudent extends AsyncTask<String, Void, Void> {
     }
 
     @Override
-    protected Void doInBackground(String... strings) {
+    protected Void doInBackground(Void... voids) {
         new Delete().from(Event.class).where("type = ?", "lecturer").execute();
         new Delete().from(Event.class).where("type = ?", "student").execute();
 
@@ -65,9 +66,7 @@ public class AsyncTaskReadExcelStudent extends AsyncTask<String, Void, Void> {
         String strDay = "";
 
         try {
-            String pathExcelFile = strings[0];
-
-            FileInputStream excelFile = new FileInputStream(new File(pathExcelFile));
+            FileInputStream excelFile = new FileInputStream(new File(pathExcelStudent));
             HSSFWorkbook workbook = new HSSFWorkbook(excelFile);
             HSSFSheet sheet = workbook.getSheetAt(0);
             // Tạo và gán 1 đối tượng Iterator để lặp các hàng từ đầu tới cuối
@@ -221,7 +220,6 @@ public class AsyncTaskReadExcelStudent extends AsyncTask<String, Void, Void> {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return null;
     }
 

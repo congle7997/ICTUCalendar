@@ -9,6 +9,7 @@
 
     <RadioGroup
         android:id="@+id/rg_time_alarm"
+        android:paddingTop="@dimen/_10sdp"
         android:paddingBottom="@dimen/_10sdp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">

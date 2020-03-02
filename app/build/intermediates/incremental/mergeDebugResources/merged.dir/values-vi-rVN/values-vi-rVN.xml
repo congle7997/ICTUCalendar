@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">Chấp nhận</string>
+    <string name="action_settings" translatable="false">Cài đặt</string>
+    <string name="agree">Đồng ý</string>
+    <string name="app_name">ICTU Calendar</string>
+    <string name="back">Quay lại</string>
+    <string name="back_folder">Trở về thư mục trước</string>
+    <string name="back_main">Trở về màn hình chính</string>
+    <string name="cancel">Hủy</string>
+    <string name="cancel_syn">Bạn có muốn huỷ đồng bộ ngay bây giờ?</string>
+    <string name="canceled_sync">Đã huỷ đồng bộ!</string>
+    <string name="choose_your_name">Chọn tên của bạn:</string>
+    <string name="create_qr_code">Tạo Mã QR</string>
+    <string name="custom">Tuỳ chọn ...</string>
+    <string name="day_format">File lịch học cần phải ở dạng THỨ!</string>
+    <string name="enter_your_note">Nhập ghi chú ...</string>
+    <string name="event">sự kiện</string>
+    <string name="event_start">Thông báo khi bắt đầu</string>
+    <string name="external_storage">Thẻ nhớ</string>
+    <string name="extracurricular_point">Điểm Ngoại Khóa</string>
+    <string name="format_not_correct">Định dạng file không đúng!</string>
+    <string name="getting_lecturers">Đang lấy danh sách giảng viên</string>
+    <string name="import_excel">Nhập File Excel</string>
+    <string name="info0">Cảm ơn vì đã sử dụng!</string>
+    <string name="info1">"   Phần mềm xem lịch ICTU Calendar được xây dựng bởi 1 nhóm các bạn sinh viên ngành KTPM của ICTU mục đích trau dồi kỹ năng lập trình cũng như phục vụ việc xem lịch giảng dạy cho các cán bộ giảng viên và lịch học cho sinh viên của ngôi trường mà nhóm đang theo học, phần mềm public source code tại:"</string>
+    <string name="info2">https://github.com/congle7997/ICTUCalendar</string>
+    <string name="info3">"   Việc nhập file lịch học cho giảng viên hết sức đơn giản bởi vì các cán bộ giảng viên chỉ có duy nhất 1 định dạng lịch, còn các bạn sinh viên sẽ có nhiều định dạng lịch và phần mềm chỉ hỗ trợ định dạng lịch theo THỨ HỌC nên khi lấy lịch các bạn hết sức lưu ý! "</string>
+    <string name="info4">"   Một file lịch học của sinh viên theo dạng THỨ HỌC có dạng như sau (các bạn sinh viên trường khác có định dạng lịch như thế này phần mềm vẫn đọc được bình thường): "</string>
+    <string name="info5">"   Ngoài việc hiển thị lịch giảng dạy, lịch học thì phần mềm cũng hỗ trợ tạo ghi chú. Mỗi một chấm màu xanh dương thể hiện là ngày hôm đó có 1 lịch học, mỗi một chấm màu tím thể hiện ngày hôm đó có 1 ghi chú, tối đa 1 ngày trên lịch thể hiện 4 chấm lịch học và 1 chấm ghi chú. "</string>
+    <string name="information" translatable="false">Thông Tin</string>
+    <string name="input_time">Nhập thời gian</string>
+    <string name="internal_storage">Bộ nhớ máy</string>
+    <string name="internet_problem">Kết nối Internet có vấn đề!</string>
+    <string name="joda_time_android_date_time">%1$s %2$s</string>
+    <string name="lecturer">Giảng viên</string>
+    <string name="no">Không</string>
+    <string name="no_notification">Không nhận thông báo</string>
+    <string name="not_available">Tính năng hiện không khả dụng!</string>
+    <string name="not_installed_gmail">Thiết bị của bạn chưa được cài ứng dụng Gmail nên không thể sử dụng tính năng này!</string>
+    <string name="note">Ghi chú</string>
+    <string name="notification">Thông Báo</string>
+    <string name="opinion_feedback">Ý Kiến / Phản Hồi</string>
+    <string name="pre_15">Trước 15 phút</string>
+    <string name="pre_30">Trước 30 phút</string>
+    <string name="pre_45">Trước 45 phút</string>
+    <string name="reading_excel_file">Đang đọc file excel ...</string>
+    <string name="require_internet">Đồng bộ tới Google Calendar cần kết nối Internet!</string>
+    <string name="save_data_successfully">Lưu dữ liệu thành công!</string>
+    <string name="save_note_successfully">Lưu ghi chú thành công!</string>
+    <string name="saving_data">Đang lưu dữ liệu</string>
+    <string name="sent_developer">Phản hồi của bạn đã được gửi tới nhà phát triển của ứng dụng này!</string>
+    <string name="setting">Cài Đặt</string>
+    <string name="student">Sinh viên</string>
+    <string name="sync">Đồng Bộ Tới Google Calendar</string>
+    <string name="sync_note">Bạn có muốn đồng bộ ghi chú không?</string>
+    <string name="sync_successful">Đồng bộ thành công</string>
+    <string name="synced">Đã đồng bộ:</string>
+    <string name="syncing">Đang đồng bộ tới Google Calendar</string>
+    <string name="time_notification">Chọn thời gian nhận thông báo</string>
+    <string name="yes">Có</string>
+    <string name="you_are">Bạn là:</string>
+</resources>
