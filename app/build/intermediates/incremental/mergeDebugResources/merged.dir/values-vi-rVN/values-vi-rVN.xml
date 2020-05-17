@@ -8,8 +8,8 @@
     <string name="back_folder">Trở về thư mục trước</string>
     <string name="back_main">Trở về màn hình chính</string>
     <string name="cancel">Hủy</string>
-    <string name="cancel_syn">Bạn có muốn huỷ đồng bộ ngay bây giờ?</string>
-    <string name="canceled_sync">Đã huỷ đồng bộ!</string>
+    <string name="cancel_upload">Bạn có muốn huỷ tải lên ngay bây giờ?</string>
+    <string name="canceled_upload">Đã huỷ tải lên!</string>
     <string name="choose_your_name">Chọn tên của bạn:</string>
     <string name="create_qr_code">Tạo Mã QR</string>
     <string name="custom">Tuỳ chọn ...</string>
@@ -45,19 +45,19 @@
     <string name="pre_30">Trước 30 phút</string>
     <string name="pre_45">Trước 45 phút</string>
     <string name="reading_excel_file">Đang đọc file excel ...</string>
-    <string name="require_internet">Đồng bộ tới Google Calendar cần kết nối Internet!</string>
+    <string name="require_internet">Tải lên Google Calendar yêu cầu kết nối Internet!</string>
     <string name="save_data_successfully">Lưu dữ liệu thành công!</string>
     <string name="save_note_successfully">Lưu ghi chú thành công!</string>
     <string name="saving_data">Đang lưu dữ liệu</string>
     <string name="sent_developer">Phản hồi của bạn đã được gửi tới nhà phát triển của ứng dụng này!</string>
     <string name="setting">Cài Đặt</string>
     <string name="student">Sinh viên</string>
-    <string name="sync">Đồng Bộ Tới Google Calendar</string>
-    <string name="sync_note">Bạn có muốn đồng bộ ghi chú không?</string>
-    <string name="sync_successful">Đồng bộ thành công</string>
-    <string name="synced">Đã đồng bộ:</string>
-    <string name="syncing">Đang đồng bộ tới Google Calendar</string>
     <string name="time_notification">Chọn thời gian nhận thông báo</string>
+    <string name="upload">Tải lên Google Calendar</string>
+    <string name="upload_note">Bạn có muốn tải lên ghi chú không?</string>
+    <string name="uploaded">Đã tải lên:</string>
+    <string name="uploaded_successful">Đã tải lên thành công</string>
+    <string name="uploading">Đang tải lên Google Calendar</string>
     <string name="yes">Có</string>
     <string name="you_are">Bạn là:</string>
 </resources>

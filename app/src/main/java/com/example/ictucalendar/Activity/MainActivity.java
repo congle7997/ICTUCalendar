@@ -54,6 +54,7 @@ import com.example.ictucalendar.Object.Event;
 import com.example.ictucalendar.R;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
+import com.google.api.client.googleapis.extensions.android.gms.auth.UserRecoverableAuthIOException;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.gson.GsonFactory;
@@ -108,9 +109,11 @@ public class MainActivity extends AppCompatActivity
     SharedPreferences sharedPreferences;
 
     static final int REQUEST_ACCOUNT_PICKER = 1000;
+    static final int REQUEST_AUTHORIZATION = 1001;
     GoogleAccountCredential credential;
     com.google.api.services.calendar.Calendar service;
     String calendarID;
+    boolean isAuth;
 
 
     @Override
@@ -179,15 +182,27 @@ public class MainActivity extends AppCompatActivity
             final Intent intent = new Intent(MainActivity.this, SelectFileActivity.class);
             startActivityForResult(intent, REQUEST_CODE_IMPORT);
         } else if (id == R.id.nav_sync) {
-            HttpTransport transport = AndroidHttp.newCompatibleTransport();
-            JsonFactory jsonFactory = GsonFactory.getDefaultInstance();
-            String[] SCOPES = {CalendarScopes.CALENDAR};
-            credential = GoogleAccountCredential.usingOAuth2(
-                    getApplicationContext(), Arrays.asList(SCOPES));
-            service = new com.google.api.services.calendar.Calendar.Builder(
-                    transport, jsonFactory, credential).build();
+            if (checkNetwork()) {
+                HttpTransport transport = AndroidHttp.newCompatibleTransport();
+                JsonFactory jsonFactory = GsonFactory.getDefaultInstance();
+                String[] SCOPES = {CalendarScopes.CALENDAR};
+                credential = GoogleAccountCredential.usingOAuth2(
+                        getApplicationContext(), Arrays.asList(SCOPES));
+                service = new com.google.api.services.calendar.Calendar.Builder(
+                        transport, jsonFactory, credential).build();
 
-            startActivityForResult(credential.newChooseAccountIntent(), REQUEST_ACCOUNT_PICKER);
+                startActivityForResult(credential.newChooseAccountIntent(), REQUEST_ACCOUNT_PICKER);
+            } else {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setMessage(R.string.require_internet);
+                builder.setPositiveButton(R.string.agree, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            }
         } else if (id == R.id.nav_qr_code) {
 
         } else if (id == R.id.nav_extracurricular_point) {
@@ -228,24 +243,35 @@ public class MainActivity extends AppCompatActivity
                 String accountName = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
                 credential.setSelectedAccountName(accountName);
 
-                AlertDialog.Builder builder2 = new AlertDialog.Builder(MainActivity.this);
-                builder2.setTitle(R.string.notification);
-                builder2.setMessage(R.string.sync_note);
-                //builder.setCancelable(true);
-                builder2.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                isAuth = false;
+                new AsyncTask<Void, Void, Void>() {
                     @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        showAlert(true);
+                    protected Void doInBackground(Void... voids) {
+                        try {
+                            CalendarList calendarList = service.calendarList().list().setPageToken(null).execute();
+                            isAuth = true;
+                        } catch (UserRecoverableAuthIOException userRecoverableException) {
+                            // nếu chưa được xác thực sẽ nhảy catch này
+                            startActivityForResult(userRecoverableException.getIntent(), REQUEST_AUTHORIZATION);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        return null;
                     }
-                });
-                builder2.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+
                     @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        showAlert(false);
+                    protected void onPostExecute(Void aVoid) {
+                        showAlertUploadNote();
+                        super.onPostExecute(aVoid);
                     }
-                });
-                AlertDialog alertDialog2 = builder2.create();
-                alertDialog2.show();
+                }.execute();
+            }
+        } else if (requestCode == REQUEST_AUTHORIZATION) {
+            if (resultCode == RESULT_CANCELED) {
+                isAuth = false;
+            } else if (resultCode == RESULT_OK && data.getExtras() != null) {
+                isAuth = true;
+                showAlertUploadNote();
             }
         } else if (requestCode == REQUEST_CODE_IMPORT && resultCode == RESULT_OK) {
             pathExcelLecturer = data.getStringExtra(SelectFileActivity.PATH);
@@ -275,7 +301,7 @@ public class MainActivity extends AppCompatActivity
                                 pdReadingDataStudent.setCanceledOnTouchOutside(false);
                                 pdReadingDataStudent.show();
 
-                                new AsyncTaskReadExcelStudent(pathExcelFile,this, sharedPreferences).execute();
+                                new AsyncTaskReadExcelStudent(pathExcelFile, this, sharedPreferences).execute();
                             }
                         } else if (rowData.equals("LỊCH GIẢNG DẠY GIẢNG VIÊN")) {
                             pdGetListLecturer = new ProgressDialog(MainActivity.this);
@@ -283,7 +309,7 @@ public class MainActivity extends AppCompatActivity
                             pdGetListLecturer.setCanceledOnTouchOutside(false);
                             pdGetListLecturer.show();
 
-                            new AsyncTaskGetListLecturer(pathExcelLecturer,this).execute();
+                            new AsyncTaskGetListLecturer(pathExcelLecturer, this).execute();
                         } else {
                             showAlertFormat();
                         }
@@ -296,6 +322,29 @@ public class MainActivity extends AppCompatActivity
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    public void showAlertUploadNote() {
+        if (isAuth) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            builder.setTitle(R.string.notification);
+            builder.setMessage(R.string.upload_note);
+            builder.setCancelable(false);
+            builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    showAlertPickTimeAlarm(true);
+                }
+            });
+            builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    showAlertPickTimeAlarm(false);
+                }
+            });
+            AlertDialog alertDialog2 = builder.create();
+            alertDialog2.show();
         }
     }
 
@@ -644,7 +693,7 @@ public class MainActivity extends AppCompatActivity
         return listEvent.size() > 0;
     }
 
-    public void sync(final int timeAlarm, boolean syncNote) {
+    public void upload(final int timeAlarm, boolean syncNote) {
         final String type;
         if (isLecturer()) {
             type = "lecturer";
@@ -666,72 +715,55 @@ public class MainActivity extends AppCompatActivity
             }
         }
 
-        if (checkNetwork()) {
-            final ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
-            progressDialog.setMessage(getResources().getString(R.string.syncing));
-            progressDialog.setCanceledOnTouchOutside(false);
-            progressDialog.setCancelable(false);
-            progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-            progressDialog.setMax(listEvent.size());
-            progressDialog.show();
 
-            new AsyncTask<Void, Void, Void>() {
-                @Override
-                protected Void doInBackground(Void... voids) {
-                    // Xoá lịch cũ
-                    String pageToken = null;
-                    do {
-                        CalendarList calendarList = null;
+        final ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
+        progressDialog.setMessage(getResources().getString(R.string.uploading));
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.setCancelable(false);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        progressDialog.setMax(listEvent.size());
+        progressDialog.show();
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... voids) {
+                // Xoá lịch cũ
+                CalendarList calendarList = null;
+                try {
+                    calendarList = service.calendarList().list().setPageToken(null).execute();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                List<CalendarListEntry> items = calendarList.getItems();
+                for (CalendarListEntry calendarListEntry : items) {
+                    if (calendarListEntry.getSummary().equals("ICTU Calendar")) {
                         try {
-                            calendarList = service.calendarList().list().setPageToken(pageToken).execute();
+                            service.calendarList().delete(calendarListEntry.getId()).execute();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                        List<CalendarListEntry> items = calendarList.getItems();
-
-                        for (CalendarListEntry calendarListEntry : items) {
-                            if (calendarListEntry.getSummary().equals("ICTU Calendar")) {
-                                try {
-                                    service.calendarList().delete(calendarListEntry.getId()).execute();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }
-                        pageToken = calendarList.getNextPageToken();
-                    } while (pageToken != null);
-
-                    // Tạo lịch mới
-                    com.google.api.services.calendar.model.Calendar calendar = new com.google.api.services.calendar.model.Calendar();
-                    calendar.setSummary("ICTU Calendar");
-                    com.google.api.services.calendar.model.Calendar createdCalendar = null;
-                    try {
-                        createdCalendar = service.calendars().insert(calendar).execute();
-                    } catch (IOException e) {
-                        e.printStackTrace();
                     }
-                    calendarID = createdCalendar.getId();
-
-                    return null;
                 }
 
-                @Override
-                protected void onPostExecute(Void aVoid) {
-                    super.onPostExecute(aVoid);
-                    new AsyncTaskCreateEventAPI(service, calendarID, listEvent, timeAlarm, progressDialog, MainActivity.this).execute();
+                // Tạo lịch mới
+                com.google.api.services.calendar.model.Calendar calendar = new com.google.api.services.calendar.model.Calendar();
+                calendar.setSummary("ICTU Calendar");
+                com.google.api.services.calendar.model.Calendar createdCalendar = null;
+                try {
+                    createdCalendar = service.calendars().insert(calendar).execute();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-            }.execute();
-        } else {
-            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-            builder.setMessage(R.string.require_internet);
-            builder.setPositiveButton(R.string.agree, new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
+                calendarID = createdCalendar.getId();
 
-                }
-            });
-            AlertDialog alertDialog = builder.create();
-            alertDialog.show();
-        }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+                new AsyncTaskCreateEventAPI(service, calendarID, listEvent, timeAlarm, progressDialog, MainActivity.this).execute();
+            }
+        }.execute();
     }
 
     public boolean isLecturer() {
@@ -748,9 +780,10 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    public void showAlert(final boolean syncNote) {
+    public void showAlertPickTimeAlarm(final boolean hasNote) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.time_notification);
+        builder.setCancelable(false);
         final View view = getLayoutInflater().inflate(R.layout.layout_dialog_time_alarm, null);
         builder.setView(view);
         final AlertDialog dialog = builder.create();
@@ -762,23 +795,23 @@ public class MainActivity extends AppCompatActivity
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 switch (i) {
                     case R.id.rb1:
-                        sync(-1, syncNote);
+                        upload(-1, hasNote);
                         dialog.dismiss();
                         break;
                     case R.id.rb2:
-                        sync(0, syncNote);
+                        upload(0, hasNote);
                         dialog.dismiss();
                         break;
                     case R.id.rb3:
-                        sync(15, syncNote);
+                        upload(15, hasNote);
                         dialog.dismiss();
                         break;
                     case R.id.rb4:
-                        sync(30, syncNote);
+                        upload(30, hasNote);
                         dialog.dismiss();
                         break;
                     case R.id.rb5:
-                        sync(45, syncNote);
+                        upload(45, hasNote);
                         dialog.dismiss();
                         break;
                     case R.id.rb6:
@@ -792,7 +825,7 @@ public class MainActivity extends AppCompatActivity
                         builder2.setPositiveButton(R.string.agree, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                sync(Integer.parseInt(edtTimeAlarm.getText().toString()), syncNote);
+                                upload(Integer.parseInt(edtTimeAlarm.getText().toString()), hasNote);
                             }
                         });
 

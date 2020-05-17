@@ -10,7 +10,7 @@
 
 
     <string name="import_excel">Import Excel File</string>
-    <string name="sync">Sync To Google Calendar</string>
+    <string name="upload">Upload To Google Calendar</string>
     <string name="create_qr_code">Create QR Code</string>
     <string name="extracurricular_point">Extracurricular Point</string>
     <string name="setting">Setting</string>
@@ -28,16 +28,16 @@
     <string name="no">No</string>
 
     <string name="notification">Notification</string>
-    <string name="sync_note">Do you want sync note?</string>
-    <string name="syncing">Syncing to Google Calendar</string>
-    <string name="require_internet">Sync to Google Calendar require Internet!</string>
+    <string name="upload_note">Do you want upload note?</string>
+    <string name="uploading">Uploading to Google Calendar</string>
+    <string name="require_internet">Upload to Google Calendar require Internet!</string>
     <string name="time_notification">Choose time get notification</string>
     <string name="input_time">Input time</string>
-    <string name="cancel_syn">Do you want cancel sync now?</string>
-    <string name="canceled_sync">Canceled Sync!</string>
+    <string name="cancel_upload">Do you want cancel upload now?</string>
+    <string name="canceled_upload">Canceled Upload!</string>
     <string name="internet_problem">Internet Connection Problem!</string>
-    <string name="sync_successful">Sync Successful</string>
-    <string name="synced">Synced: </string>
+    <string name="uploaded_successful">Uploaded Successful</string>
+    <string name="uploaded">Uploaded:</string>
     <string name="event">events</string>
     <string name="no_notification">No notification</string>
     <string name="event_start">At time of event</string>

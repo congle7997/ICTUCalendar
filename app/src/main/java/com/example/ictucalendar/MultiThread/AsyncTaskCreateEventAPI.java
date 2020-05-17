@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.widget.Toast;
 
-import com.example.ictucalendar.Activity.MainActivity;
 import com.example.ictucalendar.Object.Event;
 import com.example.ictucalendar.R;
 import com.google.api.client.googleapis.extensions.android.gms.auth.UserRecoverableAuthIOException;
@@ -119,7 +118,7 @@ public class AsyncTaskCreateEventAPI extends AsyncTask<Void, Void, Void> {
                     if (i == KeyEvent.KEYCODE_BACK && !keyEvent.isCanceled()) {
                         AlertDialog.Builder builder = new AlertDialog.Builder(context);
                         builder.setTitle(R.string.notification);
-                        builder.setMessage(R.string.cancel_syn);
+                        builder.setMessage(R.string.cancel_upload);
                         builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
@@ -142,7 +141,7 @@ public class AsyncTaskCreateEventAPI extends AsyncTask<Void, Void, Void> {
             progressDialog.setProgress(i++);
 
             if (isCancel == true) {
-                reason = context.getResources().getString(R.string.canceled_sync);
+                reason = context.getResources().getString(R.string.canceled_upload);
                 break;
             }
 
@@ -162,9 +161,9 @@ public class AsyncTaskCreateEventAPI extends AsyncTask<Void, Void, Void> {
         progressDialog.dismiss();
 
         if (i == max) {
-            Toast.makeText(context, R.string.sync_successful, Toast.LENGTH_LONG).show();
+            Toast.makeText(context, R.string.uploaded_successful, Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(context, reason + "\n" + context.getResources().getString(R.string.synced) + ": " + i +
+            Toast.makeText(context, reason + "\n" + context.getResources().getString(R.string.uploaded) + " " + i +
                     "/" + max + " " + context.getResources().getString(R.string.event), Toast.LENGTH_LONG).show();
         }
     }
