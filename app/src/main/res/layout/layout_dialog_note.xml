@@ -8,9 +8,10 @@
     <EditText
         android:gravity="top"
         android:id="@+id/edt_input_note"
+        android:layout_marginTop="@dimen/_10sdp"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_140sdp"
-        android:hint="@string/enter_your_note" />
+        android:hint="@string/input_note" />
 
     <Button
         android:id="@+id/btn_date_picker"

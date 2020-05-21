@@ -1,41 +1,52 @@
 package com.example.ictucalendar.Adapter;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.activeandroid.query.Delete;
+import com.activeandroid.query.Update;
+import com.example.ictucalendar.Activity.MainActivity;
 import com.example.ictucalendar.Object.Event;
 import com.example.ictucalendar.R;
+import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 
 import java.util.List;
 
-public class AdapterShowEvents extends RecyclerView.Adapter<AdapterShowEvents.RecyclerViewHolder> {
+public class AdapterShowEvents extends RecyclerView.Adapter<AdapterShowEvents.ViewHolder> {
 
     public final String TAG = AdapterShowEvents.class.getSimpleName();
 
-    private Context context;
-    private List<Event> listEventSelected;
+    Context context;
+    List<Event> listEventSelected;
+    MainActivity mainActivity;
+    MaterialCalendarView materialCalendarView;
 
-    public AdapterShowEvents(Context context, List<Event> listEventSelected) {
+    public AdapterShowEvents(Context context, List<Event> listEventSelected,
+                             MainActivity mainActivity, MaterialCalendarView materialCalendarView) {
         this.context = context;
         this.listEventSelected = listEventSelected;
+        this.mainActivity = mainActivity;
+        this.materialCalendarView = materialCalendarView;
     }
 
-    public class RecyclerViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         TextView txtSubjectName, txtTime, txtPlace, txtLecturer;
         LinearLayout lnSubject, lnTime, lnPlace, lnLecturer;
         ImageView imgSubjectName;
 
 
-        public RecyclerViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtSubjectName = itemView.findViewById(R.id.txt_subject_name);
             txtTime = itemView.findViewById(R.id.txt_time);
@@ -52,10 +63,10 @@ public class AdapterShowEvents extends RecyclerView.Adapter<AdapterShowEvents.Re
 
     @NonNull
     @Override
-    public RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater layoutInflater = LayoutInflater.from(viewGroup.getContext());
         View itemView = layoutInflater.inflate(R.layout.item_event, viewGroup, false);
-        return new RecyclerViewHolder(itemView);
+        return new ViewHolder(itemView);
     }
 
     @Override
@@ -64,28 +75,103 @@ public class AdapterShowEvents extends RecyclerView.Adapter<AdapterShowEvents.Re
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerViewHolder recyclerViewHolder, int i) {
+    public void onBindViewHolder(@NonNull final ViewHolder viewHolder, final int i) {
         if (listEventSelected.get(i).getType().equals("lecturer")) {
-            recyclerViewHolder.txtSubjectName.setText(listEventSelected.get(i).getSubjectName());
-            recyclerViewHolder.txtTime.setText(listEventSelected.get(i).getTime());
-            recyclerViewHolder.txtPlace.setText(listEventSelected.get(i).getPlace());
-            recyclerViewHolder.lnLecturer.setVisibility(View.GONE);
-            recyclerViewHolder.lnSubject.setBackgroundColor(Color.rgb(153, 187, 255));
+            viewHolder.txtSubjectName.setText(listEventSelected.get(i).getSubjectName());
+            viewHolder.txtTime.setText(listEventSelected.get(i).getTime());
+            viewHolder.txtPlace.setText(listEventSelected.get(i).getPlace());
+            viewHolder.lnLecturer.setVisibility(View.GONE);
+            viewHolder.lnSubject.setBackgroundColor(Color.rgb(153, 187, 255));
         } else if (listEventSelected.get(i).getType().equals("student")) {
             //Log.d(TAG, "onBindViewHolder: " + "Event");
-            recyclerViewHolder.txtSubjectName.setText(listEventSelected.get(i).getSubjectName());
-            recyclerViewHolder.txtTime.setText(listEventSelected.get(i).getTime());
-            recyclerViewHolder.txtPlace.setText(listEventSelected.get(i).getPlace());
-            recyclerViewHolder.txtLecturer.setText(listEventSelected.get(i).getLecturer());
-            recyclerViewHolder.lnSubject.setBackgroundColor(Color.rgb(153, 187, 255));
+            viewHolder.txtSubjectName.setText(listEventSelected.get(i).getSubjectName());
+            viewHolder.txtTime.setText(listEventSelected.get(i).getTime());
+            viewHolder.txtPlace.setText(listEventSelected.get(i).getPlace());
+            viewHolder.txtLecturer.setText(listEventSelected.get(i).getLecturer());
+            viewHolder.lnSubject.setBackgroundColor(Color.rgb(153, 187, 255));
         } else {
-            recyclerViewHolder.imgSubjectName.setImageResource(R.drawable.ic_note);
-            recyclerViewHolder.txtSubjectName.setText(listEventSelected.get(i).getContentNote());
-            recyclerViewHolder.lnTime.setVisibility(View.GONE);
-            recyclerViewHolder.lnPlace.setVisibility(View.GONE);
-            recyclerViewHolder.lnLecturer.setVisibility(View.GONE);
-            recyclerViewHolder.lnSubject.setBackgroundColor(Color.rgb(221, 153, 255));
+            viewHolder.imgSubjectName.setImageResource(R.drawable.ic_note);
+            viewHolder.txtSubjectName.setText(listEventSelected.get(i).getContentNote());
+            viewHolder.lnTime.setVisibility(View.GONE);
+            viewHolder.lnPlace.setVisibility(View.GONE);
+            viewHolder.lnLecturer.setVisibility(View.GONE);
+            viewHolder.lnSubject.setBackgroundColor(Color.rgb(221, 153, 255));
         }
 
+        viewHolder.lnSubject.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                final String arrAction[] = {"Edit", "Delete"};
+                AlertDialog.Builder builderSingle = new AlertDialog.Builder(context);
+                builderSingle.setItems(arrAction, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int j) {
+                        String strAction = arrAction[j];
+                        final Event event = listEventSelected.get(i);
+                        if (strAction.equals("Edit")) {
+                            if (!event.getType().equals("note"))  {
+                                AlertDialog.Builder builder2 = new AlertDialog.Builder(context);
+                                builder2.setTitle(R.string.edit_schedule);
+                                View view = mainActivity.getLayoutInflater().inflate(R.layout.layout_dialog_edit, null);
+                                final EditText edtTime = view.findViewById(R.id.edt_time);
+                                final EditText edtPlace = view.findViewById(R.id.edt_place);
+                                builder2.setView(view);
+                                builder2.setPositiveButton(R.string.agree, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int k) {
+                                        new Update(Event.class)
+                                                .set("time = ?, place = ?",
+                                                        edtTime.getText().toString(),
+                                                        edtPlace.getText().toString())
+                                                .where("Id = ?", event.getId())
+                                                .execute();
+                                        mainActivity.showEventDetail(event.getDate());
+                                    }
+                                });
+                                builder2.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                                    }
+                                });
+                                AlertDialog dialog2 = builder2.create();
+                                dialog2.show();
+                            } else {
+                                AlertDialog.Builder builder2 = new AlertDialog.Builder(context);
+                                builder2.setTitle(R.string.edit_note);
+                                View view = mainActivity.getLayoutInflater().inflate(R.layout.layout_dialog_edit_note, null);
+                                final EditText edtNote = view.findViewById(R.id.edt_note);
+                                builder2.setView(view);
+                                builder2.setPositiveButton(R.string.agree, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int k) {
+                                        new Update(Event.class)
+                                                .set("content_note = ?", edtNote.getText().toString())
+                                                .where("Id = ?", event.getId())
+                                                .execute();
+                                        mainActivity.showEventDetail(event.getDate());
+                                    }
+                                });
+                                builder2.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                                    }
+                                });
+                                AlertDialog dialog2 = builder2.create();
+                                dialog2.show();
+                            }
+                        } else if (strAction.equals("Delete")) {
+                            new Delete().from(Event.class).where("Id = ?", event.getId()).execute();
+                            materialCalendarView.removeDecorators();
+                            mainActivity.showEventDetail(event.getDate());
+                            mainActivity.showEventDot();
+                        }
+                    }
+                });
+                builderSingle.show();
+                return false;
+            }
+        });
     }
 }

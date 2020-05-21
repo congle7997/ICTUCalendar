@@ -5,9 +5,8 @@
     <string name="nav_header_title" translatable="false">Android Studio</string>
     <string name="nav_header_subtitle" translatable="false">android.studio@android.com</string>
     <string name="nav_header_desc" translatable="false">Navigation header</string>
-    <string name="action_settings" translatable="false">Settings</string>
+    <string name="action_settings">Settings</string>
     <string name="title_activity_splash_screen" translatable="false">SplashScreenActivity</string>
-
 
     <string name="import_excel">Import Excel File</string>
     <string name="upload">Upload To Google Calendar</string>
@@ -18,8 +17,12 @@
     <string name="information">Information</string>
     <string name="not_available">Not Available!</string>
 
+    <string name="input_time">Enter your time</string>
+    <string name="input_place">Enter your place</string>
+    <string name="input_note">Enter your note ...</string>
+    <string name="edit_schedule">Edit Schedule</string>
+    <string name="edit_note">Edit Note</string>
     <string name="note">Note</string>
-    <string name="enter_your_note">Enter your note ...</string>
     <string name="accept">Accept</string>
     <string name="cancel">Cancel</string>
     <string name="agree">Agree</string>
@@ -32,7 +35,6 @@
     <string name="uploading">Uploading to Google Calendar</string>
     <string name="require_internet">Upload to Google Calendar require Internet!</string>
     <string name="time_notification">Choose time get notification</string>
-    <string name="input_time">Input time</string>
     <string name="cancel_upload">Do you want cancel upload now?</string>
     <string name="canceled_upload">Canceled Upload!</string>
     <string name="internet_problem">Internet Connection Problem!</string>
@@ -45,8 +47,6 @@
     <string name="pre_30">30 minutes before</string>
     <string name="pre_45">45 minutes before</string>
     <string name="custom">Custom ...</string>
-
-
 
     <string name="not_installed_gmail">Gmail application is not installed on your device!</string>
     <string name="sent_developer">Feedback has been sent to this app developer!</string>
@@ -73,5 +73,4 @@
     <string name="day_format">Schedule file must be in DAY format!</string>
     <string name="saving_data">Saving data</string>
     <string name="getting_lecturers">Getting lecturers list</string>
-
 </resources>

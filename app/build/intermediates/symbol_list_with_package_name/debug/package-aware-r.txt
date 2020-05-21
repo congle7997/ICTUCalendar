@@ -1928,6 +1928,9 @@ id donate_with_google
 id drawer_layout
 id edit_query
 id edt_input_note
+id edt_note
+id edt_place
+id edt_time
 id edt_time_alarm
 id end
 id end_padder
@@ -2207,6 +2210,8 @@ layout dp_example
 layout item_event
 layout item_file
 layout layout_dialog_date_picker
+layout layout_dialog_edit
+layout layout_dialog_edit_note
 layout layout_dialog_note
 layout layout_dialog_time_alarm
 layout layout_dialog_time_alarm_2
@@ -2838,7 +2843,8 @@ string create_qr_code
 string custom
 string day_format
 string decline
-string enter_your_note
+string edit_note
+string edit_schedule
 string event
 string event_start
 string external_storage
@@ -2856,6 +2862,8 @@ string info3
 string info4
 string info5
 string information
+string input_note
+string input_place
 string input_time
 string internal_storage
 string internet_problem

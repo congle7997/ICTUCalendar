@@ -160,8 +160,8 @@ public class MainActivity extends AppCompatActivity
 
 
         materialCalendarView.setSelectionColor(Color.rgb(0, 115, 186));
-        showEventDot();
         showEventDetail(convertCalendarDayToString(CalendarDay.today()));
+        showEventDot();
         addDecoratorToDay();
         showInfoProfile();
 
@@ -402,8 +402,8 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void setOnListennerReadExcelStudent() {
         materialCalendarView.removeDecorators();
-        showEventDot();
         showEventDetail(strDateSelected);
+        showEventDot();
         addDecoratorToDay();
         showInfoProfile();
 
@@ -437,13 +437,13 @@ public class MainActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.mn_note:
-                displayDialogNote();
+                showDialogNote();
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    public void displayDialogNote() {
+    public void showDialogNote() {
         LayoutInflater layoutInflater = getLayoutInflater();
         final View view = layoutInflater.inflate(R.layout.layout_dialog_note, null);
 
@@ -592,7 +592,7 @@ public class MainActivity extends AppCompatActivity
 
     public void showEventDetail(String strDate) {
         listEventSelected = getListEventSelected(strDate);
-        customAdapterShowEvents = new AdapterShowEvents(MainActivity.this, listEventSelected);
+        customAdapterShowEvents = new AdapterShowEvents(this, listEventSelected, this, materialCalendarView);
         rcShowEvents.setAdapter(customAdapterShowEvents);
         customAdapterShowEvents.notifyDataSetChanged();
     }
@@ -621,29 +621,29 @@ public class MainActivity extends AppCompatActivity
         int colorSubject = Color.rgb(102, 153, 255);
         int colorNote = Color.rgb(204, 102, 255);
 
-        int countSubject;
+        int countSchedule;
         int start;
         int arrColor[];
         for (CalendarDay calendarDay : listCalendarDay) {
-            countSubject = countDate(calendarDay, type);
+            countSchedule = countDate(calendarDay, type);
             start = 0;
 
-            if (countSubject > 4) {
-                countSubject = 4;
+            if (countSchedule > 4) {
+                countSchedule = 4;
             }
 
             if (countNote(calendarDay)) {
-                countSubject++;
+                countSchedule++;
                 start++;
             }
 
-            arrColor = new int[countSubject];
+            arrColor = new int[countSchedule];
 
             if (countNote(calendarDay)) {
                 arrColor[0] = colorNote;
             }
 
-            for (int i = start; i < countSubject; i++) {
+            for (int i = start; i < countSchedule; i++) {
                 arrColor[i] = colorSubject;
             }
 

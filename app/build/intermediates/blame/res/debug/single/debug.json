@@ -152,6 +152,10 @@
         "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable-v21\\ic_note.png"
     },
     {
+        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_dialog_edit_note.xml.flat",
+        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\layout\\layout_dialog_edit_note.xml"
+    },
+    {
         "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_img_splash_screen.png.flat",
         "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable\\img_splash_screen.png"
     },
@@ -202,6 +206,10 @@
     {
         "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
         "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_dialog_edit.xml.flat",
+        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\layout\\layout_dialog_edit.xml"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",

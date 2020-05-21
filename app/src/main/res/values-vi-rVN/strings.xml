@@ -9,7 +9,7 @@
     <string name="not_installed_gmail">Thiết bị của bạn chưa được cài ứng dụng Gmail nên không thể sử dụng tính năng này!</string>
     <string name="sent_developer">Phản hồi của bạn đã được gửi tới nhà phát triển của ứng dụng này!</string>
     <string name="note">Ghi chú</string>
-    <string name="enter_your_note">Nhập ghi chú ...</string>
+    <string name="input_note">Nhập ghi chú ...</string>
     <string name="cancel">Hủy</string>
     <string name="accept">Chấp nhận</string>
     <string name="back">Quay lại</string>
@@ -59,4 +59,7 @@
     <string name="custom">Tuỳ chọn ...</string>
     <string name="saving_data">Đang lưu dữ liệu</string>
     <string name="getting_lecturers">Đang lấy danh sách giảng viên</string>
+    <string name="input_place">Nhập địa điểm</string>
+    <string name="edit_schedule">Sửa Lịch</string>
+    <string name="edit_note">Sửa Ghi Chú</string>
 </resources>

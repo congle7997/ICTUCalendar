@@ -10,7 +10,7 @@
             android:title="@string/import_excel" />
         <item
             android:id="@+id/nav_sync"
-            android:icon="@drawable/ic_sync"
+            android:icon="@drawable/ic_upload"
             android:title="@string/upload" />
         <item
             android:id="@+id/nav_qr_code"
