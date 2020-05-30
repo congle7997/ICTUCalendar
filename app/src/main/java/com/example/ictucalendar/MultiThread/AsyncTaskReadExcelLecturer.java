@@ -2,6 +2,7 @@ package com.example.ictucalendar.MultiThread;
 
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.activeandroid.query.Delete;
 import com.example.ictucalendar.Interface.OnListennerReadExcelLecturer;
@@ -193,13 +194,10 @@ public class AsyncTaskReadExcelLecturer extends AsyncTask<Integer, Void, Void> {
                         event.setTime(time + " (" + arrStartTimeWinter[startTime - 1] + " - " + arrEndTimeWinter[endTime - 1] + ")");
                     }
 
+                    event.setClassID(rowData1.substring(rowData1.indexOf('(') + 1, rowData1.indexOf(')')));
                     event.setPlace(rowDataSplit[5]);
-
                     event.setType("lecturer");
-
                     event.save();
-
-                    //Log.d(TAG, "saveData: " + event.getDate() + " - " + event.getSubjectName());
                 }
             }
         } catch (ParseException e) {

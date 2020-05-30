@@ -28,6 +28,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -105,7 +106,6 @@ public class MainActivity extends AppCompatActivity
     String pathExcelLecturer;
     List<Event> listEventSelected;
     CalendarDay calDateSelected;
-    //String SHARED_PREFERENCE = "shared_preference";
     SharedPreferences sharedPreferences;
 
     static final int REQUEST_ACCOUNT_PICKER = 1000;
@@ -369,7 +369,7 @@ public class MainActivity extends AppCompatActivity
         }
         final AlertDialog.Builder builderSingle = new AlertDialog.Builder(MainActivity.this);
         builderSingle.setIcon(R.drawable.ic_people_info);
-        builderSingle.setTitle(R.string.choose_your_name);
+        builderSingle.setTitle(R.string.choose_lecturer_name);
         builderSingle.setItems(arrString, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, final int i) {
@@ -381,6 +381,12 @@ public class MainActivity extends AppCompatActivity
                 pdReadingDataLecturer.show();
 
                 new AsyncTaskReadExcelLecturer(pathExcelLecturer, MainActivity.this, sharedPreferences).execute(i);
+            }
+        });
+        builderSingle.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialogInterface) {
+                pdGetListLecturer.dismiss();
             }
         });
         builderSingle.show();
@@ -693,7 +699,7 @@ public class MainActivity extends AppCompatActivity
         return listEvent.size() > 0;
     }
 
-    public void upload(final int timeAlarm, boolean syncNote) {
+    public void upload(final int timeAlarm, boolean hasNote) {
         final String type;
         if (isLecturer()) {
             type = "lecturer";
@@ -705,7 +711,7 @@ public class MainActivity extends AppCompatActivity
                 .where("type = ?", type)
                 .execute();
 
-        if (syncNote) {
+        if (hasNote) {
             List<Event> listNote = new Select()
                     .from(Event.class)
                     .where("type = ?", "note")

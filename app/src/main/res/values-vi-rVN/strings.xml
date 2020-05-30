@@ -23,7 +23,7 @@
     <string name="action_settings" translatable="false">Cài đặt</string>
     <string name="reading_excel_file">Đang đọc file excel ...</string>
     <string name="you_are">Bạn là:</string>
-    <string name="choose_your_name">Chọn tên của bạn:</string>
+    <string name="choose_lecturer_name">Chọn tên giảng viên:</string>
     <string name="lecturer">Giảng viên</string>
     <string name="student">Sinh viên</string>
     <string name="save_data_successfully">Lưu dữ liệu thành công!</string>

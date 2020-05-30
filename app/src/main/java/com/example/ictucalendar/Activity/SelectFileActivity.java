@@ -158,7 +158,7 @@ public class SelectFileActivity extends AppCompatActivity implements OnClickedLi
         rlBackMain.setVisibility(View.GONE);
         rlBackFolder.setVisibility(View.VISIBLE);
 
-        Log.d(TAG, "setOnFolderClicked: ");
+        //Log.d(TAG, "setOnFolderClicked: ");
         customAdapterSelectFiles.notifyDataSetChanged();
     }
 

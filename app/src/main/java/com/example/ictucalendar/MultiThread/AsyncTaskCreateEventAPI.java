@@ -68,11 +68,14 @@ public class AsyncTaskCreateEventAPI extends AsyncTask<Void, Void, Void> {
                 EventDateTime end = new EventDateTime()
                         .setDate(DateTime.parseRfc3339(strEnd));
                 event.setEnd(end);
-                event.setTransparency("transparent");
             } else {
                 event.setSummary(myEvent.getSubjectName());
                 event.setLocation(myEvent.getPlace());
-                event.setDescription(myEvent.getLecturer());
+                if (myEvent.getType().equals("student")) {
+                    event.setDescription(myEvent.getLecturer());
+                } else if (myEvent.getType().equals("lecturer")) {
+                    event.setDescription(myEvent.getClassID());
+                }
 
                 String strStart = strDate.substring(6, strDate.length()) + "-" + strDate.substring(3, 5) + "-" + strDate.substring(0, 2)
                         + "T" + strTime.substring(0, 5) + ":00+07:00";

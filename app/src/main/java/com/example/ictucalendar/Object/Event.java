@@ -16,6 +16,8 @@ public class Event extends Model {
     private String place;
     @Column(name = "lecturer")
     private String lecturer;
+    @Column(name = "class_id")
+    private String classID;
 
     @Column(name = "type")
     private String type;
@@ -76,6 +78,14 @@ public class Event extends Model {
 
     public void setContentNote(String contentNote) {
         this.contentNote = contentNote;
+    }
+
+    public String getClassID() {
+        return classID;
+    }
+
+    public void setClassID(String classID) {
+        this.classID = classID;
     }
 
     @Override

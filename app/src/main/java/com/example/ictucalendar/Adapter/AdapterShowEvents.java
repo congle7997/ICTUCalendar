@@ -41,8 +41,8 @@ public class AdapterShowEvents extends RecyclerView.Adapter<AdapterShowEvents.Vi
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView txtSubjectName, txtTime, txtPlace, txtLecturer;
-        LinearLayout lnSubject, lnTime, lnPlace, lnLecturer;
+        TextView txtSubjectName, txtTime, txtPlace, txtLecturer, txtClassID;
+        LinearLayout lnSubject, lnTime, lnPlace, lnLecturer, lnClassID;
         ImageView imgSubjectName;
 
 
@@ -52,12 +52,13 @@ public class AdapterShowEvents extends RecyclerView.Adapter<AdapterShowEvents.Vi
             txtTime = itemView.findViewById(R.id.txt_time);
             txtPlace = itemView.findViewById(R.id.txt_place);
             txtLecturer = itemView.findViewById(R.id.txt_lecturer);
+            txtClassID = itemView.findViewById(R.id.txt_class_id);
             lnSubject = itemView.findViewById(R.id.ln_subject);
             lnTime = itemView.findViewById(R.id.ln_time);
             lnPlace = itemView.findViewById(R.id.ln_place);
             lnLecturer = itemView.findViewById(R.id.ln_lecturer);
+            lnClassID = itemView.findViewById(R.id.ln_class_id);
             imgSubjectName = itemView.findViewById(R.id.img_subject_name);
-            
         }
     }
 
@@ -76,25 +77,29 @@ public class AdapterShowEvents extends RecyclerView.Adapter<AdapterShowEvents.Vi
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder viewHolder, final int i) {
-        if (listEventSelected.get(i).getType().equals("lecturer")) {
-            viewHolder.txtSubjectName.setText(listEventSelected.get(i).getSubjectName());
-            viewHolder.txtTime.setText(listEventSelected.get(i).getTime());
-            viewHolder.txtPlace.setText(listEventSelected.get(i).getPlace());
+        final Event event = listEventSelected.get(i);
+        if (event.getType().equals("lecturer")) {
             viewHolder.lnLecturer.setVisibility(View.GONE);
+            viewHolder.txtSubjectName.setText(event.getSubjectName());
+            viewHolder.txtTime.setText(event.getTime());
+            viewHolder.txtClassID.setText(event.getClassID());
+            viewHolder.txtPlace.setText(event.getPlace());
             viewHolder.lnSubject.setBackgroundColor(Color.rgb(153, 187, 255));
-        } else if (listEventSelected.get(i).getType().equals("student")) {
+        } else if (event.getType().equals("student")) {
             //Log.d(TAG, "onBindViewHolder: " + "Event");
-            viewHolder.txtSubjectName.setText(listEventSelected.get(i).getSubjectName());
-            viewHolder.txtTime.setText(listEventSelected.get(i).getTime());
-            viewHolder.txtPlace.setText(listEventSelected.get(i).getPlace());
-            viewHolder.txtLecturer.setText(listEventSelected.get(i).getLecturer());
+            viewHolder.lnClassID.setVisibility(View.GONE);
+            viewHolder.txtSubjectName.setText(event.getSubjectName());
+            viewHolder.txtTime.setText(event.getTime());
+            viewHolder.txtPlace.setText(event.getPlace());
+            viewHolder.txtLecturer.setText(event.getLecturer());
             viewHolder.lnSubject.setBackgroundColor(Color.rgb(153, 187, 255));
         } else {
             viewHolder.imgSubjectName.setImageResource(R.drawable.ic_note);
-            viewHolder.txtSubjectName.setText(listEventSelected.get(i).getContentNote());
+            viewHolder.txtSubjectName.setText(event.getContentNote());
             viewHolder.lnTime.setVisibility(View.GONE);
             viewHolder.lnPlace.setVisibility(View.GONE);
             viewHolder.lnLecturer.setVisibility(View.GONE);
+            viewHolder.lnClassID.setVisibility(View.GONE);
             viewHolder.lnSubject.setBackgroundColor(Color.rgb(221, 153, 255));
         }
 
@@ -107,7 +112,7 @@ public class AdapterShowEvents extends RecyclerView.Adapter<AdapterShowEvents.Vi
                     @Override
                     public void onClick(DialogInterface dialog, int j) {
                         String strAction = arrAction[j];
-                        final Event event = listEventSelected.get(i);
+                        //final Event event = lis;
                         if (strAction.equals("Edit")) {
                             if (!event.getType().equals("note"))  {
                                 AlertDialog.Builder builder2 = new AlertDialog.Builder(context);

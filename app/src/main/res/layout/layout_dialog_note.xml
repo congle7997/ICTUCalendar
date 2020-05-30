@@ -15,7 +15,7 @@
 
     <Button
         android:id="@+id/btn_date_picker"
-        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_20sdp"
         android:layout_marginLeft="@dimen/_170sdp"
         android:text="07/09/1997"

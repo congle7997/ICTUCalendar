@@ -1791,6 +1791,7 @@ drawable ic_add_alarm
 drawable ic_add_note
 drawable ic_alarm
 drawable ic_back_directory
+drawable ic_class_id
 drawable ic_excel
 drawable ic_excel_file
 drawable ic_external_storage
@@ -1802,6 +1803,7 @@ drawable ic_information
 drawable ic_internal_storage
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable ic_lecturer
 drawable ic_menu_camera
 drawable ic_menu_gallery
 drawable ic_menu_manage
@@ -1822,8 +1824,8 @@ drawable ic_plusone_tall_off_client
 drawable ic_qr_code
 drawable ic_setting
 drawable ic_subject_name
-drawable ic_sync
 drawable ic_time
+drawable ic_upload
 drawable img_splash_screen
 drawable img_student_file
 drawable layout_splash_screen
@@ -1979,6 +1981,7 @@ id line1
 id line3
 id listMode
 id list_item
+id ln_class_id
 id ln_lecturer
 id ln_place
 id ln_subject
@@ -2120,6 +2123,7 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id tuesday
+id txt_class_id
 id txt_file_name
 id txt_lecturer
 id txt_name
@@ -2805,7 +2809,7 @@ string cancel_upload
 string canceled_upload
 string character_counter_content_description
 string character_counter_pattern
-string choose_your_name
+string choose_lecturer_name
 string common_android_wear_notification_needs_update_text
 string common_android_wear_update_text
 string common_android_wear_update_title
