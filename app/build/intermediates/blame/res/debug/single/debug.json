@@ -20,12 +20,12 @@
         "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_place.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable-v21\\ic_place.png"
-    },
-    {
         "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_dialog_date_picker.xml.flat",
         "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\layout\\layout_dialog_date_picker.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_place.png.flat",
+        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable-v21\\ic_place.png"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
