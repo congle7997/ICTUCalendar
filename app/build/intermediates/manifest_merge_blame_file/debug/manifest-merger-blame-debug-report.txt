@@ -10,117 +10,109 @@
 9        android:targetSdkVersion="28" />
 9-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml
 10
-11    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-11-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:6:5-79
-11-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:6:22-76
-12    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-12-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:7:5-80
-12-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:7:22-77
+11    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+11-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:6:5-80
+11-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:6:22-77
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:7:5-79
+12-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:7:22-76
 13    <uses-permission android:name="android.permission.INTERNET" />
 13-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:8:5-66
 13-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:8:22-64
-14    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-14-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:9:5-70
-14-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:9:22-68
-15    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
-15-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:10:5-73
-15-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:10:22-71
-16    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
-16-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:11:5-73
-16-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:11:22-71
-17
-18    <application
-18-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:13:5-54:19
-19        android:name="com.activeandroid.app.Application"
-19-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:14:9-57
-20        android:allowBackup="true"
-20-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:15:9-35
-21        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
-21-->[com.android.support:support-compat:28.0.0] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\f13e80600485f087c51c6872f934df1c\support-compat-28.0.0\AndroidManifest.xml:22:18-91
-22        android:debuggable="true"
-23        android:icon="@mipmap/ic_launcher"
-23-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:16:9-43
-24        android:label="@string/app_name"
-24-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:17:9-41
-25        android:roundIcon="@mipmap/ic_launcher_round"
-25-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:18:9-54
-26        android:supportsRtl="true"
-26-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:19:9-35
-27        android:theme="@style/AppTheme" >
-27-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:20:9-40
-28        <activity android:name="com.example.ictucalendar.Activity.QRCodeActivity" />
-28-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:22:9-70
-28-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:22:19-58
-29        <activity android:name="com.example.ictucalendar.Activity.InformationActivity" />
-29-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:23:9-66
-29-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:23:19-63
-30        <activity android:name="com.example.ictucalendar.Activity.SettingActivity" /> <!-- ActiveAndroid -->
-30-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:24:9-62
-30-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:24:19-59
-31        <meta-data
-31-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:25:9-27:43
-32            android:name="AA_DB_NAME"
-32-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:26:13-38
-33            android:value="db_event.db" />
-33-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:27:13-40
-34        <meta-data
-34-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:28:9-30:33
-35            android:name="AA_DB_VERSION"
-35-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:29:13-41
-36            android:value="1" />
-36-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:30:13-30
-37        <meta-data
-37-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:31:9-33:69
-38            android:name="AA_MODELS"
-38-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:32:13-37
-39            android:value="com.example.ictucalendar.Object.Event" /> <!-- dùng cho phiên bản từ Android O trở đi -->
-39-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:33:13-66
-40        <provider
-40-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:34:9-38:40
-41            android:name="com.activeandroid.content.ContentProvider"
-41-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:35:13-69
-42            android:authorities="com.example.ictucalendar"
-42-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:36:13-59
-43            android:enabled="true"
-43-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:37:13-35
-44            android:exported="false" />
-44-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:38:13-37
-45
-46        <activity
-46-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:40:9-43:59
-47            android:name="com.example.ictucalendar.Activity.MainActivity"
-47-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:41:13-50
-48            android:label="@string/app_name"
-48-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:42:13-45
-49            android:theme="@style/AppTheme.NoActionBar" />
-49-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:43:13-56
-50        <activity android:name="com.example.ictucalendar.Activity.SelectFileActivity" />
-50-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:44:9-65
-50-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:44:19-62
-51        <activity
-51-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:45:9-53:20
-52            android:name="com.example.ictucalendar.Activity.SplashScreenActivity"
-52-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:46:13-58
-53            android:theme="@style/SplashScreenTheme" >
-53-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:47:13-53
-54            <intent-filter>
-54-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:48:13-52:29
-55                <action android:name="android.intent.action.MAIN" />
-55-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:49:17-69
-55-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:49:25-66
-56
-57                <category android:name="android.intent.category.LAUNCHER" />
-57-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:51:17-77
-57-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:51:27-74
-58            </intent-filter>
-59        </activity>
-60
-61        <meta-data
-61-->[com.google.android.gms:play-services-base:7.3.0] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\6f69700a6a8fe6931abb0676185a2a6f\play-services-base-7.3.0\AndroidManifest.xml:21:9-23:69
-62            android:name="com.google.android.gms.version"
-62-->[com.google.android.gms:play-services-base:7.3.0] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\6f69700a6a8fe6931abb0676185a2a6f\play-services-base-7.3.0\AndroidManifest.xml:22:13-58
-63            android:value="@integer/google_play_services_version" />
-63-->[com.google.android.gms:play-services-base:7.3.0] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\6f69700a6a8fe6931abb0676185a2a6f\play-services-base-7.3.0\AndroidManifest.xml:23:13-66
-64    </application>
-65
-66</manifest>
+14
+15    <application
+15-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:11:5-52:19
+16        android:name="com.activeandroid.app.Application"
+16-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:12:9-57
+17        android:allowBackup="true"
+17-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:13:9-35
+18        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
+18-->[com.android.support:support-compat:28.0.0] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\f13e80600485f087c51c6872f934df1c\support-compat-28.0.0\AndroidManifest.xml:22:18-91
+19        android:debuggable="true"
+20        android:icon="@mipmap/ic_launcher"
+20-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:14:9-43
+21        android:label="@string/app_name"
+21-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:15:9-41
+22        android:roundIcon="@mipmap/ic_launcher_round"
+22-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:16:9-54
+23        android:supportsRtl="true"
+23-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:17:9-35
+24        android:testOnly="true"
+25        android:theme="@style/AppTheme" >
+25-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:18:9-40
+26        <activity android:name="com.example.ictucalendar.Activity.QRCodeActivity" />
+26-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:20:9-70
+26-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:20:19-58
+27        <activity android:name="com.example.ictucalendar.Activity.InformationActivity" />
+27-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:21:9-66
+27-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:21:19-63
+28        <activity android:name="com.example.ictucalendar.Activity.SettingActivity" /> <!-- ActiveAndroid -->
+28-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:22:9-62
+28-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:22:19-59
+29        <meta-data
+29-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:23:9-25:43
+30            android:name="AA_DB_NAME"
+30-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:24:13-38
+31            android:value="db_event.db" />
+31-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:25:13-40
+32        <meta-data
+32-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:26:9-28:33
+33            android:name="AA_DB_VERSION"
+33-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:27:13-41
+34            android:value="1" />
+34-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:28:13-30
+35        <meta-data
+35-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:29:9-31:69
+36            android:name="AA_MODELS"
+36-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:30:13-37
+37            android:value="com.example.ictucalendar.Object.Event" /> <!-- dùng cho phiên bản từ Android O trở đi -->
+37-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:31:13-66
+38        <provider
+38-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:32:9-36:40
+39            android:name="com.activeandroid.content.ContentProvider"
+39-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:33:13-69
+40            android:authorities="com.example.ictucalendar"
+40-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:34:13-59
+41            android:enabled="true"
+41-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:35:13-35
+42            android:exported="false" />
+42-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:36:13-37
+43
+44        <activity
+44-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:38:9-41:59
+45            android:name="com.example.ictucalendar.Activity.MainActivity"
+45-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:39:13-50
+46            android:label="@string/app_name"
+46-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:40:13-45
+47            android:theme="@style/AppTheme.NoActionBar" />
+47-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:41:13-56
+48        <activity android:name="com.example.ictucalendar.Activity.SelectFileActivity" />
+48-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:42:9-65
+48-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:42:19-62
+49        <activity
+49-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:43:9-51:20
+50            android:name="com.example.ictucalendar.Activity.SplashScreenActivity"
+50-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:44:13-58
+51            android:theme="@style/SplashScreenTheme" >
+51-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:45:13-53
+52            <intent-filter>
+52-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:46:13-50:29
+53                <action android:name="android.intent.action.MAIN" />
+53-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:47:17-69
+53-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:47:25-66
+54
+55                <category android:name="android.intent.category.LAUNCHER" />
+55-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:49:17-77
+55-->D:\AndroidStudioProjects\ICTUCalendar\app\src\main\AndroidManifest.xml:49:27-74
+56            </intent-filter>
+57        </activity>
+58
+59        <meta-data
+59-->[com.google.android.gms:play-services-base:7.3.0] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\6f69700a6a8fe6931abb0676185a2a6f\play-services-base-7.3.0\AndroidManifest.xml:21:9-23:69
+60            android:name="com.google.android.gms.version"
+60-->[com.google.android.gms:play-services-base:7.3.0] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\6f69700a6a8fe6931abb0676185a2a6f\play-services-base-7.3.0\AndroidManifest.xml:22:13-58
+61            android:value="@integer/google_play_services_version" />
+61-->[com.google.android.gms:play-services-base:7.3.0] C:\Users\congl\.gradle\caches\transforms-2\files-2.1\6f69700a6a8fe6931abb0676185a2a6f\play-services-base-7.3.0\AndroidManifest.xml:23:13-66
+62    </application>
+63
+64</manifest>

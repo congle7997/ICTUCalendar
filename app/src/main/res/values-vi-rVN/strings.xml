@@ -62,4 +62,6 @@
     <string name="input_place">Nhập địa điểm</string>
     <string name="edit_schedule">Sửa Lịch</string>
     <string name="edit_note">Sửa Ghi Chú</string>
+    <string name="no_access">ICTU Calendar chưa được cấp quyền truy cập tài khoản Google Calendar của bạn!</string>
+    <string name="delete">Bạn có muốn xoá sự kiện này không?</string>
 </resources>

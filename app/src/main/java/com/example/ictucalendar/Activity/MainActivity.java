@@ -238,37 +238,39 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_ACCOUNT_PICKER) {
-            if (resultCode != RESULT_CANCELED) {
-                String accountName = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
-                credential.setSelectedAccountName(accountName);
+        Log.d(TAG, "onActivityResult: " + requestCode + " " + resultCode);
+        String accountName = "";
+        if (requestCode == REQUEST_ACCOUNT_PICKER && resultCode != RESULT_CANCELED) {
+            accountName = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
+            credential.setSelectedAccountName(accountName);
 
-                isAuth = false;
-                new AsyncTask<Void, Void, Void>() {
-                    @Override
-                    protected Void doInBackground(Void... voids) {
-                        try {
-                            CalendarList calendarList = service.calendarList().list().setPageToken(null).execute();
-                            isAuth = true;
-                        } catch (UserRecoverableAuthIOException userRecoverableException) {
-                            // nếu chưa được xác thực sẽ nhảy catch này
-                            startActivityForResult(userRecoverableException.getIntent(), REQUEST_AUTHORIZATION);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        return null;
+            isAuth = false;
+            new AsyncTask<Void, Void, Void>() {
+                @Override
+                protected Void doInBackground(Void... voids) {
+                    try {
+                        CalendarList calendarList = service.calendarList().list().setPageToken(null).execute();
+                        isAuth = true;
+                    } catch (UserRecoverableAuthIOException userRecoverableException) {
+                        // nếu chưa được xác thực sẽ nhảy catch này
+                        startActivityForResult(userRecoverableException.getIntent(), REQUEST_AUTHORIZATION);
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
+                    return null;
+                }
 
-                    @Override
-                    protected void onPostExecute(Void aVoid) {
-                        showAlertUploadNote();
-                        super.onPostExecute(aVoid);
-                    }
-                }.execute();
-            }
+                @Override
+                protected void onPostExecute(Void aVoid) {
+                    showAlertUploadNote();
+                    super.onPostExecute(aVoid);
+                }
+            }.execute();
+
         } else if (requestCode == REQUEST_AUTHORIZATION) {
             if (resultCode == RESULT_CANCELED) {
                 isAuth = false;
+                Toast.makeText(MainActivity.this, R.string.no_access, Toast.LENGTH_SHORT).show();
             } else if (resultCode == RESULT_OK && data.getExtras() != null) {
                 isAuth = true;
                 showAlertUploadNote();

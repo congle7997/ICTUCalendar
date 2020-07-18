@@ -167,10 +167,26 @@ public class AdapterShowEvents extends RecyclerView.Adapter<AdapterShowEvents.Vi
                                 dialog2.show();
                             }
                         } else if (strAction.equals("Delete")) {
-                            new Delete().from(Event.class).where("Id = ?", event.getId()).execute();
-                            materialCalendarView.removeDecorators();
-                            mainActivity.showEventDetail(event.getDate());
-                            mainActivity.showEventDot();
+                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                            builder.setTitle(R.string.notification);
+                            builder.setMessage(R.string.delete);
+                            builder.setPositiveButton(R.string.agree, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    new Delete().from(Event.class).where("Id = ?", event.getId()).execute();
+                                    materialCalendarView.removeDecorators();
+                                    mainActivity.showEventDetail(event.getDate());
+                                    mainActivity.showEventDot();
+                                }
+                            });
+                            builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+
+                                }
+                            });
+                            AlertDialog alertDialog = builder.create();
+                            alertDialog.show();
                         }
                     }
                 });

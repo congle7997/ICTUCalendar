@@ -47,6 +47,8 @@
     <string name="pre_30">30 minutes before</string>
     <string name="pre_45">45 minutes before</string>
     <string name="custom">Custom ...</string>
+    <string name="no_access">ICTU Calendar not have access to your Google Calendar account! </string>
+    <string name="delete">Do you want delete this event?</string>
 
     <string name="not_installed_gmail">Gmail application is not installed on your device!</string>
     <string name="sent_developer">Feedback has been sent to this app developer!</string>

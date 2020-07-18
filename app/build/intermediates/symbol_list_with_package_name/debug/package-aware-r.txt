@@ -2247,6 +2247,7 @@ layout support_simple_spinner_dropdown_item
 menu menu_toolbar
 menu navigation_menu
 mipmap ic_launcher
+mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 plurals joda_time_android_abbrev_in_num_days
 plurals joda_time_android_abbrev_in_num_hours
@@ -2847,6 +2848,7 @@ string create_qr_code
 string custom
 string day_format
 string decline
+string delete
 string edit_note
 string edit_schedule
 string event
@@ -2884,6 +2886,7 @@ string navigation_drawer_close
 string navigation_drawer_open
 string next
 string no
+string no_access
 string no_notification
 string not_available
 string not_installed_gmail
