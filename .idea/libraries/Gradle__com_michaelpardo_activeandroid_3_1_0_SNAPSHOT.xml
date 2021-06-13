@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.michaelpardo:activeandroid:3.1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.michaelpardo/activeandroid/3.1.0-SNAPSHOT/4a32a9c9d413a2db67639c9cf869068aeed46f9a/activeandroid-3.1.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.michaelpardo/activeandroid/3.1.0-SNAPSHOT/a13cf70ccf521f5d83c2f5ad465b4f10b5257454/activeandroid-3.1.0-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.michaelpardo/activeandroid/3.1.0-SNAPSHOT/2012ee3dca30d2328676c81d0930fc72ad25442f/activeandroid-3.1.0-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

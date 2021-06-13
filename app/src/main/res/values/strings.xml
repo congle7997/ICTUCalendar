@@ -59,7 +59,7 @@
     <string name="external_storage">External Storage</string>
 
     <string name="info0">Thank for using!</string>
-    <string name="info1">"   Software for viewing Calendar ICTU Calendar is built by a group of students of Software Engineering industry of ICTUaiming to improve programming skills of group as well as serving the viewing schedule for lecturers and students' schedules the school that the group is attending,the software public source code at: "</string>
+    <string name="info1">"   Calendar viewing software ICTU Calendar was built by an ICTU student, serving to view the calendar for faculty and students of the school, the source software is publicly available at: "</string>
     <string name="info2">https://github.com/congle7997/ICTUCalendar</string>
     <string name="info3">"   Entering the schedule file for teachers is very simple because the faculty members have only one calendar format,and the students will have a variety of calendar formats and software that only supports DAY format. When you take your calendar, you should pay attention!"</string>
     <string name="info4">"   A student calendar file in the form of DAY is as follows (other students have a calendar format like this, the software can still read normally):"</string>

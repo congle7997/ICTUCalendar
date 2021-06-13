@@ -10,4 +10,7 @@
     <color name="color_ictu_dark">#005e99</color>
     <color name="color_accept">#009933</color>
     <color name="color_decline">#cccc00</color>
+
+    <color name="color_schedule">#99bbff</color>
+    <color name="color_note">#dd99ff</color>
 </resources>

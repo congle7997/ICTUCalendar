@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw780dp-v13\\values-sw780dp-v13.xml",
+            "outputFile": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw780dp-v13\\values-sw780dp-v13.xml",
             "map": [
                 {
                     "source": "C:\\Users\\congl\\.gradle\\caches\\transforms-2\\files-2.1\\4133fc66bb9476790b646eb3310b271f\\sdp-android-1.0.6\\res\\values-sw780dp-v13\\values-sw780dp-v13.xml",

@@ -53,8 +53,10 @@ import com.example.ictucalendar.MultiThread.AsyncTaskReadExcelLecturer;
 import com.example.ictucalendar.MultiThread.AsyncTaskReadExcelStudent;
 import com.example.ictucalendar.Object.Event;
 import com.example.ictucalendar.R;
+import com.google.android.gms.auth.GoogleAuthException;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
+import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAuthIOException;
 import com.google.api.client.googleapis.extensions.android.gms.auth.UserRecoverableAuthIOException;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.json.JsonFactory;
@@ -100,7 +102,7 @@ public class MainActivity extends AppCompatActivity
     ProgressDialog pdReadingDataLecturer;
     ProgressDialog pdReadingDataStudent;
 
-    static final String TAG = MainActivity.class.getSimpleName();
+    static final String TAG = "my_MainActivity";
     static final int REQUEST_CODE_IMPORT = 1;
     String strDateSelected;
     String pathExcelLecturer;
@@ -252,6 +254,7 @@ public class MainActivity extends AppCompatActivity
                         CalendarList calendarList = service.calendarList().list().setPageToken(null).execute();
                         isAuth = true;
                     } catch (UserRecoverableAuthIOException userRecoverableException) {
+                        Log.d(TAG, "UserRecoverableAuthIOException: ");
                         // nếu chưa được xác thực sẽ nhảy catch này
                         startActivityForResult(userRecoverableException.getIntent(), REQUEST_AUTHORIZATION);
                     } catch (IOException e) {

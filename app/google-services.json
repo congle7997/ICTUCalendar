@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "146447849913",
+    "project_id": "ictucalendar",
+    "storage_bucket": "ictucalendar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:146447849913:android:d802b1dcf5eb36d8e5fe68",
+        "android_client_info": {
+          "package_name": "com.example.ictucalendar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "146447849913-fs45cj4sr849jcupaqcvt2810ahmgj6f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ictucalendar",
+            "certificate_hash": "c568c7ee68b386bbc1fc4037bcc67bb02cf7f9e0"
+          }
+        },
+        {
+          "client_id": "146447849913-tc691c4pn4kn1i6fp5ikuc5o07e3f6dr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdwJUKnnRnDtbMaRtNF0_KziRhNATUmfo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "146447849913-tc691c4pn4kn1i6fp5ikuc5o07e3f6dr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

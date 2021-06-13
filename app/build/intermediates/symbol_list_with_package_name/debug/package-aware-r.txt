@@ -673,6 +673,8 @@ color color_accept
 color color_decline
 color color_ictu
 color color_ictu_dark
+color color_note
+color color_schedule
 color common_action_bar_splitter
 color common_signin_btn_dark_text_default
 color common_signin_btn_dark_text_disabled
@@ -708,6 +710,7 @@ color foreground_material_dark
 color foreground_material_light
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color ic_launcher_background
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -1781,6 +1784,8 @@ drawable common_signin_btn_text_normal_light
 drawable common_signin_btn_text_pressed_dark
 drawable common_signin_btn_text_pressed_light
 drawable corner_button
+drawable corner_note
+drawable corner_schedule
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility

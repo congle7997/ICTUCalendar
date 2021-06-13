@@ -1,294 +1,310 @@
 [
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_selector_current_date.xml.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable\\selector_current_date.xml"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_external_storage.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable-v21\\ic_external_storage.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_time.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable-v21\\ic_time.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_foreground.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_foreground.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_internal_storage.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable-v21\\ic_internal_storage.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_select_file.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\layout\\activity_select_file.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_dialog_date_picker.xml.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\layout\\layout_dialog_date_picker.xml"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_navigation_header.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\layout\\navigation_header.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_place.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable-v21\\ic_place.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_layout_splash_screen.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable\\layout_splash_screen.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_main.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\layout\\layout_main.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_subject_name.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable-v21\\ic_subject_name.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v21_ic_launcher_foreground.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi-v21\\ic_launcher_foreground.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_add_note.xml.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable\\ic_add_note.xml"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_dialog_edit_note.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\layout\\layout_dialog_edit_note.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\layout\\activity_main.xml"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_people_info.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable-v21\\ic_people_info.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_place.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable-v21\\ic_place.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_dialog_time_alarm.xml.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\layout\\layout_dialog_time_alarm.xml"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v21_ic_launcher_foreground.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi-v21\\ic_launcher_foreground.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_file.xml.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\layout\\item_file.xml"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_upload.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable-v21\\ic_upload.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_time.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable-v21\\ic_time.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v21_ic_launcher_foreground.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi-v21\\ic_launcher_foreground.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_class_id.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable-v21\\ic_class_id.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v21_ic_launcher_foreground.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi-v21\\ic_launcher_foreground.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\menu_menu_toolbar.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\menu\\menu_toolbar.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_layout_splash_screen.xml.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable\\layout_splash_screen.xml"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_setting.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\layout\\activity_setting.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_foreground.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_foreground.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_setting.xml.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\layout\\activity_setting.xml"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_dialog_note.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\layout\\layout_dialog_note.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_class_id.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable-v21\\ic_class_id.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_dialog_date_picker.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\layout\\layout_dialog_date_picker.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_folder.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable-v21\\ic_folder.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_note.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable-v21\\ic_note.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_excel.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable-v21\\ic_excel.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_side_nav_bar.xml.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable\\side_nav_bar.xml"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_file.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\layout\\item_file.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_add_alarm.xml.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable\\ic_add_alarm.xml"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v21_ic_launcher_foreground.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi-v21\\ic_launcher_foreground.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_foreground.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_extracurricular_point.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable\\ic_extracurricular_point.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_foreground.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_foreground.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_lecturer.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable-v21\\ic_lecturer.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_upload.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable-v21\\ic_upload.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v23_img_splash_screen.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable-v23\\img_splash_screen.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_launcher_background.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable-v21\\ic_launcher_background.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\menu_navigation_menu.xml.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\menu\\navigation_menu.xml"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_file.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable-v21\\ic_file.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v21_ic_launcher_foreground.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi-v21\\ic_launcher_foreground.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_add_note.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable\\ic_add_note.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_lecturer.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable-v21\\ic_lecturer.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_selector_current_date.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable\\selector_current_date.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v23_layout_splash_screen.xml.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable-v23\\layout_splash_screen.xml"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_corner_note.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable\\corner_note.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_foreground.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_foreground.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_dialog_note.xml.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\layout\\layout_dialog_note.xml"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v21_ic_launcher_foreground.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi-v21\\ic_launcher_foreground.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_side_nav_bar.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable\\side_nav_bar.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_excel_file.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable-v21\\ic_excel_file.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_excel_file.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable-v21\\ic_excel_file.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_information.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable-v21\\ic_information.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_dialog_time_alarm_2.xml.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\layout\\layout_dialog_time_alarm_2.xml"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_add_alarm.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable\\ic_add_alarm.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\menu_menu_toolbar.xml.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\menu\\menu_toolbar.xml"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_note.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable-v21\\ic_note.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_dialog_edit.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\layout\\layout_dialog_edit.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_dialog_edit_note.xml.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\layout\\layout_dialog_edit_note.xml"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\menu_navigation_menu.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\menu\\navigation_menu.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_img_splash_screen.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable\\img_splash_screen.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v21_ic_launcher_foreground.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi-v21\\ic_launcher_foreground.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_file.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable-v21\\ic_file.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v23_img_splash_screen.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable-v23\\img_splash_screen.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_navigation_main.xml.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\layout\\navigation_main.xml"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_subject_name.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable-v21\\ic_subject_name.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v21_ic_launcher_foreground.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi-v21\\ic_launcher_foreground.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_setting.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable-v21\\ic_setting.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v21_ic_launcher_foreground.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi-v21\\ic_launcher_foreground.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_information.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable-v21\\ic_information.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_folder.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable-v21\\ic_folder.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_excel.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable-v21\\ic_excel.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_corner_button.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable\\corner_button.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_external_storage.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable-v21\\ic_external_storage.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_select_file.xml.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\layout\\activity_select_file.xml"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_dialog_time_alarm.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\layout\\layout_dialog_time_alarm.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_people_info.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable-v21\\ic_people_info.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_ictu.jpg.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable-v21\\ic_ictu.jpg"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_information.xml.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\layout\\activity_information.xml"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_qrcode.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\layout\\activity_qrcode.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_launcher_background.xml.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable-v21\\ic_launcher_background.xml"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_dialog_time_alarm_2.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\layout\\layout_dialog_time_alarm_2.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_dialog_edit.xml.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\layout\\layout_dialog_edit.xml"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v23_layout_splash_screen.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable-v23\\layout_splash_screen.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_extracurricular_point.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable\\ic_extracurricular_point.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_main.xml.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\layout\\layout_main.xml"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_navigation_main.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\layout\\navigation_main.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_img_student_file.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable\\img_student_file.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_corner_button.xml.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable\\corner_button.xml"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_img_splash_screen.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable\\img_splash_screen.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_qrcode.xml.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\layout\\activity_qrcode.xml"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_event.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\layout\\item_event.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_event.xml.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\layout\\item_event.xml"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_back_directory.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable\\ic_back_directory.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_internal_storage.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable-v21\\ic_internal_storage.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v21_ic_launcher_foreground.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi-v21\\ic_launcher_foreground.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_setting.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable-v21\\ic_setting.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_opinion_feedback.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable-v21\\ic_opinion_feedback.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_img_student_file.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable\\img_student_file.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_navigation_header.xml.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\layout\\navigation_header.xml"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_alarm.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable\\ic_alarm.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_back_directory.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable\\ic_back_directory.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_opinion_feedback.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable-v21\\ic_opinion_feedback.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_ictu.jpg.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable-v21\\ic_ictu.jpg"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_corner_schedule.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable\\corner_schedule.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_alarm.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable\\ic_alarm.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_qr_code.png.flat",
-        "source": "D:\\AndroidStudioProjects\\ICTUCalendar\\app\\src\\main\\res\\drawable\\ic_qr_code.png"
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_qr_code.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\drawable\\ic_qr_code.png"
+    },
+    {
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_information.xml.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\layout\\activity_information.xml"
+    },
+    {
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v21_ic_launcher_foreground.png.flat",
+        "source": "E:\\AndroidProjects\\ictu_calendar\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi-v21\\ic_launcher_foreground.png"
     }
 ]

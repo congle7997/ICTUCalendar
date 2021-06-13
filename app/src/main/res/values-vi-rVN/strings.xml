@@ -29,7 +29,7 @@
     <string name="save_data_successfully">Lưu dữ liệu thành công!</string>
     <string name="save_note_successfully">Lưu ghi chú thành công!</string>
     <string name="day_format">File lịch học cần phải ở dạng THỨ!</string>
-    <string name="info1">"   Phần mềm xem lịch ICTU Calendar được xây dựng bởi 1 nhóm các bạn sinh viên ngành KTPM của ICTU mục đích trau dồi kỹ năng lập trình cũng như phục vụ việc xem lịch giảng dạy cho các cán bộ giảng viên và lịch học cho sinh viên của ngôi trường mà nhóm đang theo học, phần mềm public source code tại:"</string>
+    <string name="info1">"  Phần mềm xem lịch ICTU Calendar do một sinh viên ICTU xây dựng, phục vụ xem lịch cho giảng viên và sinh viên của trường, phần mềm nguồn được công bố công khai tại: "</string>
     <string name="info2">https://github.com/congle7997/ICTUCalendar</string>
     <string name="info3">"   Việc nhập file lịch học cho giảng viên hết sức đơn giản bởi vì các cán bộ giảng viên chỉ có duy nhất 1 định dạng lịch, còn các bạn sinh viên sẽ có nhiều định dạng lịch và phần mềm chỉ hỗ trợ định dạng lịch theo THỨ HỌC nên khi lấy lịch các bạn hết sức lưu ý! "</string>
     <string name="info4">"   Một file lịch học của sinh viên theo dạng THỨ HỌC có dạng như sau (các bạn sinh viên trường khác có định dạng lịch như thế này phần mềm vẫn đọc được bình thường): "</string>

@@ -3,6 +3,7 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e51e121392fb8bbf72aa3d37a6f62f5a/play-services-analytics-7.3.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e51e121392fb8bbf72aa3d37a6f62f5a/play-services-analytics-7.3.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e51e121392fb8bbf72aa3d37a6f62f5a/play-services-analytics-7.3.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

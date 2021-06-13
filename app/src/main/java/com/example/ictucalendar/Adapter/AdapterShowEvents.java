@@ -84,7 +84,7 @@ public class AdapterShowEvents extends RecyclerView.Adapter<AdapterShowEvents.Vi
             viewHolder.txtTime.setText(event.getTime());
             viewHolder.txtClassID.setText(event.getClassID());
             viewHolder.txtPlace.setText(event.getPlace());
-            viewHolder.lnSubject.setBackgroundColor(Color.rgb(153, 187, 255));
+            viewHolder.lnSubject.setBackground(context.getDrawable(R.drawable.corner_schedule));
         } else if (event.getType().equals("student")) {
             //Log.d(TAG, "onBindViewHolder: " + "Event");
             viewHolder.lnClassID.setVisibility(View.GONE);
@@ -92,7 +92,7 @@ public class AdapterShowEvents extends RecyclerView.Adapter<AdapterShowEvents.Vi
             viewHolder.txtTime.setText(event.getTime());
             viewHolder.txtPlace.setText(event.getPlace());
             viewHolder.txtLecturer.setText(event.getLecturer());
-            viewHolder.lnSubject.setBackgroundColor(Color.rgb(153, 187, 255));
+            viewHolder.lnSubject.setBackground(context.getDrawable(R.drawable.corner_schedule));
         } else {
             viewHolder.imgSubjectName.setImageResource(R.drawable.ic_note);
             viewHolder.txtSubjectName.setText(event.getContentNote());
@@ -100,7 +100,7 @@ public class AdapterShowEvents extends RecyclerView.Adapter<AdapterShowEvents.Vi
             viewHolder.lnPlace.setVisibility(View.GONE);
             viewHolder.lnLecturer.setVisibility(View.GONE);
             viewHolder.lnClassID.setVisibility(View.GONE);
-            viewHolder.lnSubject.setBackgroundColor(Color.rgb(221, 153, 255));
+            viewHolder.lnSubject.setBackground(context.getDrawable(R.drawable.corner_note));
         }
 
         viewHolder.lnSubject.setOnLongClickListener(new View.OnLongClickListener() {
